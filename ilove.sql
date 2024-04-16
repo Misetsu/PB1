@@ -41,9 +41,8 @@ CREATE TABLE `kari` (
 --
 -- テーブルのインデックス `kari`
 --
-ALTER TABLE `kari`
-  ADD PRIMARY KEY (`id`);
-
+INSERT INTO `kari` (`title`,`text`,`anser`) VALUES
+('a','b','c'),
 --
 -- ダンプしたテーブルの AUTO_INCREMENT
 --
