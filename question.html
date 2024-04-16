@@ -4,15 +4,16 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>質問投稿頁</title>
-        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="question.css" />
       </head>
       <body>
         <header>質問投稿ページ</header>
-        <form id="message-form">
-          <input type="text" id="username-input" placeholder="ユーザー名を入力してください">
+        <div class="form-container">
+        <form>
+          <input type="text" id="username-input" placeholder="ユーザー名を入力してください" required>
           <input type="text" id="title-input" placeholder="タイトルを入力してください">
           <textarea id="message-input" placeholder="ここに詳細情報を入力してください"></textarea>
           <button type="button" id="send-button" onclick="sendMessage()">送信</button>
-      </form>
+       </form>
       </body>
       </html>
