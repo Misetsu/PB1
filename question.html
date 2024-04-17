@@ -14,15 +14,15 @@
         </p>
         <div class="form-container">
           <div class="form-wrapper">
-            <form>
+            <form action="insert.php" method="POST">
                 <label for="username-input">ユーザー名</label>
-                <input type="text" id="username-input" placeholder="ユーザー名を入力してください" required>
+                <input type="text" id="username-input" name="username-input" placeholder="ユーザー名を入力してください" required>
                 <label for="title-input">タイトル</label>
-                <input type="text" id="title-input" placeholder="タイトルを入力してください" required>
+                <input type="text" id="title-input" name="title-input" placeholder="タイトルを入力してください" required>
                 <label for="message-input">詳細情報</label>
-                <textarea id="message-input" placeholder="ここに詳細情報を入力してください" required></textarea>
+                <textarea id="message-input" name="message-input" placeholder="ここに詳細情報を入力してください" required></textarea>
                 <label for="selection-input">開発言語を選択</label>
-                <select id="selection-input">
+                <select id="selection-input" name="selection-input">
                     <option value="option1">C言語</option>
                     <option value="option2">C#</option>
                     <option value="option3">C++</option>
@@ -34,10 +34,10 @@
                     <option value="option9">CSS</option>
                     <option value="option10">PHP</option>
                     <option value="option11">その他</option>
-                <label for="image-input">画像をアップロード</label>
-                <input type="file" id="image-input" accept="image/*">
-                <button type="button" id="send-button" onclick="sendMessage()">送信</button>
+                </select>
+                <input type="submit" value="Submit" a href="index.php">
             </form>
+            <a href="index.php">ジャンル別商品一覧に戻る</a>
         </div>
     </div>
       </body>

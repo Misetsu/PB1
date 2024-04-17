@@ -1,14 +1,11 @@
 <?php
-require_once __DIR__ . '/classes/book.php';
-$book = new Book();
+require_once __DIR__ . '/class.php';
+$form = new form();
+$name= $_POST['username-input'];
+$title = $_POST['title-input'];
+$message = $_POST['message-input'];
+$selection = $_POST['selection-input'];
 
-$title = $_POST['title'];
-$author = $_POST['author'];
-$genre = $_POST['genre'];
-$mascot = $_POST['mascot'];
-$remark = $_POST['remark'];
-$report = $_POST['report'];
 
-$book->insertBook($title, $author, $genre, $word, $url, $status, $cp, $fandom, $dramacd, $mascot, $remark);
-$bookId = $book->getBookId($title);
-$book->insertReport($bookId, $report);
+$form->insertForm($name, $title, $message, $selection);
+

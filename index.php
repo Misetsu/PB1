@@ -1,5 +1,5 @@
 <?php
-require_once('./dbConfig.php');
+require_once('./dbdata.php');
 
 // 接続
 try {

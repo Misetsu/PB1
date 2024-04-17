@@ -1,11 +1,11 @@
 <?php
-require_once __DIR__ . 'dbdata.php';
+require_once __DIR__ . '/dbdata.php';
 
 class form extends Dbdata
 {
-    public function insertForm($title, $author, $genre, $word, $url, $status, $cp, $fandom, $dramacd, $mascot, $remark)
+    public function insertForm($name, $title, $message, $selection)
     {
-        $sql = "INSERT INTO book VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        $this->exec($sql, [$title, $author, $genre, $word, $url, $status, $cp, $fandom, $dramacd, $mascot, $remark]);
+        $sql = "INSERT INTO question VALUES (null, ?, ?, ?, ?)";
+        $this->exec($sql, [$name, $title, $message, $selection]);
     }
 }
