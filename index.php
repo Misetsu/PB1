@@ -12,7 +12,7 @@
     </header>
     <main>
       <article>
-        <h2>タイトル</h2>
+        <h2></h2>
     </main>
     <footer>
       <p>&copy;記事ページ</p>
