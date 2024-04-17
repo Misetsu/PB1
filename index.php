@@ -1,3 +1,18 @@
+<?php
+// データベース接続
+$dsn = 'mysql:host=localhost;dbname=ilove;charset=utf8';
+$user = `root`;
+$password = ``;
+$dbh = new PDO($dsn, $user, $password);
+$dbh->setAttribute(PDo::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$sql_list = "SELECT list FROM kari";
+$rec_rist = $dbh->prepare($sql_list);
+$rec_rist->execute();
+$list_items = $rec_rist->fetchAll(PDO::FETCH_ASSOC);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
   <head>
