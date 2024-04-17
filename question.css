@@ -41,13 +41,14 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         margin-left: 100px;
         margin-right: 100px;
-    }
+    }    
     .form-wrapper {
         padding: 20px;
         border-radius: 10px;
         margin-left: 100px;
         margin-right: 100px;
         background-color: rgb(251, 233, 170);
+        text-align: center;
     }
 
     h1 {
@@ -84,7 +85,7 @@
         box-sizing: border-box;
     }
 
-    button[type="button"] {
+    input[type="submit"] {
         background-color: #f19ae1;
         color: #fff;
         border: none;
@@ -97,6 +98,8 @@
         box-sizing: border-box;
     }
 
-    button[type="button"]:hover {
+    input[type="submit"]:hover {
         background-color: #eb64ae;
     }
+
+    
