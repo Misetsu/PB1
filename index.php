@@ -1,15 +1,19 @@
 <?php
-// データベース接続
-$dsn = 'mysql:host=localhost;dbname=ilove;charset=utf8';
-$user = `root`;
-$password = ``;
-$dbh = new PDO($dsn, $user, $password);
-$dbh->setAttribute(PDo::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$sql_list = "SELECT list FROM kari";
-$rec_rist = $dbh->prepare($sql_list);
-$rec_rist->execute();
-$list_items = $rec_rist->fetchAll(PDO::FETCH_ASSOC);
+    require_once('./dbConfig.php');
 
+    // 接続
+    try {
+        $dsn = 'mysql:host=' . DB_SERVER . ';dbname=' . DB_NAME . ';charset=utf8';
+        $pdo = new PDO($dsn, DB_USER, DB_PASS);
+    } catch (PDOException $e) {
+        die("接続に失敗しました" . $e->getMessage());
+    }
+
+    // レコード抽出
+    $sql = "SELECT * FROM kari";
+    $stmt = $pdo->query($sql);
+
+    $pdo = null;
 
 ?>
 
@@ -26,8 +30,11 @@ $list_items = $rec_rist->fetchAll(PDO::FETCH_ASSOC);
       <h1>記事一覧</h1>
     </header>
     <main>
-      <article>
-        <h2></h2>
+      <?php
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+      echo "<article><h2>{$row['title']}</h2></article>";
+  }
+  ?>
     </main>
     <footer>
       <p>&copy;記事ページ</p>
