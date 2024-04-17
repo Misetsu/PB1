@@ -20,6 +20,7 @@
     echo "</ul>";
 
     $pdo = null;
+
 ?>
 
 <!DOCTYPE html>
