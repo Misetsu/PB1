@@ -1,3 +1,27 @@
+<?php
+    require_once('./dbConfig.php');
+
+    // 接続
+    try {
+        $dsn = 'mysql:host=' . DB_SERVER . ';dbname=' . DB_NAME . ';charset=utf8';
+        $pdo = new PDO($dsn, DB_USER, DB_PASS);
+    } catch (PDOException $e) {
+        die("接続に失敗しました" . $e->getMessage());
+    }
+
+    // レコード抽出
+    $sql = "SELECT * FROM kari";
+    $stmt = $pdo->query($sql);
+
+    echo "<ul>";
+    foreach($stmt as $row) {
+        echo "<li>" . $row['title'] . "</li>";
+    }
+    echo "</ul>";
+
+    $pdo = null;
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
   <head>
