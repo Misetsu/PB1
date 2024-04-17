@@ -13,12 +13,6 @@
     $sql = "SELECT * FROM kari";
     $stmt = $pdo->query($sql);
 
-    echo "<ul>";
-    foreach($stmt as $row) {
-        echo "<li>" . $row['title'] . "</li>";
-    }
-    echo "</ul>";
-
     $pdo = null;
 
 ?>
@@ -36,8 +30,11 @@
       <h1>記事一覧</h1>
     </header>
     <main>
-      <article>
-        <h2></h2>
+      <?php
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+      echo "<article><h2>{$row['title']}</h2></article>";
+  }
+  ?>
     </main>
     <footer>
       <p>&copy;記事ページ</p>
