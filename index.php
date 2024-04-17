@@ -39,7 +39,7 @@ $pdo = null;
     ?>
   </main>
   <footer>
-    <p>iチーム 記事</p>
+    <p>iチーム 記事一覧</p>
   </footer>
 </body>
 
