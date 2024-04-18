@@ -1,0 +1,87 @@
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 36px;
+    }
+
+    main {
+    padding: 20px;
+    }
+
+    article {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    }
+
+    footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+        padding-bottom: 50px;
+    }
+    h1 {
+        font-size: 2em;
+        color: rgb(255, 255, 255);
+        border: 2px solid aqua; 
+        background-color: aqua;
+        padding: 20px;
+        text-align: center;
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+    h2{
+        margin-left: 100px;
+    }
+    #profile {
+        border: 2px solid #000; 
+        padding: 20px;
+        margin-top: 20px;
+        background-color: #f0f0f0;
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+
+    #editButton {
+        display: block;
+        margin-top: 10px;
+        padding: 8px 16px;
+        background-color: #f19ae1;
+        color: #fff; 
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    #editButton:hover {
+        background-color: #eb64ae;
+    }
+    #questionlist {
+        border: 2px solid #000; 
+        padding: 20px;
+        margin-top: 20px;
+        background-color: #f0f0f0;
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+    #changeColorButton{
+        display: block;
+        margin-top: 10px;
+        padding: 8px 16px;
+        background-color: #f19ae1;
+        color: #fff; 
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: 100px;
+    }
