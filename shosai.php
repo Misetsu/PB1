@@ -74,24 +74,25 @@ $options = array(
     </div>
 
     <script>
-        function addAnswer() {
-            var answerText = document.getElementById("new-answer").value;
-            if (answerText.trim() !== "") {
-                var answerElement = document.createElement("div");
-                answerElement.textContent = answerText;
-                answerElement.classList.add("answer"); // 回答要素にクラスを追加
-                document.getElementById("answers-list").appendChild(answerElement);
-                document.getElementById("new-answer").value = "";
-            }
-        }
+    // ページが読み込まれた時に実行される処理を追加
+    document.addEventListener("DOMContentLoaded", function() {
+        // クリックされた回答要素を保持する変数を追加
+        var selectedAnswer = null;
+
         // 回答要素をクリックした際の処理
         document.getElementById("answers-list").addEventListener("click", function(event) {
             var answerElement = event.target;
 
             // クリックされた要素が回答要素であるかどうかを確認
             if (answerElement.classList.contains("answer")) {
-                // 回答要素に削除ボタンが存在しない場合、削除ボタンを追加
-                if (!answerElement.querySelector(".delete-button")) {
+                // クリックされた回答要素が既に選択されている要素でない場合
+                if (selectedAnswer !== answerElement) {
+                    // 選択されている要素があれば、その要素から削除ボタンを削除
+                    if (selectedAnswer) {
+                        selectedAnswer.querySelector(".delete-button").remove();
+                    }
+
+                    // 選択された回答要素に削除ボタンを追加
                     var deleteButton = document.createElement("button");
                     deleteButton.textContent = "削除";
                     deleteButton.classList.add("delete-button");
@@ -99,14 +100,20 @@ $options = array(
                         answerElement.remove(); // 回答要素を削除
                         deleteButton.remove(); // ボタンを削除
                     });
-                    // 削除ボタンを回答要素の隣に追加a
-                    answerElement.parentNode.insertBefore(deleteButton, answerElement.nextSibling);
+                    // 削除ボタンを回答要素に追加
+                    answerElement.appendChild(deleteButton);
 
+                    // 選択された回答要素を更新
+                    selectedAnswer = answerElement;
                 }
-
+            } else {
+                // クリックされた要素が回答要素でない場合、選択されている回答要素をクリア
+                selectedAnswer = null;
             }
         });
-    </script>
+    });
+</script>
+
 </body>
 
 <div class="center">
