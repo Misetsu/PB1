@@ -16,4 +16,12 @@ class form extends Dbdata
         $result = $stmt->fetchAll();
         return $result;
     }
+
+    public function getQues($ident)
+    {
+        $sql = "SELECT * FROM question WHERE id = ?";
+        $stmt = $this->query($sql, [$ident]);
+        $result = $stmt->fetchAll();
+        return $result;
+    }
 }
