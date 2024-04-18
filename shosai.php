@@ -17,6 +17,13 @@ $allAns = $form->getAllAns($quesID);
     <link rel="stylesheet" href="shosai.css">
 </head>
 
+
+<style>
+        .center {
+            text-align: center;
+        }
+    </style>
+
 <body>
 
     <header>質問表示詳細ページ</header>
@@ -86,5 +93,9 @@ $allAns = $form->getAllAns($quesID);
         });
     </script>
 </body>
+
+<div class="center">
+        <a href="index.php">記事一覧を見る</a>
+    </div>
 
 </html>

@@ -26,6 +26,12 @@ $dbh = null;
   <link rel="stylesheet" href="styles.css" />
 </head>
 
+<style>
+        .center {
+            text-align: center;
+        }
+    </style>
+
 <body>
   <header>
     <h1>iチーム 記事一覧</h1>
@@ -38,6 +44,11 @@ $dbh = null;
     ?>
 
   </main>
+
+  <div class="center">
+        <a href="question.html">質問投稿ページへ行く</a>
+    </div>
+
   <footer>
     <p>iチーム 記事一覧</p>
   </footer>
