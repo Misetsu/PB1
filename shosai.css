@@ -82,6 +82,10 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.tag {
+    text-align: right;
+}
+
 #question-container {
     width: 80%;
     margin: 0 auto;
