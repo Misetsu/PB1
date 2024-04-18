@@ -16,4 +16,26 @@ class form extends Dbdata
         $result = $stmt->fetchAll();
         return $result;
     }
+
+    public function getQues($ident)
+    {
+        $sql = "SELECT * FROM question WHERE id = ?";
+        $stmt = $this->query($sql, [$ident]);
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
+    public function insertAns($name, $text, $quesID)
+    {
+        $sql = "INSERT INTO answer VALUES (null, ?, ?, ?)";
+        $this->exec($sql, [$name, $text, $quesID]);
+    }
+
+    public function getAllAns($quesID)
+    {
+        $sql = "SELECT * FROM answer WHERE ques_id = ?";
+        $stmt = $this->query($sql, [$quesID]);
+        $result = $stmt->fetchAll();
+        return $result;
+    }
 }
