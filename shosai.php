@@ -5,6 +5,7 @@ require_once __DIR__ . '/class.php';
 
 $form = new form();
 $all = $form->getQues($quesID);
+$allAns = $form->getAllAns($quesID);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -34,9 +35,20 @@ $all = $form->getQues($quesID);
         <h2>回答</h2>
         <div id="answers-list">
             <!-- ここに回答が追加されます -->
+            <?php
+            foreach ($allAns as $row) {
+                echo '<div><h4>' . $row['name'] . '</h4>';
+                echo '<p>' . $row['text'] . '<p>';
+            }
+            ?>
         </div>
-        <textarea id="new-answer" placeholder="回答を入力してください"></textarea>
-        <button onclick="addAnswer()">回答を追加する</button>
+        <form action="answer.php" method="POST">
+            <input type="text" name="username" placeholder="ユーザー名">
+            <textarea id=" answer_text" name="answer_text" placeholder="回答を入力してください" rows="5" cols="200"></textarea>
+            <br>
+            <input type="hidden" value="<?= $quesID ?>" name="ques_id">
+            <input type="submit" value="回答を追加する">
+        </form>
     </div>
 
     <script>
