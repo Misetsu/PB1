@@ -9,3 +9,13 @@ $selection = $_POST['selection-input'];
 
 $form->insertForm($name, $title, $message, $selection);
 
+?>
+<?php
+// insert.php
+
+// フォームのデータを処理
+
+// index.phpにリダイレクト
+header("Location: index.php");
+exit; // リダイレクト後にスクリプトの実行を終了するために必要
+?>
