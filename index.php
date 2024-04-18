@@ -14,6 +14,20 @@ $stmt = $dbh->query($sql);
 
 $dbh = null;
 
+$options = array(
+  'option1' => 'C言語',
+  'option2' => 'C#',
+  'option3'=>'C++',
+  'option4'=>'Java',
+  'option5'=>'Python',
+  'option6'=>'HTML',
+  'option7'=>'JavaScript',
+  'option8'=>'SQL',
+  'option9'=>'CSS',
+  'option10'=>'PHP',
+  'option11'=>'その他',
+);
+
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +53,18 @@ $dbh = null;
   <main>
     <?php
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-      echo "<article><h2><a href='shosai.php?ident={$row['id']}'>{$row['title']}</a></h2></article>";
+      // $row['selection']が空でない場合にのみ処理を実行
+      if (!empty($row['selection'])) {
+        // オプションが対応する言語名を持っているかを確認し、対応する言語名を取得する
+        $language = isset($options[$row['selection']]) ? $options[$row['selection']] : 'Unknown Language';
+
+        // リンクのテキストとして言語名を使用する
+        echo "<article><h2><a href='shosai.php?ident={$row['id']}'>{$row['title']}</a><p>{$language}</p></h2></article>";
+      } else {
+        // $row['selection']が空の場合に表示するメッセージ
+        echo "オプションが指定されていません。";
+      }
+
     }
     ?>
 
