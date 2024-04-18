@@ -1,19 +1,18 @@
 <?php
-require_once('./dbdata.php');
+require_once __DIR__ . '/dbdata.php';
 
 // 接続
-try {
-  $dsn = 'mysql:host=' . DB_SERVER . ';dbname=' . DB_NAME . ';charset=utf8';
-  $pdo = new PDO($dsn, DB_USER, DB_PASS);
-} catch (PDOException $e) {
-  die("接続に失敗しました" . $e->getMessage());
-}
+$dsn = 'mysql:dbname=ilove;host=localhost;charset=utf8';
+$user = 'Ilove';
+$password = '11111';
+$dbh = new PDO($dsn, $user, $password);
+$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // レコード抽出
-$sql = "SELECT * FROM kari";
-$stmt = $pdo->query($sql);
+$sql = "SELECT * FROM question";
+$stmt = $dbh->query($sql);
 
-$pdo = null;
+$dbh = null;
 
 ?>
 
