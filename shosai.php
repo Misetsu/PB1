@@ -65,7 +65,7 @@ $all = $form->getQues($quesID);
                         answerElement.remove(); // 回答要素を削除
                         deleteButton.remove(); // ボタンを削除
                     });
-                    // 削除ボタンを回答要素の隣に追加
+                    // 削除ボタンを回答要素の隣に追加a
                     answerElement.parentNode.insertBefore(deleteButton, answerElement.nextSibling);
 
                 }
