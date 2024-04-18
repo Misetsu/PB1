@@ -33,9 +33,10 @@ $dbh = null;
   <main>
     <?php
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-      echo "<article><h2>{$row['title']}</h2></article>";
+      echo "<article><h2><a href='shosai.php?ident={$row['id']}'>{$row['title']}</a></h2></article>";
     }
     ?>
+
   </main>
   <footer>
     <p>iチーム 記事一覧</p>
