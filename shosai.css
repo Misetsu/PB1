@@ -73,7 +73,7 @@ blockquote cite {
 }
 
 p {
-    color: #b3b2b2;
+    color: #333333;
 }
 
 body {
@@ -82,12 +82,23 @@ body {
     font-family: Arial, sans-serif;
 }
 
+#question-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+#question-container h2 {
+    text-align: center;
+}
+
 /* 回答入力テキストエリアのスタイル */
 #new-answer {
-    width: 100%; 
-    height: 100px; 
+    width: 100%;
+    height: 100px;
     box-sizing: border-box;
-    border: 1px solid #ccc; 
+    border: 1px solid #ccc;
 }
 
 /* 回答の枠のスタイル */
@@ -99,8 +110,8 @@ body {
 
 /* 回答コンテナのスタイル */
 #answer-container {
-    width: 80%; 
+    width: 80%;
     margin: 0 auto;
-    padding: 20px; 
+    padding: 20px;
     border: 1px solid #ccc;
 }
