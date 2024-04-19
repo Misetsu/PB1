@@ -92,10 +92,17 @@ echo "<script>document.getElementById('language').value = '{$search_language}';<
 
   </main>
 
+<<<<<<< HEAD
   <div class="right">
         <a href="mypage.html">  マイページへ行く</a>
         <a href="question.html">質問投稿ページへ行く</a>
     </div>
+=======
+    <div class="right">
+      <a href="mypage.html">マイページへ行く</a>
+      <a href="question.html">質問投稿ページへ行く</a>
+  </div>
+>>>>>>> ae989af587992e85f54938056cf9fa52e5ab99f8
 
   <footer>
     <p>iチーム 記事一覧</p>
