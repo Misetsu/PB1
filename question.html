@@ -5,6 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>質問投稿頁</title>
         <link rel="stylesheet" href="question.css" />
+        <script type="text/javascript">
+          function disableButton() {
+              document.getElementById("submitButton").disabled = true;
+              document.getElementById("submitButton").form.submit();
+          }
+      </script>
       </head>
       <body>
         <header>質問投稿ページ</header>
@@ -35,7 +41,7 @@
                     <option value="option10">PHP</option>
                     <option value="option11">その他</option>
                 </select>
-                <input type="submit" value="Submit" a href="index.php">
+                <input type="submit" id="submitButton" value="Submit" onclick="disableButton()">
             </form>
             <a href="index.php">記事一覧を見る</a>
         </div>
