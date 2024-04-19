@@ -28,6 +28,7 @@ header {
         background-color: #f4f4f4;
         margin: 0;
         padding: 0;
+        text-align: center;
     }
     
     h1 {
@@ -36,45 +37,55 @@ header {
     }
     
     form {
-        max-width: 400px;
+        max-width: 600px;
         margin: 20px auto;
         background: rgb(251, 233, 170);
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-
-    label {
-        font-weight: bold;
-        margin-bottom: 5px;
+    
+    .form-group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 20px;
     }
     
-    input[type="text"],
-    input[type="password"] {
-        width: 100%;
+    .form-group label {
+        width: 150px;
+        text-align: right;
+        margin-right: 20px;
+        font-size: 18px;
+        white-space: nowrap;
+    }
+    
+    .form-group input {
+        flex: 2;
         padding: 10px;
-        margin: 5px 0 20px 0;
+        font-size: 18px;
+        border-radius: 5px;
         border: 1px solid #ccc;
-        border-radius: 3px;
-        box-sizing: border-box; /* 追加 */
     }
     
     button[type="submit"] {
         background-color: #ff69b4;
         color: #fff;
-        padding: 10px 20px;
+        padding: 15px 30px;
         border: none;
-        border-radius: 3px;
+        border-radius: 5px;
         cursor: pointer;
-        font-size: 16px;
+        font-size: 20px;
         font-weight: bold;
         transition: background-color 0.3s ease;
         align-self: center; /* 中央寄せ */
+        margin-top: 20px;
     }
     
     button[type="submit"]:hover {
         background-color: #d1478e;
     }
+    
