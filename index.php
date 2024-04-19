@@ -41,8 +41,8 @@ $options = array(
 </head>
 
 <style>
-        .center {
-            text-align: center;
+        .right {
+            text-align: right;
         }
     </style>
 
@@ -70,9 +70,10 @@ $options = array(
 
   </main>
 
-  <div class="center">
-        <a href="question.html">質問投稿ページへ行く</a>
-    </div>
+    <div class="right">
+      <a href="mypage.html">マイページへ行く</a>
+      <a href="question.html">質問投稿ページへ行く</a>
+  </div>
 
   <footer>
     <p>iチーム 記事一覧</p>
