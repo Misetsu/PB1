@@ -4,11 +4,6 @@ body {
     padding: 0;
 }
 
-form {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
 
 label {
     margin-right: 10px;
