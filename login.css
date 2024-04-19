@@ -88,4 +88,16 @@ header {
     button[type="submit"]:hover {
         background-color: #d1478e;
     }
+
+    textarea {
+        width: 200%;
+        height: 300px; 
+        padding: 30px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        resize: vertical; 
+    }
+    
     
