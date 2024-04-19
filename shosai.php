@@ -4,7 +4,7 @@ $quesID = $_GET['ident'];
 require_once __DIR__ . '/class.php';
 
 $form = new form();
-$all = $form->getQues($quesID);
+$ques = $form->getQues($quesID);
 $allAns = $form->getAllAns($quesID);
 
 $options = array(
@@ -31,25 +31,18 @@ $options = array(
     <link rel="stylesheet" href="shosai.css">
 </head>
 
-
-<style>
-    .center {
-        text-align: center;
-    }
-</style>
-
 <body>
 
     <header>質問表示詳細ページ</header>
     <div id="question-container">
-        <?php
-        foreach ($all as $row) {
-            echo '<h2>' . $row['title'] . '<h2>';
-            echo '<h4>' . $row['name'] . '<h4>';
-            echo '<p>' . $row['message'] . '<p>';
-            echo '<p class="tag">' . $options[$row['selection']] . '</p>';
-        }
-        ?>
+        <h2><?= $ques['title'] ?></h2>
+        <h4 style="text-align: right;"><?= $ques['name'] ?>　さん</h4>
+        <p class="text-container">
+            <?= $ques['message'] ?>
+            <br><br>
+            <span class="tag"><?= $options[$ques['selection']] ?></span>
+            <br><br>
+        </p>
     </div>
 
     <!-- 回答フォーム -->
@@ -59,26 +52,30 @@ $options = array(
             <!-- ここに回答が追加されます -->
             <?php
             foreach ($allAns as $row) {
-                echo '<div class="answer"><h4>' . $row['name'] . '</h4>';
-                echo '<p>' . $row['text'] . '<p></div>';
+                echo '<h4 style="text-align: right;">' . $row['name'] . '　さん</h4>';
+                echo '<div class="answer"><p>' . $ques['name'] . 'さんへの返信：</p><p>' . $row['text'] . '<p></div>';
             }
             ?>
         </div>
-        <form action="answer.php" method="POST">
-            <input type="text" name="username" placeholder="ユーザー名">
-            <textarea id=" answer_text" name="answer_text" placeholder="回答を入力してください" rows="5" cols="200"></textarea>
-            <br>
-            <input type="hidden" value="<?= $quesID ?>" name="ques_id">
-            <input type="submit" value="回答を追加する">
-        </form>
+        <div id="add-ans">
+
+        </div>
+        <div id="answer-form">
+            <form action="answer.php" method="POST">
+                回答者：<input type="text" name="username" placeholder="ユーザー名">
+                <br><br>
+                回答内容：
+                <br>
+                <textarea id="answer_text" name="answer_text" placeholder="回答を入力してください" rows="5" cols="200"></textarea>
+                <br>
+                <input type="hidden" value="<?= $quesID ?>" name="ques_id">
+                <input type="submit" value="回答を追加する">
+            </form>
+        </div>
     </div>
-
-    
-
+    <div style="text-align: center;">
+        <a href="index.php">記事一覧を見る</a>
+    </div>
 </body>
-
-<div class="center">
-    <a href="index.php">記事一覧を見る</a>
-</div>
 
 </html>

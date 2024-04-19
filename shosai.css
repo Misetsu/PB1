@@ -83,18 +83,28 @@ body {
 }
 
 .tag {
-    text-align: right;
+    padding: 6px 16px;
+    background-color: #ccc;
+    display: block;
+    float: right;
 }
 
 #question-container {
     width: 80%;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
+    display: block;
     border: 1px solid #ccc;
 }
 
 #question-container h2 {
     text-align: center;
+}
+
+.text-container {
+    background-color: #fbe9aa;
+    padding: 30px;
+    border: 2px solid #333333;
 }
 
 /* 回答入力テキストエリアのスタイル */
@@ -107,8 +117,9 @@ body {
 
 /* 回答の枠のスタイル */
 .answer {
-    border: 1px solid #ccc;
+    background-color: #fbe9aa;
     padding: 20px;
+    border: 2px solid #333333;
     margin-bottom: 5px;
 }
 
@@ -116,6 +127,19 @@ body {
 #answer-container {
     width: 80%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px 20px;
     border: 1px solid #ccc;
+}
+
+#answer-form {
+    margin: 50px auto;
+    background-color: #fbe9aa;
+    padding: 20px;
+    border: 2px solid #333333;
+}
+
+#answer_text {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
