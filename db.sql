@@ -7,18 +7,26 @@ grant all privileges on ilove.* to Ilove@localhost identified by '11111';
 use ilove;
 
 CREATE TABLE question (
-  id int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name varchar(100) NOT NULL,
-  title varchar(2000) NOT NULL,
-  message varchar(2000) NOT NULL,
-  selection varchar(50) NOT NULL
+    id int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name varchar(100) NOT NULL,
+    title varchar(2000) NOT NULL,
+    message varchar(2000) NOT NULL,
+    selection varchar(50) NOT NULL
 );
 
 DROP TABLE IF EXISTS answer;
 CREATE TABLE answer (
-  id        int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id        int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	name      varchar(100) NOT NULL,
 	text      varchar(2000) NOT NULL,
-  ques_id   int(255) NOT NULL,
-  FOREIGN KEY (ques_id) REFERENCES question(id)
+    ques_id   int(255) NOT NULL,
+    FOREIGN KEY (ques_id) REFERENCES question(id)
+);
+
+DROP TABLE IF EXISTS user;
+CREATE TABLE user (
+    id        int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    username  varchar(100) NOT NULL,
+    email     varchar(100) NOT NULL,
+    password  varchar(100) NOT NULL
 );

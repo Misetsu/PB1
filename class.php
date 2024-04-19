@@ -21,7 +21,7 @@ class form extends Dbdata
     {
         $sql = "SELECT * FROM question WHERE id = ?";
         $stmt = $this->query($sql, [$ident]);
-        $result = $stmt->fetchAll();
+        $result = $stmt->fetch();
         return $result;
     }
 
