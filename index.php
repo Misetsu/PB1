@@ -9,7 +9,7 @@ $dbh = new PDO($dsn, $user, $password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // レコード抽出
-$sql = "SELECT * FROM question";
+$sql = "SELECT * FROM question ORDER BY id DESC";
 $stmt = $dbh->query($sql);
 
 $dbh = null;

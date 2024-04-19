@@ -11,7 +11,7 @@ class form extends Dbdata
 
     public function getAll()
     {
-        $sql = "SELECT * FROM question";
+        $sql = "SELECT * FROM question ORDER BY id DESC";
         $stmt = $this->query($sql, []);
         $result = $stmt->fetchAll();
         return $result;

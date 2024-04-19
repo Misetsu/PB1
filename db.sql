@@ -27,6 +27,15 @@ DROP TABLE IF EXISTS user;
 CREATE TABLE user (
     id        int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username  varchar(100) NOT NULL,
+    subject   varchar(100) NOT NULL,
     email     varchar(100) NOT NULL,
     password  varchar(100) NOT NULL
+);
+
+DROP TABLE IF EXISTS profile;
+CREATE TABLE profile (
+    id        int(255) NOT NULL PRIMARY KEY,
+    age       int(10),
+    interest  varchar(200),
+    intro     varchar(500)
 );
