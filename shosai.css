@@ -94,7 +94,7 @@ body {
     margin: 20px auto;
     padding: 20px;
     display: block;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
 }
 
 #question-container h2 {
@@ -128,7 +128,7 @@ body {
     width: 80%;
     margin: 0 auto;
     padding: 10px 20px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
 }
 
 #answer-form {
@@ -142,4 +142,23 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+#submit-ans {
+    color: white;
+    background-color: #d1478e;
+    padding: 8px 16px;
+    border: none;
+}
+
+#add-ans {
+    margin: 50px auto;
+    padding: 20px;
+    border: 3px solid #aaaaaa;
+    color: #aaaaaa;
+}
+
+.cancel-button {
+    padding: 8px 16px;
+    border: none;
 }

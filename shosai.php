@@ -57,10 +57,10 @@ $options = array(
             }
             ?>
         </div>
-        <div id="add-ans">
-
+        <div id="add-ans" onclick="showAnsForm()">
+            <p>✙ここに回答を追加する</p>
         </div>
-        <div id="answer-form">
+        <div id="answer-form" style="display: none;">
             <form action="answer.php" method="POST">
                 回答者：<input type="text" name="username" placeholder="ユーザー名">
                 <br><br>
@@ -69,7 +69,8 @@ $options = array(
                 <textarea id="answer_text" name="answer_text" placeholder="回答を入力してください" rows="5" cols="200"></textarea>
                 <br>
                 <input type="hidden" value="<?= $quesID ?>" name="ques_id">
-                <input type="submit" value="回答を追加する">
+                <input id="submit-ans" type="submit" value="回答する">
+                <button class="cancel-button" onclick="hideAnsForm()">キャンセル</button>
             </form>
         </div>
     </div>
@@ -77,5 +78,18 @@ $options = array(
         <a href="index.php">記事一覧を見る</a>
     </div>
 </body>
+
+<script>
+    function showAnsForm() {
+        document.getElementById('add-ans').style.display = "none";
+        document.getElementById('answer-form').style.display = "block";
+    }
+
+    function hideAnsForm() {
+        document.getElementById('add-ans').style.display = "block";
+        document.getElementById('answer-form').style.display = "none";
+
+    }
+</script>
 
 </html>
