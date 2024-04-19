@@ -66,7 +66,7 @@ $options = array(
                 <br><br>
                 回答内容：
                 <br>
-                <textarea id="answer_text" name="answer_text" placeholder="回答を入力してください" rows="5" cols="200"></textarea>
+                <textarea id="answer_text" name="answer_text" placeholder="回答を入力してください"></textarea>
                 <br>
                 <input type="hidden" value="<?= $quesID ?>" name="ques_id">
                 <input id="submit-ans" type="submit" value="回答する">
