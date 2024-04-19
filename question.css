@@ -33,22 +33,19 @@ body {
 
 .container {
     max-width: 400px;
-    margin: 20px auto;
+    margin: 20px 0px auto;
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-left: 100px;
-    margin-right: 100px;
 }
 
 .form-wrapper {
     padding: 20px;
     border-radius: 10px;
-    margin-left: 100px;
-    margin-right: 100px;
     background-color: #fbe9aa;
-    text-align: center;
+    width: 80%;
+    margin: 20px auto;
 }
 
 h1 {
@@ -76,7 +73,7 @@ input[type="text"],
 textarea,
 input[type="file"],
 select {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -100,4 +97,8 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: #eb64ae;
+}
+
+textarea {
+    height: 150px;
 }
