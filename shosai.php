@@ -70,7 +70,7 @@ $options = array(
                 <br>
                 <input type="hidden" value="<?= $quesID ?>" name="ques_id">
                 <input id="submit-ans" type="submit" value="回答する">
-                <button class="cancel-button" onclick="hideAnsForm()">キャンセル</button>
+                <button class="cancel-button" onclick="hideAnsForm()" type="button">キャンセル</button>
             </form>
         </div>
     </div>
