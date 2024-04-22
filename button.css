@@ -1,0 +1,14 @@
+img:hover {
+    opacity: 0.5;
+    /* 透明度を下げる */
+    cursor: pointer;
+    /* カーソルをポインターに変更 */
+}
+
+img:active {
+    position: relative;
+    top: 3px;
+    width: 5px;
+    height: 5px;
+    /* 画像を少し下に移動させる */
+}
