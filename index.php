@@ -55,16 +55,20 @@ $options = array(
     <main>
         <form method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <label for="language">言語を選択してください:</label>
-            <select name="language" id="language">
-                <option value="">すべての言語</option>
-                <?php
-                // オプションの配列から選択肢を生成
-                foreach ($options as $key => $value) {
-                    echo "<option value='{$key}'>{$value}</option>";
-                }
-                ?>
-            </select>
-            <input type="submit" value="検索">
+            <div>
+                <span>
+                    <select name="language" id="language">
+                        <option value="">すべての言語</option>
+                        <?php
+                        // オプションの配列から選択肢を生成
+                        foreach ($options as $key => $value) {
+                            echo "<option value='{$key}'>{$value}</option>";
+                        }
+                        ?>
+                    </select>
+                </span>
+                <span><input type="submit" value="検索"></span>
+            </div>
         </form>
 
         <?php

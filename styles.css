@@ -49,40 +49,42 @@ footer {
     background-color: #333;
     color: #fff;
     padding: 10px;
-    
+
 }
 
 /* フォーム全体のスタイル */
 form {
-    width: 300px;
-    margin: 0 auto;
-    padding: 20px;
+    width: 50%;
+    margin: 20px auto;
+    padding: 16px;
     background-color: #f4f4f4;
-    border-radius: 8px;
-  }
-  
-  /* ラベルのスタイル */
-  label {
+    border-radius: 10px;
+}
+
+/* ラベルのスタイル */
+label {
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
-  }
-  
-  /* セレクトボックスのスタイル */
-  select {
-    width: 100%;
+}
+
+/* セレクトボックスのスタイル */
+select {
+    width: 60%;
     padding: 10px;
-    margin-bottom: 20px;
+    margin: 5px 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #fff;
     font-size: 16px;
-  }
-  
-  /* サブミットボタンのスタイル */
-  input[type="submit"] {
-    width: 100%;
+    display: inline-block;
+}
+
+/* サブミットボタンのスタイル */
+input[type="submit"] {
+    width: 30%;
     padding: 10px;
+    margin: 5px 20px;
     border: none;
     border-radius: 5px;
     background-color: #007bff;
@@ -90,8 +92,9 @@ form {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  input[type="submit"]:hover {
+    display: inline-block;
+}
+
+input[type="submit"]:hover {
     background-color: #0056b3;
-  }
+}

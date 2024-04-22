@@ -38,4 +38,39 @@ class form extends Dbdata
         $result = $stmt->fetchAll();
         return $result;
     }
+
+    public function signUP($username, $email, $subject, $password)
+    {
+        $sql = "INSERT INTO userinfo VALUES (null, ?, ?, ?, ?)";
+        $this->exec($sql, [$username, $subject, $email, $password]);
+        $sql = "SELECT id FROM userinfo WHERE email = ?";
+        $stmt = $this->query($sql, [$email]);
+        $id = $stmt->fetch();
+        $sql = "INSERT INTO profile VALUES (?, NULL, NULL, NULL)";
+        $this->exec($sql, [$id]);
+    }
+
+    public function authUser($email, $password)
+    {
+        $sql = "SELECT * FROM userinfo WHERE email = ? AND password = ?";
+        $stmt = $this->query($sql, [$email, $password]);
+        $result = $stmt->fetch();
+        return $result;
+    }
+
+    public function getProfile($userId)
+    {
+        $sql = "SELECT * FROM profile WHERE id = ?";
+        $stmt = $this->query($sql, [$userId]);
+        $result = $stmt->fetch();
+        return $result;
+    }
+
+    public function getInfo($userId)
+    {
+        $sql = "SELECT * FROM userinfo WHERE id = ?";
+        $stmt = $this->query($sql, [$userId]);
+        $result = $stmt->fetch();
+        return $result;
+    }
 }
