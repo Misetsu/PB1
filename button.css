@@ -8,5 +8,7 @@ img:hover {
 img:active {
     position: relative;
     top: 3px;
+    width: 5px;
+    height: 5px;
     /* 画像を少し下に移動させる */
 }
