@@ -112,3 +112,8 @@ h2 {
     cursor: pointer;
     margin-left: 100px;
 }
+
+input:disabled {
+    border: none;
+    color: black;
+}

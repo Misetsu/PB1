@@ -27,16 +27,22 @@ $info = $form->getInfo($userid);
 
     <h2>プロフィール</h2>
     <section id="profile">
-        <div id="profileInfo">
-            <p>名前：<span id="name"><?= $username ?></span></p>
-            <p>年齢：<span id="age"><?= is_null($profile['age']) ? '未入力' : $profile['age'] . '歳'; ?></span></p>
-            <p>趣味：<span id="hobby"><?= is_null($profile['interest']) ? '未入力' : $profile['interest']; ?></span></p>
-        </div>
-        <div id="profileDetails">
-            <p>所属：<span id="company"><?= $info['subject'] ?></span></p>
-            <p>メッセージ：<span id="description"><?= is_null($profile['intro']) ? '未入力' : $profile['intro']; ?></span></p>
-        </div>
-        <button id="editButton">編集する</button>
+        <form>
+            <div id="profileInfo">
+                <label>名前：</label><input id="name" name="name" value="<?= $username ?>" disabled>
+                <br><br>
+                <label>年齢：</label><input id="age" name="name" value="<?= is_null($profile['age']) ? '未入力' : $profile['age'] . '歳'; ?>" disabled>
+                <br><br>
+                <label>趣味：</label><input id="hobby" name="hobby" value="<?= is_null($profile['interest']) ? '未入力' : $profile['interest']; ?>" disabled>
+                <br><br>
+                <label>所属：</label><input id="company" name="company" value="<?= $info['subject'] ?>" disabled>
+                <br><br>
+                <label>メッセージ：</label><input id="description" name="description" value="<?= is_null($profile['intro']) ? '未入力' : $profile['intro']; ?>" disabled>
+            </div>
+            <button id="editButton" type="button" onclick="showEdit()">編集する</button>
+            <input type="submit" value="保存する" style="display: none;">
+            <button id="cancelEdit" type="button" onclick="hideEdit()" style="display: none;">キャンセル</button>
+        </form>
     </section>
     <h2>過去の質問履歴</h2>
     <section id="questionlist">
