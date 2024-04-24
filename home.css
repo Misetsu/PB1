@@ -1,44 +1,48 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
 }
-
 header {
     background-color: #333;
-    color: white;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav {
-    width: 200px;
-    height: 100%;
+    color: #fff;
+    padding: 10px 20px;
     position: fixed;
     top: 0;
-    left: -200px;
-    background-color: #333;
-    padding-top: 60px;
-    transition: left 0.3s ease;
-}
-
-nav.active {
     left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
-
-ul {
-    list-style: none;
+h1 {
+    margin: 0;
+    text-align: center; /* 文字を中央に配置 */
+}
+nav {
+    background-color: #f4f4f4;
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 60px; /* ヘッダーの高さを考慮 */
+    left: 0;
+    overflow-y: auto;
+    z-index: 999;
+}
+nav ul {
+    list-style-type: none;
     padding: 0;
+    margin: 0;
 }
-
-li {
+nav ul li {
     padding: 10px;
+    border-bottom: 1px solid #ccc;
 }
-
-a {
-    color: white;
+nav ul li:last-child {
+    border-bottom: none;
+}
+nav ul li a {
     text-decoration: none;
+    color: #333;
+    font-size: 18px;
 }
-
 
