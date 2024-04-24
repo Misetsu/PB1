@@ -2,12 +2,7 @@
 <html lang="ja">
 
 <?php
-if (!isset($_SESSION)) {
-    session_start();
-}
-$userid = isset($_SESSION['userId']) ? $_SESSION['userId'] : '';
-$username = isset($_SESSION['userName']) ? $_SESSION['userName'] : '';
-
+require_once __DIR__ . '/pre.php';
 require_once __DIR__ . '/class.php';
 $form = new Form();
 $profile = $form->getProfile($userid);
