@@ -52,16 +52,6 @@ body {
     padding-bottom: 50px;
 }
 
-h1 {
-    font-size: 2em;
-    color: rgb(255, 255, 255);
-    border: 2px solid aqua;
-    background-color: aqua;
-    padding: 20px;
-    text-align: center;
-    margin-left: 100px;
-    margin-right: 100px;
-}
 
 h2 {
     margin-left: 100px;
