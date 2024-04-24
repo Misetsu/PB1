@@ -11,7 +11,7 @@
 <body>
     <h1>ボタンの練習</h1>
     <button type="button" id="countButton">
-        <img src="good.png" alt="ボタン画像" />
+        <img id="Buttonimg" src="good.png" alt="ボタン画像" />
     </button>
     <span id="count">0</span>
     <div class="container">
@@ -31,12 +31,20 @@
     const button = document.getElementById('countButton');
 
     button.addEventListener('click', function () {//いいねボタンが押されたとき
-        count += 1;//いいねボタンのカウント追加
-        document.getElementById('count').textContent = count; // 表示を更新
-        this.disabled = true;//ボタンをこれ以上押せなくする
-        const videoElement = document.getElementById('goodVideo');
-        goodVideo.style.display = 'block';//非表示の動画エフェクトを表示に切り替える
-        videoElement.play();//動画エフェクトを再生する
+        if (count === 0) {
+            count += 1;//いいねボタンのカウント追加
+            document.getElementById('count').textContent = count;//表示を更新
+            document.getElementById("Buttonimg").src = "good2.png";//いいね画像の切り替え
+            const videoElement = document.getElementById('goodVideo');
+            goodVideo.style.display = 'block';//非表示の動画エフェクトを表示に切り替える
+            videoElement.play();//動画エフェクトを再生する
+        }
+        else {
+            count -= 1;
+            document.getElementById('count').textContent = count;
+            document.getElementById("Buttonimg").src = "good.png";//画像の切り替え（戻す）
+        }
+
     });
     const video = document.getElementById('myVideo');
 
