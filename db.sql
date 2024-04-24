@@ -24,7 +24,7 @@ CREATE TABLE answer (
 );
 
 DROP TABLE IF EXISTS user;
-CREATE TABLE user (
+CREATE TABLE userinfo (
     id        int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username  varchar(100) NOT NULL,
     subject   varchar(100) NOT NULL,
