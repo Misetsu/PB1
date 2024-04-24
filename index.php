@@ -49,8 +49,9 @@ $options = array(
 
 
 <body>
-    <header>
-        <h1>iチーム 記事一覧</h1>
+<header>
+        <button onclick="location.href='home.html'" style="font-size: 24px;">🏠</button>
+        <h1>質問一覧</h1>
     </header>
     <main>
         <form method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">

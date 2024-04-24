@@ -4,15 +4,32 @@ body {
     font-family: Arial, sans-serif;
 }
 header {
-    background-color: #333;
+    background-color: orange;
     color: #fff;
-    padding: 10px 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+header button {
+    background-color: transparent; /* 背景色を透明に設定 */
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: auto; /* ボタンを左に寄せる */
+    color: inherit;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 48px;
+    flex: 1;
+    text-align: center; /* タイトルを中央寄せに */
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 h1 {
     margin: 0;
