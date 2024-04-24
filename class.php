@@ -41,13 +41,13 @@ class form extends Dbdata
 
     public function signUP($username, $email, $subject, $password)
     {
-        $sql = "INSERT INTO userinfo VALUES (null, ?, ?, ?, ?)";
+        $sql = "INSERT INTO userinfo VALUES (NULL, ?, ?, ?, ?)";
         $this->exec($sql, [$username, $subject, $email, $password]);
         $sql = "SELECT id FROM userinfo WHERE email = ?";
         $stmt = $this->query($sql, [$email]);
         $id = $stmt->fetch();
         $sql = "INSERT INTO profile VALUES (?, NULL, NULL, NULL)";
-        $this->exec($sql, [$id]);
+        $this->exec($sql, [$id['id']]);
     }
 
     public function authUser($email, $password)

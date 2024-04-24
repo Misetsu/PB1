@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -200px;
+    background-color: #333;
+    padding-top: 60px;
+    transition: left 0.3s ease;
+}
+
+nav.active {
+    left: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+
