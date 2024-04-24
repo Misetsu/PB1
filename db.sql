@@ -23,7 +23,7 @@ CREATE TABLE answer (
     FOREIGN KEY (ques_id) REFERENCES question(id)
 );
 
-DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS userinfo;
 CREATE TABLE userinfo (
     id        int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username  varchar(100) NOT NULL,
