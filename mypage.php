@@ -17,7 +17,10 @@ $info = $form->getInfo($userid);
 </head>
 
 <body>
-    <header>マイページ</header>
+<header>
+        <button onclick="location.href='home.html'" style="font-size: 24px;">🏠</button>
+        <h1>マイページ</h1>
+    </header>
     <h1><?= $username ?>さんのマイページ</h1>
 
     <h2>プロフィール</h2>
