@@ -73,4 +73,17 @@ class form extends Dbdata
         $result = $stmt->fetch();
         return $result;
     }
+
+    public function insertseikabutu($username, $title, $message, $site, $shosai, $selection)
+    {
+        $sql = "INSERT INTO seikabutu VALUES (null, ?, ?, ?, ?, ?, ?)";
+        $this->exec($sql, [$username, $title, $message, $site, $shosai, $selection]);
+    }
+    public function getAllSeikabutu()
+    {
+        $sql = "SELECT * FROM seikabutu ORDER BY id DESC";
+        $stmt = $this->query($sql, []);
+        $result = $stmt->fetchAll();
+        return $result;
+    }
 }

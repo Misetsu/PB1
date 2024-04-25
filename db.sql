@@ -39,3 +39,14 @@ CREATE TABLE profile (
     interest  varchar(200),
     intro     varchar(500)
 );
+
+DROP TABLE IF EXISTS seikabutu;
+CREATE TABLE seikabutu (
+    id int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    username varchar(100) NOT NULL,
+    title varchar(2000) NOT NULL,
+    message varchar(2000) NOT NULL,
+    site varchar(100) NOT NULL,
+    shosai varchar(500) NOT NULL,
+    selection varchar(50) NOT NULL
+);
