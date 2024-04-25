@@ -60,8 +60,6 @@ $info = $form->getInfo($userid);
     <button id="changeColorButton">背景色を変更する</button>
 
     <script src="mypagescript.js"></script>
-</body>
-
 <div class="center">
     <a href="question.html">質問投稿ページへ行く</a>
     <p></p>
@@ -69,5 +67,11 @@ $info = $form->getInfo($userid);
     <p></p>
     <a href="rule.html">利用規約を確認</a>
 </div>
+    <footer>
+        <p>&copy; I love 「愛」チーム情報共有サイト</p>
+    </footer>
+</body>
+
+
 
 </html>
