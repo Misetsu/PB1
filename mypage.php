@@ -62,10 +62,12 @@ $info = $form->getInfo($userid);
     <script src="mypagescript.js"></script>
 <div class="center">
     <a href="question.html">質問投稿ページへ行く</a>
-    <p></p>
+    <br>
     <a href="login.html">ログインページへ戻る</a>
-    <p></p>
+    <br>
     <a href="rule.html">利用規約を確認</a>
+    <br>
+    <a href="logout.php">ログアウト</a>
 </div>
     <footer>
         <p>&copy; I love 「愛」チーム情報共有サイト</p>
