@@ -19,7 +19,7 @@ $_SESSION['userId'] = $result['id'];
 $_SESSION['userName'] = $result['username'];
 $_SESSION['userEmail'] = $result['email'];
 
-setcookie("userId", $userId, time() + 60 * 60 * 24 * 14, '/');
+setcookie("userId", $userid, time() + 60 * 60 * 24 * 14, '/');
 setcookie("userName", $username, time() + 60 * 60 * 24 * 14, '/');
 
 header(('Location:' . 'mypage.php'));

@@ -7,7 +7,17 @@ $email = $_POST['address'];
 $password = $_POST['password'];
 $subject = $_POST['school'];
 
-$form->signUP($username, $email, $subject, $password);
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $_SESSION['signup_error'] = '正しいメールアドレスを入力してください。';
+    header('Location: ' . 'touroku.html');
+    exit();
+}
 
-header("Location: login.html");
+$result = $form->signUP($username, $email, $subject, $password);
+
+if ($result == '') {
+    header("Location: login.html");
+} else {
+    header('Location: signup.php');
+}
 exit;
