@@ -17,7 +17,10 @@ $info = $form->getInfo($userid);
 </head>
 
 <body>
-    <header>マイページ</header>
+    <header>
+        <button onclick="location.href='home.html'" style="font-size: 24px;">🏠</button>
+        <h1>マイページ</h1>
+    </header>
     <h1><?= $username ?>さんのマイページ</h1>
 
     <h2>プロフィール</h2>
@@ -57,14 +60,18 @@ $info = $form->getInfo($userid);
     <button id="changeColorButton">背景色を変更する</button>
 
     <script src="mypagescript.js"></script>
+    <div class="center">
+        <a href="question.html">質問投稿ページへ行く</a>
+        <br>
+        <a href="rule.html">利用規約を確認</a>
+        <br>
+        <a href="logout.php">ログアウト</a>
+    </div>
+    <footer>
+        <p>&copy; I love 「愛」チーム情報共有サイト</p>
+    </footer>
 </body>
 
-<div class="center">
-    <a href="question.html">質問投稿ページへ行く</a>
-    <p></p>
-    <a href="login.html">ログインページへ戻る</a>
-    <p></p>
-    <a href="rule.html">利用規約を確認</a>
-</div>
+
 
 </html>

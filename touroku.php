@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once __DIR__ . '/class.php';
 $form = new form();
 
@@ -7,7 +8,19 @@ $email = $_POST['address'];
 $password = $_POST['password'];
 $subject = $_POST['school'];
 
-$form->signUP($username, $email, $subject, $password);
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $_SESSION['signup_error'] = '正しいメールアドレスを入力してください。';
+    header('Location: ' . 'signup.php');
+    exit();
+}
 
-header("Location: login.html");
-exit;
+$result = $form->signUP($username, $email, $subject, $password);
+
+if ($result == '') {
+    header("Location: login.php");
+    exit();
+} else {
+    $_SESSION['signup_error'] = $result;
+    header('Location: signup.php');
+    exit();
+}

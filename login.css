@@ -1,103 +1,126 @@
 header {
-    background-color: #333;
+    background-color: orange;
     color: #fff;
     padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+header button {
+    background-color: transparent;
+    /* 背景色を透明に設定 */
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: auto;
+    /* ボタンを左に寄せる */
+    color: inherit;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 48px;
+    flex: 1;
     text-align: center;
-    font-size: 36px;
-    }
+    /* タイトルを中央寄せに */
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
 
-    main {
-    padding: 20px;
-    }
-
-    article {
+article {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 20px;
-    }
+}
 
-    footer {
+footer {
     background-color: #333;
     color: #fff;
     padding: 10px;
     text-align: center;
-    }
+}
 
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-    }
-    
-    h1 {
-        text-align: center;
-        color: #333;
-    }
-    
-    form {
-        max-width: 600px;
-        margin: 20px auto;
-        background: #fbe9aa;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .form-group {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        margin-bottom: 20px;
-    }
-    
-    .form-group label {
-        width: 150px;
-        text-align: right;
-        margin-right: 20px;
-        font-size: 18px;
-        white-space: nowrap;
-    }
-    
-    .form-group input {
-        flex: 2;
-        padding: 10px;
-        font-size: 18px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-    }
-    
-    button[type="submit"] {
-        background-color: #ff69b4;
-        color: #fff;
-        padding: 15px 30px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 20px;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
-        align-self: center; /* 中央寄せ */
-        margin-top: 20px;
-    }
-    
-    button[type="submit"]:hover {
-        background-color: #d1478e;
-    }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
 
-    textarea {
-        width: 200%;
-        height: 300px; 
-        padding: 30px;
-        font-size: 16px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-        resize: vertical; 
-    }
-    
-    
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    background: #fbe9aa;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    width: 150px;
+    text-align: right;
+    margin-right: 20px;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+.form-group input {
+    flex: 2;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+    background-color: #ff69b4;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    align-self: center;
+    /* 中央寄せ */
+    margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+    background-color: #d1478e;
+}
+
+textarea {
+    width: 200%;
+    height: 300px;
+    padding: 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+.errorclass {
+    color: #d1478e;
+}

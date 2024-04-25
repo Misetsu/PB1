@@ -41,13 +41,27 @@ class form extends Dbdata
 
     public function signUP($username, $email, $subject, $password)
     {
+        $sql = "SELECT id FROM userinfo WHERE email = ?";
+        $stmt = $this->query($sql, [$email]);
+        $result = $stmt->fetch();
+        if ($result) {
+            return 'この' . $email . 'は既に登録されています。';
+        }
+
         $sql = "INSERT INTO userinfo VALUES (NULL, ?, ?, ?, ?)";
         $this->exec($sql, [$username, $subject, $email, $password]);
+
         $sql = "SELECT id FROM userinfo WHERE email = ?";
         $stmt = $this->query($sql, [$email]);
         $id = $stmt->fetch();
         $sql = "INSERT INTO profile VALUES (?, NULL, NULL, NULL)";
-        $this->exec($sql, [$id['id']]);
+        $result = $this->exec($sql, [$id['id']]);
+
+        if ($result) {
+            return '';
+        } else {
+            return '新規登録できませんでした。管理者にお問い合わせください。';
+        }
     }
 
     public function authUser($email, $password)
