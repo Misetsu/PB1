@@ -101,7 +101,7 @@ $options = array(
 
 
     <footer>
-        <p>iチーム 記事一覧</p>
+        <p>&copy; I love 「愛」チーム情報共有サイト</p>
     </footer>
 </body>
 
