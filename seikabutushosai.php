@@ -41,7 +41,10 @@ $options = array(
 </head>
 
 <body>
-<header>成果物詳細ページ</header>
+<header>
+            <button onclick="location.href='home.html'" style="font-size: 24px;">🏠</button>
+            <h1>成果物詳細ページ</h1>
+        </header>
     <div class="detail-container">
         <?php foreach ($seikabutuList as $seikabutu): ?>
             <div class="detail-block">

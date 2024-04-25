@@ -8,11 +8,11 @@ body {
 
 /* ヘッダー */
 header {
-    background-color: #333;
+    background-color: orange;
     color: #fff;
     padding: 20px;
-    text-align: center;
-    font-size: 36px;
+    display: flex;
+    align-items: center;
 }
 
 /* ラッパー */
