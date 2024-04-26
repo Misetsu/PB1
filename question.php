@@ -1,3 +1,45 @@
+<?php
+require_once __DIR__ . '/dbdata.php';
+
+// 接続
+$dsn = 'mysql:dbname=ilove;host=localhost;charset=utf8';
+$user = 'Ilove';
+$password = '11111';
+$dbh = new PDO($dsn, $user, $password);
+$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+// ユーザーがログインしたときのコード
+session_start();
+
+if(isset($_SESSION['userId'])) {
+    $userid = $_SESSION['userId'];
+}
+
+// 質問を投稿するコード
+if(isset($_POST['submit_question'])) {
+    // 質問のタイトルとメッセージを取得
+    $title = $_POST['title'];
+    $message = $_POST['message'];
+
+    // SQLクエリを準備
+    $sql = "INSERT INTO question (userid, title, message) VALUES (:userid, :title, :message)";
+
+    // プリペアドステートメントを作成
+    $stmt = $dbh->prepare($sql);
+
+    // パラメーターをバインドしてSQLを実行
+    $stmt->bindParam(':userid', $userid);
+    $stmt->bindParam(':title', $title);
+    $stmt->bindParam(':message', $message);
+    $stmt->execute();
+}
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -26,8 +68,6 @@
     <div class="form-container">
         <div class="form-wrapper">
             <form action="insert.php" method="POST">
-                <label for="username-input">ユーザー名</label>
-                <input type="text" id="username-input" name="username-input" placeholder="ユーザー名を入力してください" required>
                 <label for="title-input">タイトル</label>
                 <input type="text" id="title-input" name="title-input" placeholder="タイトルを入力してください" required>
                 <label for="message-input">詳細情報</label>
