@@ -3,46 +3,70 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
 }
+
 header {
-    background-color: #333;
+    background-color: orange;
     color: #fff;
-    padding: 10px 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    position: fixed; /* ヘッダーを固定 */
+    width: 100%; /* ヘッダーの幅を画面幅に合わせる */
+    z-index: 1000; /* メニューバーの下になるように設定 */
 }
-h1 {
+
+header button {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 20px; /* ボタンとタイトルの間にスペースを追加 */
+    color: inherit;
+}
+
+header h1 {
     margin: 0;
-    text-align: center; /* 文字を中央に配置 */
+    font-size: 48px;
+    flex: 1;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
+
 nav {
     background-color: #f4f4f4;
     width: 250px;
-    height: 100vh;
+    height: calc(100vh - 80px); /* ヘッダーの高さに合わせてメニューバーの高さを調整 */
     position: fixed;
-    top: 60px; /* ヘッダーの高さを考慮 */
+    top: 110px;
     left: 0;
     overflow-y: auto;
     z-index: 999;
 }
+
 nav ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
+
 nav ul li {
     padding: 10px;
     border-bottom: 1px solid #ccc;
 }
+
 nav ul li:last-child {
     border-bottom: none;
 }
+
 nav ul li a {
     text-decoration: none;
     color: #333;
     font-size: 18px;
 }
+
+
 

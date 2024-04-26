@@ -9,8 +9,18 @@
 </head>
 
 <body>
-    <header>登録ページ</header>
+    <header>
+        <button onclick="location.href='home.html'" style="font-size: 24px;">🏠</button>
+        <h1>利用登録ページ</h1>
+    </header>
     <h1>利用開始に必要な情報を入力してください</h1>
+    <?php
+    session_start();
+    if (isset($_SESSION['signup_error'])) {
+        echo '<p class="errorclass">' . $_SESSION['signup_error'] . '</p>';
+        unset($_SESSION['signup_error']);
+    }
+    ?>
     <form action="touroku.php" method="post">
         <div class="form-group">
             <label for="username">ユーザー名:</label>

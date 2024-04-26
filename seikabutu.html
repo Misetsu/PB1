@@ -15,13 +15,16 @@
 </head>
 
 <body>
-    <header>成果物投稿ページ</header>
+    <header>
+        <button onclick="location.href='home.html'" style="font-size: 24px;">🏠</button>
+        <h1>成果物投稿頁</h1>
+    </header>
     <h1>成果物投稿フォーム</h1>
     <p>他の人に見てほしい自分が作成した成果物を投稿するページです。
     </p>
     <div class="form-container">
         <div class="form-wrapper">
-            <form action="insert.php" method="POST">
+            <form action="seikabutu.php" method="POST">
                 <label for="username-input">ユーザー名</label>
                 <input type="text" id="username-input" name="username-input" placeholder="ユーザー名を入力してください" required>
                 <label for="title-input">タイトル</label>
@@ -50,11 +53,13 @@
             </form>
         </div>
         <div style="text-align: center;">
-            <a href="index.php">成果物一覧を見る</a>
+            <a href="seikabutushosai.php">成果物一覧を見る</a>
             <br>
             <a href="rule.html">利用規約を確認</a>
         </div>
     </div>
+
+    
 </body>
 
 </html>

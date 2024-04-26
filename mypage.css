@@ -1,9 +1,33 @@
 header {
-    background-color: #333;
+    background-color: orange;
     color: #fff;
     padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+header button {
+    background-color: transparent;
+    /* 背景色を透明に設定 */
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: auto;
+    /* ボタンを左に寄せる */
+    color: inherit;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 48px;
+    flex: 1;
     text-align: center;
-    font-size: 36px;
+    /* タイトルを中央寄せに */
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 main {
@@ -17,10 +41,11 @@ article {
 }
 
 footer {
-    background-color: #333;
+    background-color: orange;
     color: #fff;
-    padding: 10px;
     text-align: center;
+    padding: 20px 0;
+    width: 100%;
 }
 
 body {
@@ -28,19 +53,8 @@ body {
     background-color: #f8f9fa;
     margin: 0;
     padding: 0;
-    padding-bottom: 50px;
 }
 
-h1 {
-    font-size: 2em;
-    color: rgb(255, 255, 255);
-    border: 2px solid aqua;
-    background-color: aqua;
-    padding: 20px;
-    text-align: center;
-    margin-left: 100px;
-    margin-right: 100px;
-}
 
 h2 {
     margin-left: 100px;
@@ -59,8 +73,7 @@ h2 {
     margin-right: 100px;
 }
 
-#editButton {
-    display: block;
+.enterButton {
     margin-top: 10px;
     padding: 8px 16px;
     background-color: #f19ae1;
@@ -70,7 +83,7 @@ h2 {
     cursor: pointer;
 }
 
-#editButton:hover {
+.enterButton:hover {
     background-color: #eb64ae;
 }
 
@@ -116,4 +129,9 @@ h2 {
 input:disabled {
     border: none;
     color: black;
+}
+
+#cancelEdit {
+    border: none;
+    padding: 8px 16px;
 }
