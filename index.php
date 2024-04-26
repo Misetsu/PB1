@@ -96,7 +96,7 @@ $options = array(
 
     <div class="right">
         <a href="mypage.php"> マイページへ行く</a>
-        <a href="question.html">質問投稿ページへ行く</a>
+        <a href="question.php">質問投稿ページへ行く</a>
     </div>
 
 
