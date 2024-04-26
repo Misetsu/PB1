@@ -2,6 +2,7 @@
 $quesID = $_GET['ident'];
 
 require_once __DIR__ . '/class.php';
+require_once __DIR__ . '/pre.php';
 
 $form = new form();
 $ques = $form->getQues($quesID);
@@ -45,7 +46,7 @@ $options = array(
             <br><br>
         </p>
     </div>
-</div>
+    </div>
 
     <div class="container">
         <video id="goodVideo" class="centered-movie">
@@ -62,15 +63,30 @@ $options = array(
             foreach ($allAns as $row) {
                 echo '<h4 style="text-align: right;">' . $row['name'] . '　さん</h4>';
                 echo '<div class="answer"><p>' . $ques['name'] . 'さんへの返信：</p><p>' . $row['text'] . '<p></div>';
+                $count = $form->countLike($row['id']);
+                $flag = $form->likeFlag($row['id'], $userid)
             ?>
-            <div style="display: flex; justify-content: flex-end;">
-                <button type="button" id="countButton" class="a" onclick="like()">
-                    <img id="Buttonimg" src="good.png" alt="ボタン画像"/>
-                </button>
-                <span id="count">0</span>
-            </div>
-            <br><br><br>
- 
+                <div style="display: flex; justify-content: flex-end;">
+                    <?php
+                    if ($flag['count'] == 0) {
+                    ?>
+                        <button type="button" id="countButton" onclick="like()">
+                            <img id="Buttonimg" src="good.png" alt="ボタン画像">
+                        </button>
+                    <?php
+                    } else {
+                    ?>
+                        <button type="button" id="countButton" onclick="like()">
+                            <img id="Buttonimg" src="good2.png" alt="ボタン画像">
+                        </button>
+                    <?php
+                    }
+                    ?>
+                    <span id="count"><?= $count['count'] ?></span>
+                    <span id="count"><?= $row['id'] ?></span>
+                    <span id="count"><?= $userid ?></span>
+                </div>
+                <br><br><br>
             <?php
             }
             ?>
@@ -112,51 +128,49 @@ $options = array(
 
     }
 
-    let count = 0;//いいねの初期値
+    let count = 0; //いいねの初期値
 
-        const button = document.getElementById('countButton');
-        var a = document.getElementsByClassName("a");
+    const button = document.getElementById('countButton');
+    var a = document.getElementsByClassName("a");
 
-        button.addEventListener('click', function () {//いいねボタンが押されたとき
-            if (count === 0) {
-                count += 1;//いいねボタンのカウント追加
-                document.getElementById('count').textContent = count;//表示を更新
-                document.getElementById("Buttonimg").src = "good2.png";//いいね画像の切り替え
-                const videoElement = document.getElementById('goodVideo');
-                goodVideo.style.display = 'block';//非表示の動画エフェクトを表示に切り替える
-                videoElement.play();//動画エフェクトを再生する
-            }
-            else {
-                count -= 1;
-                document.getElementById('count').textContent = count;
-                document.getElementById("Buttonimg").src = "good.png";//画像の切り替え（戻す）
-            }
-
-        });
-        const video = document.getElementById('myVideo');
-
-        document.addEventListener('DOMContentLoaded', (event) => {//動画エフェクトが終了したとき
-            var video = document.getElementById('goodVideo');
-            video.onended = function () {
-                video.style.display = 'none';//動画を非表示にする
-            };
-        });
-
-        function like() {//いいねボタンが押されたとき
-            if (count === 0) {
-                count += 1;//いいねボタンのカウント追加
-                document.getElementById('count').textContent = count;//表示を更新
-                document.getElementById("Buttonimg").src = "good2.png";//いいね画像の切り替え
-                const videoElement = document.getElementById('goodVideo');
-                goodVideo.style.display = 'block';//非表示の動画エフェクトを表示に切り替える
-                videoElement.play();//動画エフェクトを再生する
-            }
-            else {
-                count -= 1;
-                document.getElementById('count').textContent = count;
-                document.getElementById("Buttonimg").src = "good.png";//画像の切り替え（戻す）
-            }
+    button.addEventListener('click', function() { //いいねボタンが押されたとき
+        if (count === 0) {
+            count += 1; //いいねボタンのカウント追加
+            document.getElementById('count').textContent = count; //表示を更新
+            document.getElementById("Buttonimg").src = "good2.png"; //いいね画像の切り替え
+            const videoElement = document.getElementById('goodVideo');
+            goodVideo.style.display = 'block'; //非表示の動画エフェクトを表示に切り替える
+            videoElement.play(); //動画エフェクトを再生する
+        } else {
+            count -= 1;
+            document.getElementById('count').textContent = count;
+            document.getElementById("Buttonimg").src = "good.png"; //画像の切り替え（戻す）
         }
+
+    });
+    const video = document.getElementById('myVideo');
+
+    document.addEventListener('DOMContentLoaded', (event) => { //動画エフェクトが終了したとき
+        var video = document.getElementById('goodVideo');
+        video.onended = function() {
+            video.style.display = 'none'; //動画を非表示にする
+        };
+    });
+
+    function like() { //いいねボタンが押されたとき
+        if (count === 0) {
+            count += 1; //いいねボタンのカウント追加
+            document.getElementById('count').textContent = count; //表示を更新
+            document.getElementById("Buttonimg").src = "good2.png"; //いいね画像の切り替え
+            const videoElement = document.getElementById('goodVideo');
+            goodVideo.style.display = 'block'; //非表示の動画エフェクトを表示に切り替える
+            videoElement.play(); //動画エフェクトを再生する
+        } else {
+            count -= 1;
+            document.getElementById('count').textContent = count;
+            document.getElementById("Buttonimg").src = "good.png"; //画像の切り替え（戻す）
+        }
+    }
 </script>
 
 </html>
