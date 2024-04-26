@@ -40,7 +40,7 @@ header h1 {
 .detail-container {
     max-width: 800px;
     margin: 20px auto;
-    background-color: #fff;
+    background-color: #fbe9aa;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -61,8 +61,9 @@ p {
 }
 
 /* コードブロック */
-pre {
-    background-color: #f5f5f5;
+textarea {
+    background-color:#333333;
+    color: #fff;
     padding: 10px;
     border-radius: 6px;
     overflow-x: auto;
@@ -86,7 +87,7 @@ div.detail-container div {
 div.detail-container div a {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #f19ae1;
     color: #fff;
     border-radius: 6px;
     text-decoration: none;
@@ -94,5 +95,5 @@ div.detail-container div a {
 }
 
 div.detail-container div a:hover {
-    background-color: #0056b3;
+    background-color: #eb64ae;
 }

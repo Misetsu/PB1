@@ -50,7 +50,6 @@ $options = array(
             <div class="detail-block">
                 <h1>タイトル：<?= $seikabutu['title'] ?></h1>
                 <p>ユーザー名: <?= $seikabutu['username'] ?></p>
-                <p>コード： <?= $seikabutu['message'] ?></p>
                 <pre><?= $seikabutu['message'] ?></pre>
                 <p>外部サイト：<?= $seikabutu['site'] ?></p>
                 <p>詳細：<?= $seikabutu['shosai'] ?></p>
