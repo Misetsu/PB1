@@ -1,12 +1,15 @@
 <?php
+
+use LDAP\Result;
+
 require_once __DIR__ . '/dbdata.php';
 
 class form extends Dbdata
 {
-    public function insertForm($name, $title, $message, $selection)
+    public function insertForm($userid, $title, $message, $selection)
     {
         $sql = "INSERT INTO question VALUES (null, ?, ?, ?, ?)";
-        $this->exec($sql, [$name, $title, $message, $selection]);
+        $this->exec($sql, [$userid, $title, $message, $selection]);
     }
 
     public function getAll()
@@ -19,16 +22,16 @@ class form extends Dbdata
 
     public function getQues($ident)
     {
-        $sql = "SELECT * FROM question WHERE id = ?";
+        $sql = "SELECT * FROM question INNER JOIN userinfo ON question.userid = userinfo.userid WHERE question.id = ?";
         $stmt = $this->query($sql, [$ident]);
         $result = $stmt->fetch();
         return $result;
     }
 
-    public function insertAns($name, $text, $quesID)
+    public function insertAns($userid, $text, $quesID)
     {
         $sql = "INSERT INTO answer VALUES (null, ?, ?, ?)";
-        $this->exec($sql, [$name, $text, $quesID]);
+        $this->exec($sql, [$userid, $text, $quesID]);
     }
 
     public function getAllAns($quesID)
@@ -41,7 +44,7 @@ class form extends Dbdata
 
     public function signUP($username, $email, $subject, $password)
     {
-        $sql = "SELECT id FROM userinfo WHERE email = ?";
+        $sql = "SELECT userid FROM userinfo WHERE email = ?";
         $stmt = $this->query($sql, [$email]);
         $result = $stmt->fetch();
         if ($result) {
@@ -51,11 +54,11 @@ class form extends Dbdata
         $sql = "INSERT INTO userinfo VALUES (NULL, ?, ?, ?, ?)";
         $this->exec($sql, [$username, $subject, $email, $password]);
 
-        $sql = "SELECT id FROM userinfo WHERE email = ?";
+        $sql = "SELECT userid FROM userinfo WHERE email = ?";
         $stmt = $this->query($sql, [$email]);
-        $id = $stmt->fetch();
+        $userid = $stmt->fetch();
         $sql = "INSERT INTO profile VALUES (?, NULL, NULL, NULL)";
-        $result = $this->exec($sql, [$id['id']]);
+        $result = $this->exec($sql, [$userid['userid']]);
 
         if ($result) {
             return '';
@@ -72,18 +75,18 @@ class form extends Dbdata
         return $result;
     }
 
-    public function getProfile($userId)
+    public function getProfile($userid)
     {
-        $sql = "SELECT * FROM profile WHERE id = ?";
-        $stmt = $this->query($sql, [$userId]);
+        $sql = "SELECT * FROM profile WHERE userid = ?";
+        $stmt = $this->query($sql, [$userid]);
         $result = $stmt->fetch();
         return $result;
     }
 
-    public function getInfo($userId)
+    public function getInfo($userid)
     {
-        $sql = "SELECT * FROM userinfo WHERE id = ?";
-        $stmt = $this->query($sql, [$userId]);
+        $sql = "SELECT * FROM userinfo WHERE userid = ?";
+        $stmt = $this->query($sql, [$userid]);
         $result = $stmt->fetch();
         return $result;
     }

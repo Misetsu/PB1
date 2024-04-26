@@ -8,7 +8,7 @@ use ilove;
 
 CREATE TABLE question (
     id int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name varchar(100) NOT NULL,
+    userid int(255) NOT NULL,
     title varchar(2000) NOT NULL,
     message varchar(2000) NOT NULL,
     selection varchar(50) NOT NULL
@@ -17,7 +17,7 @@ CREATE TABLE question (
 DROP TABLE IF EXISTS answer;
 CREATE TABLE answer (
     id        int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	name      varchar(100) NOT NULL,
+	userid int(255) NOT NULL,
 	text      varchar(2000) NOT NULL,
     ques_id   int(255) NOT NULL,
     FOREIGN KEY (ques_id) REFERENCES question(id)
@@ -25,7 +25,7 @@ CREATE TABLE answer (
 
 DROP TABLE IF EXISTS userinfo;
 CREATE TABLE userinfo (
-    id        int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    userid int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username  varchar(100) NOT NULL,
     subject   varchar(100) NOT NULL,
     email     varchar(100) NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE userinfo (
 
 DROP TABLE IF EXISTS profile;
 CREATE TABLE profile (
-    id        int(255) NOT NULL PRIMARY KEY,
+    userid int(255) NOT NULL PRIMARY KEY,
     age       int(10),
     interest  varchar(200),
     intro     varchar(500)

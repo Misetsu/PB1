@@ -7,19 +7,20 @@ $form = new Form();
 $result = $form->authUser($userid, $password);
 
 session_start();
-if (empty($result['id'])) {
+if (empty($result['userid'])) {
     $_SESSION['login_error'] = 'ユーザーID、パスワードを確認してください。';
     header('Location: ' . 'login.php');
     exit();
 }
 
+$userid = $result['userid'];
 $username = $result['username'];
 
-$_SESSION['userId'] = $result['id'];
+$_SESSION['userid'] = $result['userid'];
 $_SESSION['userName'] = $result['username'];
 $_SESSION['userEmail'] = $result['email'];
 
-setcookie("userId", $userid, time() + 60 * 60 * 24 * 14, '/');
+setcookie("userid", $userid, time() + 60 * 60 * 24 * 14, '/');
 setcookie("userName", $username, time() + 60 * 60 * 24 * 14, '/');
 
 header(('Location:' . 'mypage.php'));

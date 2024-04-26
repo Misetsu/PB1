@@ -1,7 +1,25 @@
 <?php
+require_once __DIR__ . '/class.php';
+// 接続
+$dsn = 'mysql:dbname=ilove;host=localhost;charset=utf8';
+$user = 'Ilove';
+$password = '11111';
+$dbh = new PDO($dsn, $user, $password);
+$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 $quesID = $_GET['ident'];
 
-require_once __DIR__ . '/class.php';
+// $sql = "SELECT *
+//         FROM question
+//         INNER JOIN userinfo ON question.userid = userinfo.userid 
+//         WHERE question.id = ?
+//         ";
+// $stmt = $dbh->query($sql);
+
+// // データを取得して変数に格納
+// $questions = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// $dbh = null;
 
 $form = new form();
 $ques = $form->getQues($quesID);
@@ -20,6 +38,8 @@ $options = array(
     'option10' => 'PHP',
     'option11' => 'その他',
 );
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -33,10 +53,14 @@ $options = array(
 
 <body>
 
+    <li>
+        <p>ユーザー名: <?= $ques['username'] ?></p>
+    </li>
+
     <header>質問表示詳細ページ</header>
     <div id="question-container">
         <h2><?= $ques['title'] ?></h2>
-        <h4 style="text-align: right;"><?= $ques['name'] ?>　さん</h4>
+        <a href="mypage.php" style="text-align: right;"><?= $ques['username'] ?>　さん</a>
         <p class="text-container">
             <?= $ques['message'] ?>
             <br><br>
