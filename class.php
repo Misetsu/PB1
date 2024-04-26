@@ -36,7 +36,7 @@ class form extends Dbdata
 
     public function getAllAns($quesID)
     {
-        $sql = "SELECT * FROM answer WHERE ques_id = ?";
+        $sql = "SELECT * FROM answer INNER JOIN userinfo ON answer.userid = userinfo.userid WHERE ques_id = ?";
         $stmt = $this->query($sql, [$quesID]);
         $result = $stmt->fetchAll();
         return $result;
