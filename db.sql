@@ -8,7 +8,7 @@ use ilove;
 
 CREATE TABLE question (
     id int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name varchar(100) NOT NULL,
+    userid    int(255) NOT NULL,
     title varchar(2000) NOT NULL,
     message varchar(2000) NOT NULL,
     selection varchar(50) NOT NULL
@@ -17,10 +17,9 @@ CREATE TABLE question (
 DROP TABLE IF EXISTS answer;
 CREATE TABLE answer (
     id        int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	name      varchar(100) NOT NULL,
+	userid    int(255) NOT NULL,
 	text      varchar(2000) NOT NULL,
     ques_id   int(255) NOT NULL,
-    like      int(255),
     FOREIGN KEY (ques_id) REFERENCES question(id)
 );
 
@@ -50,4 +49,11 @@ CREATE TABLE seikabutu (
     site varchar(100) NOT NULL,
     shosai varchar(500) NOT NULL,
     selection varchar(50) NOT NULL
+);
+
+DROP TABLE IF EXISTS anslike;
+CREATE TABLE anslike (
+    id int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    userid int(255),
+    ansid int(255) NOT NULL
 );

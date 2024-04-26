@@ -13,6 +13,7 @@ if (empty($result['id'])) {
     exit();
 }
 
+$userid = $result['id'];
 $username = $result['username'];
 
 $_SESSION['userId'] = $result['id'];

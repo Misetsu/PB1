@@ -112,4 +112,32 @@ class form extends Dbdata
         $sql = "UPDATE profile SET age = ?, interest = ?, intro = ? WHERE id = ?";
         $this->exec($sql, [$age, $interest, $intro, $userId]);
     }
+
+    public function countLike($ansid)
+    {
+        $sql = "SELECT COUNT(id) AS count FROM anslike WHERE ansid = ?";
+        $stmt = $this->query($sql, [$ansid]);
+        $result = $stmt->fetch();
+        return $result;
+    }
+
+    public function likeFlag($ansid, $userid)
+    {
+        $sql = "SELECT COUNT(id) AS count FROM anslike WHERE ansid = ? AND userid = ?";
+        $stmt = $this->query($sql, [$ansid, $userid]);
+        $result = $stmt->fetch();
+        return $result;
+    }
+
+    public function addLike($ansid, $userid)
+    {
+        $sql = "INSERT INTO anslike VALUES (null, ?, ?)";
+        $this->exec($sql, [$userid, $ansid]);
+    }
+
+    public function disLike($ansid, $userid)
+    {
+        $sql = "DELETE FROM anslike WHERE ansid = ? AND userid = ?";
+        $this->exec($sql, [$ansid, $userid]);
+    }
 }
