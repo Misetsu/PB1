@@ -7,11 +7,13 @@ header {
 }
 
 header button {
-    background-color: transparent; /* 背景色を透明に設定 */
+    background-color: transparent;
+    /* 背景色を透明に設定 */
     border: none;
     font-size: 24px;
     cursor: pointer;
-    margin-right: auto; /* ボタンを左に寄せる */
+    margin-right: auto;
+    /* ボタンを左に寄せる */
     color: inherit;
 }
 
@@ -19,7 +21,8 @@ header h1 {
     margin: 0;
     font-size: 48px;
     flex: 1;
-    text-align: center; /* タイトルを中央寄せに */
+    text-align: center;
+    /* タイトルを中央寄せに */
     text-transform: uppercase;
     letter-spacing: 3px;
     font-weight: 700;
@@ -70,8 +73,7 @@ h2 {
     margin-right: 100px;
 }
 
-#editButton {
-    display: block;
+.enterButton {
     margin-top: 10px;
     padding: 8px 16px;
     background-color: #f19ae1;
@@ -81,7 +83,7 @@ h2 {
     cursor: pointer;
 }
 
-#editButton:hover {
+.enterButton:hover {
     background-color: #eb64ae;
 }
 
@@ -127,4 +129,9 @@ h2 {
 input:disabled {
     border: none;
     color: black;
+}
+
+#cancelEdit {
+    border: none;
+    padding: 8px 16px;
 }

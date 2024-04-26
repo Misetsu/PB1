@@ -20,6 +20,7 @@ CREATE TABLE answer (
 	name      varchar(100) NOT NULL,
 	text      varchar(2000) NOT NULL,
     ques_id   int(255) NOT NULL,
+    like      int(255),
     FOREIGN KEY (ques_id) REFERENCES question(id)
 );
 
