@@ -100,4 +100,16 @@ class form extends Dbdata
         $result = $stmt->fetchAll();
         return $result;
     }
+
+    public function updateUser($userId, $username, $subject)
+    {
+        $sql = "UPDATE userinfo SET username = ?, subject = ? WHERE id = ?";
+        $this->exec($sql, [$username, $subject, $userId]);
+    }
+
+    public function updateProfile($userId, $age, $interest, $intro)
+    {
+        $sql = "UPDATE profile SET age = ?, interest = ?, intro = ? WHERE id = ?";
+        $this->exec($sql, [$age, $interest, $intro, $userId]);
+    }
 }

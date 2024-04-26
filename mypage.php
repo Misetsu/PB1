@@ -26,21 +26,25 @@ $info = $form->getInfo($userid);
     <h2>プロフィール</h2>
     <section id="profile">
         <div id="profileInfo">
-            <form>
+            <form action="update.php" method="POST">
                 <label>名前：</label><input id="name" name="name" value="<?= $username ?>" disabled>
                 <br><br>
-                <label>年齢：</label><input id="age" name="name" value="<?= is_null($profile['age']) ? '未入力' : $profile['age'] . '歳'; ?>" disabled>
+                <label>年齢：</label><input id="age" name="age" value="<?= is_null($profile['age']) ? '未入力' : $profile['age']; ?>" disabled>
                 <br><br>
                 <label>趣味：</label><input id="hobby" name="hobby" value="<?= is_null($profile['interest']) ? '未入力' : $profile['interest']; ?>" disabled>
                 <br><br>
                 <label>所属：</label><input id="company" name="company" value="<?= $info['subject'] ?>" disabled>
                 <br><br>
                 <label>メッセージ：</label><input id="description" name="description" value="<?= is_null($profile['intro']) ? '未入力' : $profile['intro']; ?>" disabled>
-                <input type="submit" value="保存する" style="display: none;">
-                <button id="cancelEdit" type="button" onclick="hideEdit()" style="display: none;">キャンセル</button>
+                <br><br>
+                <input name="userid" value="<?= $userid ?>" type="hidden">
+                <div id="formButton" style="display: none;">
+                    <input type="submit" value="保存する" id="submitEdit" class="enterButton">
+                    <button id="cancelEdit" type="button" onclick="hideEdit()">キャンセル</button>
+                </div>
             </form>
         </div>
-        <button id="editButton" type="button" onclick="showEdit()">編集する</button>
+        <button id="editButton" type="button" onclick="showEdit()" class="enterButton">編集する</button>
     </section>
     <h2>過去の質問履歴</h2>
     <section id="questionlist">
