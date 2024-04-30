@@ -50,9 +50,10 @@ $options = array(
             <div class="detail-block">
                 <h1>タイトル：<?= $seikabutu['title'] ?></h1>
                 <p>ユーザー名: <?= $seikabutu['username'] ?></p>
-                <pre><?= $seikabutu['message'] ?></pre>
-                <p>外部サイト：<?= $seikabutu['site'] ?></p>
-                <p>詳細：<?= $seikabutu['shosai'] ?></p>
+                <p>コード</p>
+                <pre><?= htmlspecialchars($seikabutu['message']) ?></pre>
+                <p>外部サイト：<a href="<?= htmlspecialchars($seikabutu['site']) ?>" target="_blank"><?= htmlspecialchars($seikabutu['site']) ?></a></p>
+                <label>詳細：<?= $seikabutu['shosai'] ?></label>
                 <p>開発言語：<?= $options[$seikabutu['selection']] ?></p>
             </div>
         <?php endforeach; ?>

@@ -61,12 +61,14 @@ p {
 }
 
 /* コードブロック */
-textarea {
+pre {
     background-color:#333333;
     color: #fff;
     padding: 10px;
     border-radius: 6px;
     overflow-x: auto;
+    max-height: 800px; /* コードブロックの最大高さ */
+    overflow-y: auto; /* 縦方向のスクロールバーを表示する */
 }
 
 /* 外部サイトリンク */
@@ -96,4 +98,20 @@ div.detail-container div a {
 
 div.detail-container div a:hover {
     background-color: #eb64ae;
+}
+.detail-block {
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.detail-block label {
+    display: block;
+    background-color: #cccccc;
+    padding: 10px;
+    border-radius: 5px;
+    word-wrap: break-word;
+    margin-bottom: 10px;
 }

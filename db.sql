@@ -7,26 +7,25 @@ grant all privileges on ilove.* to Ilove@localhost identified by '11111';
 use ilove;
 
 CREATE TABLE question (
-    id int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name varchar(100) NOT NULL,
-    title varchar(2000) NOT NULL,
-    message varchar(2000) NOT NULL,
+    id        int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    userid    int(255) NOT NULL,
+    title     varchar(2000) NOT NULL,
+    message   varchar(2000) NOT NULL,
     selection varchar(50) NOT NULL
 );
 
 DROP TABLE IF EXISTS answer;
 CREATE TABLE answer (
     id        int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	name      varchar(100) NOT NULL,
+	userid    int(255) NOT NULL,
 	text      varchar(2000) NOT NULL,
     ques_id   int(255) NOT NULL,
-    like      int(255),
     FOREIGN KEY (ques_id) REFERENCES question(id)
 );
 
 DROP TABLE IF EXISTS userinfo;
 CREATE TABLE userinfo (
-    id        int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    userid    int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username  varchar(100) NOT NULL,
     subject   varchar(100) NOT NULL,
     email     varchar(100) NOT NULL,
@@ -35,7 +34,7 @@ CREATE TABLE userinfo (
 
 DROP TABLE IF EXISTS profile;
 CREATE TABLE profile (
-    id        int(255) NOT NULL PRIMARY KEY,
+    userid    int(255) NOT NULL PRIMARY KEY,
     age       int(10),
     interest  varchar(200),
     intro     varchar(500)
@@ -43,11 +42,18 @@ CREATE TABLE profile (
 
 DROP TABLE IF EXISTS seikabutu;
 CREATE TABLE seikabutu (
-    id int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    username varchar(100) NOT NULL,
-    title varchar(2000) NOT NULL,
-    message varchar(2000) NOT NULL,
-    site varchar(100) NOT NULL,
-    shosai varchar(500) NOT NULL,
-    selection varchar(50) NOT NULL
+    id         int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    username   varchar(100) NOT NULL,
+    title      varchar(2000) NOT NULL,
+    message    varchar(10000) NOT NULL,
+    site       varchar(100) NOT NULL,
+    shosai     varchar(1000) NOT NULL,
+    selection  varchar(50) NOT NULL
+);
+
+DROP TABLE IF EXISTS anslike;
+CREATE TABLE anslike (
+    id        int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    userid    int(255),
+    ansid     int(255) NOT NULL
 );

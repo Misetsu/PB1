@@ -1,21 +1,17 @@
 <?php
 require_once __DIR__ . '/class.php';
 $form = new form();
-$name= $_POST['username-input'];
+require_once __DIR__ . '/pre.php';
+if(isset($_SESSION['userid'])) {
+    $userid = $_SESSION['userid'];
+}
 $title = $_POST['title-input'];
 $message = $_POST['message-input'];
 $selection = $_POST['selection-input'];
 
+$form->insertForm($userid, $title, $message, $selection);
 
-$form->insertForm($name, $title, $message, $selection);
-
-?>
-<?php
-// insert.php
-
-// フォームのデータを処理
-
-// index.phpにリダイレクト
+// リダイレクト
 header("Location: index.php");
-exit; // リダイレクト後にスクリプトの実行を終了するために必要
+exit;
 ?>
