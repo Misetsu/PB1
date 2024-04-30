@@ -13,11 +13,13 @@ header {
 }
 
 header button {
-    background-color: transparent; /* 背景色を透明に設定 */
+    background-color: transparent;
+    /* 背景色を透明に設定 */
     border: none;
     font-size: 24px;
     cursor: pointer;
-    margin-right: auto; /* ボタンを左に寄せる */
+    margin-right: auto;
+    /* ボタンを左に寄せる */
     color: inherit;
 }
 
@@ -25,7 +27,8 @@ header h1 {
     margin: 0;
     font-size: 48px;
     flex: 1;
-    text-align: center; /* タイトルを中央寄せに */
+    text-align: center;
+    /* タイトルを中央寄せに */
     text-transform: uppercase;
     letter-spacing: 3px;
     font-weight: 700;
@@ -210,10 +213,8 @@ button {
 }
 
 .container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-left: 50vw;
+    transform: translate(-50%);
 }
 
 .centered-movie {
@@ -224,4 +225,9 @@ button {
 #goodVideo {
     display: none;
     /* 動画エフェクトを非表示状態にする */
+}
+
+video {
+    margin-left: 50vw;
+    transform: translate(-50%);
 }
