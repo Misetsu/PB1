@@ -107,13 +107,13 @@ class form extends Dbdata
 
     public function updateUser($userId, $username, $subject)
     {
-        $sql = "UPDATE userinfo SET username = ?, subject = ? WHERE id = ?";
+        $sql = "UPDATE userinfo SET username = ?, subject = ? WHERE userid = ?";
         $this->exec($sql, [$username, $subject, $userId]);
     }
 
     public function updateProfile($userId, $age, $interest, $intro)
     {
-        $sql = "UPDATE profile SET age = ?, interest = ?, intro = ? WHERE id = ?";
+        $sql = "UPDATE profile SET age = ?, interest = ?, intro = ? WHERE userid = ?";
         $this->exec($sql, [$age, $interest, $intro, $userId]);
     }
 
