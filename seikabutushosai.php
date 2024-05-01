@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h2>アドバイスを入力</h2>
             <!-- アドバイス入力フォーム -->
             <form method="post" action="">
-                <textarea name="advice" rows="4" cols="50"></textarea><br>
+                <textarea name="advice" rows="4" cols="118"></textarea><br>
                 <input type="submit" value="送信">
             </form>
         </div>
