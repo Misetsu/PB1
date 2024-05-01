@@ -1,10 +1,7 @@
 <?php
 require_once __DIR__ . '/class.php';
-
-$quesID = $_GET['ident'];
-
 require_once __DIR__ . '/pre.php';
-
+$quesID = $_GET['ident'];
 $form = new form();
 $ques = $form->getQues($quesID);
 $allAns = $form->getAllAns($quesID);
@@ -38,9 +35,15 @@ $options = array(
 
 <body>
     <header>質問表示詳細ページ</header>
+
     <div id="question-container">
         <h2><?= $ques['title'] ?></h2>
-        <a href="mypage.php" style="text-align: right;"><?= $ques['username'] ?>　さん</a>
+        <form action="/yourpage.php" method="GET">
+        <a href="yourpage.php?ident=<?= $ques['userid'] ?>" style="text-align: right; display: block;">
+            <?= $ques['username'] ?> さん
+        </a>
+        </form>
+
         <p class="text-container">
             <?= $ques['message'] ?>
             <br><br>

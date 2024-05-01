@@ -2,11 +2,18 @@
 <html lang="ja">
 
 <?php
+
 require_once __DIR__ . '/pre.php';
 require_once __DIR__ . '/class.php';
 $form = new Form();
-$profile = $form->getProfile($userid);
-$info = $form->getInfo($userid);
+
+
+// GETメソッドで送信されたuseridの取得
+$ident = $_GET['ident'];
+
+// ユーザー情報の取得
+$profile = $form->getProfile($ident);
+$info = $form->getInfo($ident);
 ?>
 
 <head>
@@ -21,13 +28,13 @@ $info = $form->getInfo($userid);
         <button onclick="location.href='home.html'" style="font-size: 24px;">🏠</button>
         <h1>ユアページ</h1>
     </header>
-    <h1><?= $username ?>さんのマイページ</h1>
+    <h1><?= $info['username'] ?>さんのマイページ</h1>
 
     <h2>プロフィール</h2>
     <section id="profile">
         <div id="profileInfo">
             <form action="update.php" method="POST">
-                <label>名前：</label><input id="name" name="name" value="<?= $username ?>" disabled>
+                <label>名前：</label><input id="name" name="name" value="<?= $info['username'] ?>" disabled>
                 <br><br>
                 <label>年齢：</label><input id="age" name="age" value="<?= is_null($profile['age']) ? '未入力' : $profile['age']; ?>" disabled>
                 <br><br>
