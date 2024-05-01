@@ -210,10 +210,16 @@ button {
 }
 
 .good-container {
-    position: absolute;
+    position: fixed;
+    /* スクロールしても位置が固定される */
     top: 50%;
+    /* 上端から画面の50%の位置に */
     left: 50%;
+    /* 左端から画面の50%の位置に */
     transform: translate(-50%, -50%);
+    /* 画像の中心を正確に画面の中央に合わせる */
+    z-index: 10;
+    /* 必要に応じてz-indexを調整 */
 }
 
 .centered-movie {
