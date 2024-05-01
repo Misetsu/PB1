@@ -74,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
             </div>
             <?php endforeach; ?>
-        <div style="text-align: center; margin-top: 20px;">
+        <div style="text-align: left; margin-top: 20px;">
             <h2>アドバイスを入力</h2>
             <!-- アドバイス入力フォーム -->
             <form method="post" action="">
