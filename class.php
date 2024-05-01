@@ -83,6 +83,7 @@ class form extends Dbdata
         return $result;
     }
 
+
     public function getInfo($userid)
     {
         $sql = "SELECT * FROM userinfo WHERE userid = ?";
