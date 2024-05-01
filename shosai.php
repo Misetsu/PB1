@@ -34,7 +34,6 @@ $options = array(
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>詳細ページ</title>
     <link rel="stylesheet" href="shosai.css">
-    <link rel="stylesheet" href="button.css" />
 </head>
 
 <body>
@@ -49,10 +48,9 @@ $options = array(
             <br><br>
         </p>
     </div>
-    </div>
 
-    <div class="container">
-        <video id="goodVideo" class="centered-movie">
+    <div class="good-container">
+        <video id="goodVideo" class="centered-movie" >
             <source src="good.mp4" controls>
         </video>
     </div>
@@ -70,7 +68,6 @@ $options = array(
                 $flag = $form->likeFlag($row['id'], $userid)
             ?>
 
-
                 <div style="display: flex; justify-content: flex-end;">
                     <button type="button" id="countButton<?= $counter ?>" onclick="like<?= $counter ?>()">
                         <img id="Buttonimg<?= $counter ?>" src="good.png" alt="ボタン画像"/>
@@ -81,12 +78,12 @@ $options = array(
 
 
                 <script>
-                    let count<?= $counter ?> = 0;//いいねの初期値
+                    let count<?= $counter ?> = 0;//いいねの初期値(データベースから参照できるようにする)
                     const button<?= $counter ?> = document.getElementById('countButton<?= $counter ?>');
 
-                    function like<?= $counter ?>() {//いいねボタンが押されたとき
-                        if (count<?= $counter ?> === 0) {
-                            count<?= $counter ?> += 1;//いいねボタンのカウント追加
+                    function like<?= $counter ?>() {//いいねボタンが押されたときの処理↓
+                        if (count<?= $counter ?> === 0) {//実際はデータベースに入っているいいね数を比較対象にする
+                            count<?= $counter ?> += 1;//いいねボタンのカウント追加（データベースに送る処理にする）
                             document.getElementById('count<?= $counter ?>').textContent = count<?= $counter ?>;//表示を更新
                             document.getElementById("Buttonimg<?= $counter ?>").src = "good2.png";//いいね画像の切り替え
                             const videoElement = document.getElementById('goodVideo');

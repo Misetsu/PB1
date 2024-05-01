@@ -4,6 +4,7 @@ body {
     padding: 0;
 }
 
+
 header {
     background-color: orange;
     color: #fff;
@@ -99,11 +100,7 @@ p {
     color: #333333;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
+
 
 .tag {
     padding: 6px 16px;
@@ -212,9 +209,11 @@ button {
     background: transparent;
 }
 
-.container {
-    margin-left: 50vw;
-    transform: translate(-50%);
+.good-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .centered-movie {
@@ -225,9 +224,4 @@ button {
 #goodVideo {
     display: none;
     /* 動画エフェクトを非表示状態にする */
-}
-
-video {
-    margin-left: 50vw;
-    transform: translate(-50%);
 }
