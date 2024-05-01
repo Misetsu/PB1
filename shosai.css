@@ -4,6 +4,7 @@ body {
     padding: 0;
 }
 
+
 header {
     background-color: orange;
     color: #fff;
@@ -99,11 +100,7 @@ p {
     color: #333333;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
+
 
 .tag {
     padding: 6px 16px;
@@ -212,9 +209,17 @@ button {
     background: transparent;
 }
 
-.container {
-    margin-left: 50vw;
-    transform: translate(-50%);
+.good-container {
+    position: fixed;
+    /* スクロールしても位置が固定される */
+    top: 50%;
+    /* 上端から画面の50%の位置に */
+    left: 50%;
+    /* 左端から画面の50%の位置に */
+    transform: translate(-50%, -50%);
+    /* 画像の中心を正確に画面の中央に合わせる */
+    z-index: 10;
+    /* 必要に応じてz-indexを調整 */
 }
 
 .centered-movie {
@@ -224,10 +229,6 @@ button {
 
 #goodVideo {
     display: none;
+    z-index: 9999;
     /* 動画エフェクトを非表示状態にする */
-}
-
-video {
-    margin-left: 50vw;
-    transform: translate(-50%);
 }
