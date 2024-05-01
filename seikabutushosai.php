@@ -74,11 +74,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
             </div>
             <?php endforeach; ?>
-        <div style="text-align: center; margin-top: 20px;">
+        <div style="text-align: left; margin-top: 20px;">
             <h2>アドバイスを入力</h2>
             <!-- アドバイス入力フォーム -->
             <form method="post" action="">
-                <textarea name="advice" rows="4" cols="50"></textarea><br>
+                <textarea name="advice" rows="4" cols="118"></textarea><br>
                 <input type="submit" value="送信">
             </form>
         </div>
