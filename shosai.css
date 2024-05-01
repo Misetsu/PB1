@@ -223,5 +223,6 @@ button {
 
 #goodVideo {
     display: none;
+    z-index: 9999;
     /* 動画エフェクトを非表示状態にする */
 }
