@@ -69,10 +69,14 @@ class form extends Dbdata
 
     public function authUser($email, $password)
     {
-        $sql = "SELECT * FROM userinfo WHERE email = ? AND password = ?";
-        $stmt = $this->query($sql, [$email, $password]);
+        $sql = "SELECT * FROM userinfo WHERE email = ?";
+        $stmt = $this->query($sql, [$email]);
         $result = $stmt->fetch();
-        return $result;
+        if (password_verify($password, $result['password'])) {
+            return $result;
+        } else {
+            return false;
+        }
     }
 
     public function getProfile($userid)

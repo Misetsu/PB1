@@ -61,8 +61,6 @@ $info = $form->getInfo($userid);
         <a href="seikabutu.html">〇×ゲーム</a>
     </section>
 
-    <button id="changeColorButton">背景色を変更する</button>
-
     <script src="mypagescript.js"></script>
     <div class="center">
         <a href="question.php">質問投稿ページへ行く</a>
