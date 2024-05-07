@@ -57,30 +57,11 @@ $options = array(
                 <p>外部サイト：<a href="<?= htmlspecialchars($seikabutu['site']) ?>" target="_blank"><?= htmlspecialchars($seikabutu['site']) ?></a></p>
                 <label>詳細：<?= $seikabutu['shosai'] ?></label>
                 <p>開発言語：<?= $options[$seikabutu['selection']] ?></p>
-                <?php
-// アドバイスが送信されたかどうかを確認
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // フォームから送信されたアドバイスを取得
-    $advice = $_POST['advice'];
-
-    // アドバイスが空でない場合、表示
-    if (!empty($advice)) {
-        echo "<div style='text-align:center; margin-top: 20px;'>";
-        echo "<h2>アドバイス</h2>";
-        echo "<p>" . htmlspecialchars($advice) . "</p>";
-        echo "</div>";
-    }
-}
-?>
+                
             </div>
             <?php endforeach; ?>
         <div style="text-align: left; margin-top: 20px;">
-            <h2>アドバイスを入力</h2>
-            <!-- アドバイス入力フォーム -->
-            <form method="post" action="">
-                <textarea name="advice" rows="4" cols="118"></textarea><br>
-                <input type="submit" value="送信">
-            </form>
+            
         </div>
         <div style="text-align: center;">
             <a href="home.html">ホームページへ戻る</a>
