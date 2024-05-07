@@ -117,11 +117,6 @@ $options = array(
 
     </main>
 
-    <div class="right">
-        <a href="mypage.php"> マイページへ行く</a>
-        <a href="question.php">質問投稿ページへ行く</a>
-    </div>
-
 
     <footer>
         <p>&copy; I love 「愛」チーム情報共有サイト</p>

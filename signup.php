@@ -63,9 +63,6 @@
         </div>
         <button type="submit">登録</button>
     </form>
-    <a href="login.php">ログインページへ</a>
-    <br>
-    <a href="rule.html">利用規約を確認</a>
 </body>
 
 </html>

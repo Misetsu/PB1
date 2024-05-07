@@ -86,9 +86,6 @@ $options = array(
         <div style="text-align: left; margin-top: 20px;">
             
         </div>
-        <div style="text-align: center;">
-            <a href="home.html">ホームページへ戻る</a>
-        </div>
     </div>
 </body>
 

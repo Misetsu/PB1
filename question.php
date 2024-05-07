@@ -112,11 +112,6 @@ if(isset($_POST['submit_question'])) {
                 <input type="submit" id="submitButton" value="投稿" onclick="disableButton()">
             </form>
         </div>
-        <div style="text-align: center;">
-            <a href="index.php">記事一覧を見る</a>
-            <br>
-            <a href="rule.html">利用規約を確認</a>
-        </div>
     </div>
 </body>
 

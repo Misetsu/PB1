@@ -174,9 +174,6 @@ $options = array(
             </form>
         </div>
     </div>
-    <div style="text-align: center;">
-        <a href="index.php">記事一覧を見る</a>
-    </div>
     <footer>
         <p>&copy; I love 「愛」チーム情報共有サイト</p>
     </footer>

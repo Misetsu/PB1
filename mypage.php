@@ -32,7 +32,7 @@ $info = $form->getInfo($userid);
             <li><a href="rule.html">利用規約へ</a></li>
         </ul>
     </nav>
-        <h1>マイページジ</h1>
+        <h1>マイページ</h1>
         <script>
             document.getElementById("menuBtn").addEventListener("click", function() {
         var menu = document.getElementById("menuContent");
@@ -86,10 +86,6 @@ $info = $form->getInfo($userid);
 
     <script src="mypagescript.js"></script>
     <div class="center">
-        <a href="question.php">質問投稿ページへ行く</a>
-        <br>
-        <a href="rule.html">利用規約を確認</a>
-        <br>
         <a href="logout.php">ログアウト</a>
     </div>
     <footer>

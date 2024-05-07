@@ -71,16 +71,6 @@ pre {
     overflow-y: auto; /* 縦方向のスクロールバーを表示する */
 }
 
-/* 外部サイトリンク */
-a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
 /* 戻るボタン */
 div.detail-container div {
     margin-top: 20px;
@@ -169,4 +159,12 @@ nav ul li a {
     text-decoration: none;
     color: #333;
     font-size: 18px;
+}
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
