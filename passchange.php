@@ -13,15 +13,15 @@
         <button onclick="location.href='home.html'" style="font-size: 24px;">🏠</button>
         <h1>パスワード変更ページ</h1>
     </header>
-    <h1>パスワードを変更するために現在のパスワードと新しいパスワードを入力してください</h1>
+    <h1>現在のパスワードと新しいパスワードを入力してください</h1>
     <form action="login_db.php" method="post">
         <div class="form-group">
             <label for="password">現在のパスワード：</label>
             <input type="password" id="password" name="password" required />
         </div>
         <div class="form-group">
-            <label for="new-password">新しいパスワード：</label>
-            <input type="new-password" id="new-password" name="new-password" required />
+            <label for="password">新しいパスワード：</label>
+            <input type="password" id="password" name="password" required />
         </div>
         <button type="submit">変更</button>
     </form>
