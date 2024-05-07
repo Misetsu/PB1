@@ -59,10 +59,3 @@ function hideEdit() {
     document.getElementById('description').disabled = true;
 }
 
-function changeBackgroundColor() {
-    var body = document.querySelector('body');
-    // 背景色をランダムに設定
-    var colors = ['red', 'blue', 'brack', 'white', 'green', 'yellow'];
-    var randomColor = colors[Math.floor(Math.random() * colors.length)];
-    body.style.backgroundColor = randomColor;
-}
