@@ -40,24 +40,6 @@ $options = array(
     <link rel="stylesheet" href="styles.css" />
 </head>
 
-<style>
-    .right {
-        text-align: right;
-    }
-    img:hover {/*画像にポインタが触られたとき*/
-        opacity: 0.5;/*アイコンを薄くする*/
-        cursor: pointer;/* カーソルをポインターに変更 */
-    }
-
-    img:active {/*画像がクリックされたとき*/
-        position: relative;/*画像の位置を元に戻す*/
-        top: 3px;/* 画像を少し下に移動させる */
-    }
-
-</style>
-
-
-
 <body>
 <header>
         <button id="menuBtn">

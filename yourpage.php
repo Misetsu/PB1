@@ -28,7 +28,7 @@ $seikas = $form->getUserSeika($ident);
 
 <body>
     <header>
-        <button id="menuBtn">メニュー</button>
+        <button id="menuBtn"><img id="menubutton" src="menubutton.png" alt="ボタン画像"/></button>
         <nav id="menuContent">
             <ul>
                 <li><a href="signup.php">利用登録ページへ</a></li>

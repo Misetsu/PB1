@@ -16,11 +16,13 @@ header {
 }
 
 header button {
-    background-color: transparent; /* 背景色を透明に設定 */
+    background-color: transparent;
+    /* 背景色を透明に設定 */
     border: none;
     font-size: 24px;
     cursor: pointer;
-    margin-right: auto; /* ボタンを左に寄せる */
+    margin-right: auto;
+    /* ボタンを左に寄せる */
     color: inherit;
 }
 
@@ -28,7 +30,8 @@ header h1 {
     margin: 0;
     font-size: 48px;
     flex: 1;
-    text-align: center; /* タイトルを中央寄せに */
+    text-align: center;
+    /* タイトルを中央寄せに */
     text-transform: uppercase;
     letter-spacing: 3px;
     font-weight: 700;
@@ -62,13 +65,15 @@ p {
 
 /* コードブロック */
 pre {
-    background-color:#333333;
+    background-color: #333333;
     color: #fff;
     padding: 10px;
     border-radius: 6px;
     overflow-x: auto;
-    max-height: 800px; /* コードブロックの最大高さ */
-    overflow-y: auto; /* 縦方向のスクロールバーを表示する */
+    max-height: 800px;
+    /* コードブロックの最大高さ */
+    overflow-y: auto;
+    /* 縦方向のスクロールバーを表示する */
 }
 
 /* 戻るボタン */
@@ -89,6 +94,7 @@ div.detail-container div a {
 div.detail-container div a:hover {
     background-color: #eb64ae;
 }
+
 .detail-block {
     border: 2px solid #333;
     border-radius: 10px;
@@ -97,6 +103,7 @@ div.detail-container div a:hover {
     background-color: #f8f9fa;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .detail-block label {
     display: block;
     background-color: #cccccc;
@@ -105,12 +112,13 @@ div.detail-container div a:hover {
     word-wrap: break-word;
     margin-bottom: 10px;
 }
+
 #menuContent {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -129,10 +137,12 @@ div.detail-container div a:hover {
 #menuContent li a:hover {
     background-color: #f1f1f1;
 }
+
 nav {
     background-color: #f4f4f4;
     width: 250px;
-    height: calc(100vh - 80px); /* ヘッダーの高さに合わせてメニューバーの高さを調整 */
+    height: calc(100vh - 80px);
+    /* ヘッダーの高さに合わせてメニューバーの高さを調整 */
     position: fixed;
     top: 110px;
     left: 0;
@@ -160,6 +170,7 @@ nav ul li a {
     color: #333;
     font-size: 18px;
 }
+
 a {
     color: #007bff;
     text-decoration: none;
@@ -167,4 +178,20 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+img:hover {
+    /*画像にポインタが触られたとき*/
+    opacity: 0.5;
+    /*アイコンを薄くする*/
+    cursor: pointer;
+    /* カーソルをポインターに変更 */
+}
+
+img:active {
+    /*画像がクリックされたとき*/
+    position: relative;
+    /*画像の位置を元に戻す*/
+    top: 3px;
+    /* 画像を少し下に移動させる */
 }

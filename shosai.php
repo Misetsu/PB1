@@ -37,7 +37,6 @@ $options = array(
 </head>
 
 <body>
-    <header>質問表示詳細ページ</header>
 <header>
     <button id="menuBtn"><img id="menubutton" src="menubutton.png" alt="ボタン画像"/></button>
         <nav id="menuContent">

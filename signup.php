@@ -23,17 +23,7 @@
             <li><a href="seikabutushosai.php">成果物詳細ページへ</a></li>
             <li><a href="rule.html">利用規約へ</a></li>
         </ul>
-        <style>
-            img:hover {/*画像にポインタが触られたとき*/
-                opacity: 0.5;/*アイコンを薄くする*/
-                cursor: pointer;/* カーソルをポインターに変更 */
-            }
-
-            img:active {/*画像がクリックされたとき*/
-                position: relative;/*画像の位置を元に戻す*/
-                top: 3px;/* 画像を少し下に移動させる */
-            }
-        </style>
+        
     </nav>
         <h1>利用登録ページ</h1>
         <script>
