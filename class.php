@@ -96,14 +96,15 @@ class form extends Dbdata
         return $result;
     }
 
-    public function insertseikabutu($username, $title, $message, $site, $shosai, $selection)
+    public function insertseikabutu($userid, $title, $message, $site, $shosai, $selection)
     {
         $sql = "INSERT INTO seikabutu VALUES (null, ?, ?, ?, ?, ?, ?)";
-        $this->exec($sql, [$username, $title, $message, $site, $shosai, $selection]);
+        $this->exec($sql, [$userid, $title, $message, $site, $shosai, $selection]);
     }
+
     public function getAllSeikabutu()
     {
-        $sql = "SELECT * FROM seikabutu ORDER BY id DESC";
+        $sql = "SELECT * FROM seikabutu JOIN userinfo ON seikabutu.userid = userinfo.userid ORDER BY id DESC";
         $stmt = $this->query($sql, []);
         $result = $stmt->fetchAll();
         return $result;
@@ -154,6 +155,30 @@ class form extends Dbdata
         $sql = "SELECT COUNT(id) AS count FROM anslike WHERE ansid = ?";
         $stmt = $this->query($sql, [$ansid]);
         $result = $stmt->fetch();
+        return $result;
+    }
+
+    public function getUserQues($userid)
+    {
+        $sql = "SELECT * FROM question WHERE userid = ?";
+        $stmt = $this->query($sql, [$userid]);
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
+    public function getUserAns($userid)
+    {
+        $sql = "SELECT * FROM answer JOIN question ON answer.ques_id = question.id WHERE answer.userid = ?";
+        $stmt = $this->query($sql, [$userid]);
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
+    public function getUserSeika($userid)
+    {
+        $sql = "SELECT * FROM seikabutu WHERE userid = ?";
+        $stmt = $this->query($sql, [$userid]);
+        $result = $stmt->fetchAll();
         return $result;
     }
 }

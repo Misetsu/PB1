@@ -89,13 +89,25 @@ $options = array(
             <?php
             $counter += 1;
             foreach ($allAns as $row) {
-                echo '<h4 style="text-align: right;">' . $row['username'] . '　さん</h4>';
-                echo '<div class="answer"><p>' . $ques['username'] . 'さんへの返信：</p><p>' . $row['text'] . '<p></div>';
+            ?>
+                <a href="yourpage.php?ident=<?= $row['userid'] ?>">
+                    <h4 style="text-align: right;"><?= $row['username'] ?> さん</h4>
+                </a>
+                <div class="answer">
+                    <p>
+                        <a href="yourpage.php?ident=<?= $ques['userid'] ?>">
+                            <?= $ques['username'] ?>さん
+                        </a>
+                        への返信：
+                    </p>
+                    <p><?= $row['text'] ?></p>
+                </div>
+                <?php
                 $count = $form->countLike($row['id']);
                 $flag = $form->likeFlag($row['id'], $userid);
 
                 if ($flag['count'] == 0) {
-            ?>
+                ?>
                     <div style="display: flex; justify-content: flex-end;">
                         <form class="rateform">
                             <input type="hidden" name="ansid" value="<?= $row['id'] ?>">

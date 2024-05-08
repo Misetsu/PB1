@@ -14,13 +14,16 @@ $ident = $_GET['ident'];
 // ユーザー情報の取得
 $profile = $form->getProfile($ident);
 $info = $form->getInfo($ident);
+$questions = $form->getUserQues($ident);
+$answers = $form->getUserAns($ident);
+$seikas = $form->getUserSeika($ident);
 ?>
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>マイページ</title>
-    <link rel="stylesheet" href="mypage.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユーザープロフィール</title>
+    <link rel="stylesheet" href="mypage.css">
 </head>
 
 <body>
@@ -51,7 +54,7 @@ $info = $form->getInfo($ident);
             });
         </script>
     </header>
-    <h1><?= $info['username'] ?>さんのマイページ</h1>
+    <h1><?= $info['username'] ?>さんのプロフィール</h1>
 
     <h2>プロフィール</h2>
     <section id="profile">
@@ -71,17 +74,59 @@ $info = $form->getInfo($ident);
     </section>
     <h2>過去の質問履歴</h2>
     <section id="questionlist">
-        <a href="shosai.html">プログラムがわからない</a>
+        <?php
+        if (empty($questions)) {
+        ?>
+            <p>質問履歴がございません。</p>
+            <?php
+        } else {
+            foreach ($questions as $question) {
+            ?>
+                <p>
+                    <a href="shosai.php?ident=<?= $question['id'] ?>"><?= $question['title'] ?></a>
+                </p>
+        <?php
+            }
+        }
+        ?>
     </section>
 
     <h2>過去の回答履歴</h2>
     <section id="answerlist">
-        <a href="shosai.html">Javaは理解できれば難しくない</a>
+        <?php
+        if (empty($answers)) {
+        ?>
+            <p>回答履歴がございません。</p>
+            <?php
+        } else {
+            foreach ($answers as $answer) {
+            ?>
+                <p>
+                    <a href="shosai.php?ident=<?= $answer['ques_id'] ?>"><?= $answer['title'] ?></a>
+                </p>
+        <?php
+            }
+        }
+        ?>
     </section>
 
     <h2>投稿された成果物</h2>
     <section id="worklist">
-        <a href="seikabutu.html">〇×ゲーム</a>
+        <?php
+        if (empty($seikas)) {
+        ?>
+            <p>成果物の投稿履歴がございません。</p>
+            <?php
+        } else {
+            foreach ($seikas as $seika) {
+            ?>
+                <p>
+                    <a href="seikabutushosai.php"><?= $seika['title'] ?></a>
+                </p>
+        <?php
+            }
+        }
+        ?>
     </section>
 
 
@@ -93,7 +138,5 @@ $info = $form->getInfo($ident);
         <p>&copy; I love 「愛」チーム情報共有サイト</p>
     </footer>
 </body>
-
-
 
 </html>
