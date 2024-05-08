@@ -168,7 +168,7 @@ class form extends Dbdata
 
     public function getUserAns($userid)
     {
-        $sql = "SELECT * FROM answer JOIN question ON answer.ques_id = question.id WHERE answer.userid = ?";
+        $sql = "SELECT answer.id, answer.text, answer.ques_id, question.title FROM answer JOIN question ON answer.ques_id = question.id WHERE answer.userid = ?";
         $stmt = $this->query($sql, [$userid]);
         $result = $stmt->fetchAll();
         return $result;
@@ -213,6 +213,14 @@ class form extends Dbdata
         $sql = "DELETE FROM queslike WHERE quesid = ? AND userid = ?";
         $this->exec($sql, [$quesid, $userid]);
         $sql = "SELECT COUNT(id) AS count FROM queslike WHERE quesid = ?";
+        $stmt = $this->query($sql, [$quesid]);
+        $result = $stmt->fetch();
+        return $result;
+    }
+
+    public function countAns($quesid)
+    {
+        $sql = "SELECT COUNT(id) AS count FROM answer WHERE ques_id = ?";
         $stmt = $this->query($sql, [$quesid]);
         $result = $stmt->fetch();
         return $result;
