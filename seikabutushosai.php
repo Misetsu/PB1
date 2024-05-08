@@ -29,9 +29,6 @@ $options = array(
 );
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -43,20 +40,20 @@ $options = array(
 </head>
 
 <body>
-<header>
+    <header>
         <button id="menuBtn"><img id="menubutton" src="menubutton.png" alt="ボタン画像"/></button>
-    <nav id="menuContent">
-        <ul>
-            <li><a href="signup.php">利用登録ページへ</a></li>
-            <li><a href="login.php">ログインページへ</a></li>
-            <li><a href="question.php">質問投稿ページへ</a></li>
-            <li><a href="index.php">質問一覧ページへ</a></li>
-            <li><a href="mypage.php">マイページへ</a></li>
-            <li><a href="otoiawase.html">お問い合わせページへ</a></li>
-            <li><a href="seikabutu.html">成果物投稿ページへ</a></li>
-            <li><a href="seikabutushosai.php">成果物詳細ページへ</a></li>
-            <li><a href="rule.html">利用規約へ</a></li>
-        </ul>
+        <nav id="menuContent">
+            <ul>
+                <li><a href="signup.php">利用登録ページへ</a></li>
+                <li><a href="login.php">ログインページへ</a></li>
+                <li><a href="question.php">質問投稿ページへ</a></li>
+                <li><a href="index.php">質問一覧ページへ</a></li>
+                <li><a href="mypage.php">マイページへ</a></li>
+                <li><a href="otoiawase.html">お問い合わせページへ</a></li>
+                <li><a href="seikabutu.html">成果物投稿ページへ</a></li>
+                <li><a href="seikabutushosai.php">成果物詳細ページへ</a></li>
+                <li><a href="rule.html">利用規約へ</a></li>
+            </ul>
         <style>
     .right {
         text-align: right;
@@ -72,26 +69,26 @@ $options = array(
     }
 
 </style>
-    </nav>
+        </nav>
         <h1>成果物詳細ページ</h1>
         <script>
             document.getElementById("menuBtn").addEventListener("click", function() {
-        var menu = document.getElementById("menuContent");
-        if (menu.style.display === "block") {
-        menu.style.display = "none";
-        } else {
-        menu.style.display = "block";
+                var menu = document.getElementById("menuContent");
+                if (menu.style.display === "block") {
+                    menu.style.display = "none";
+                } else {
+                    menu.style.display = "block";
          }
         });
         document.addEventListener('click', function(event) {//全体にクリックイベントを設定
                 if (!document.getElementById('menuBtn').contains(event.target)) {// メニューバー以外をクリックしたとき
                     document.getElementById('menuContent').style.display = 'none';// メニューバーを閉じる
-                }
-            });
+                       }
+                });
         </script>
     </header>
     <div class="detail-container">
-        <?php foreach ($seikabutuList as $seikabutu): ?>
+        <?php foreach ($seikabutuList as $seikabutu) : ?>
             <div class="detail-block">
                 <h1>タイトル：<?= $seikabutu['title'] ?></h1>
                 <p>ユーザー名: <?= $seikabutu['username'] ?></p>
@@ -100,11 +97,11 @@ $options = array(
                 <p>外部サイト：<a href="<?= htmlspecialchars($seikabutu['site']) ?>" target="_blank"><?= htmlspecialchars($seikabutu['site']) ?></a></p>
                 <label>詳細：<?= $seikabutu['shosai'] ?></label>
                 <p>開発言語：<?= $options[$seikabutu['selection']] ?></p>
-                
+
             </div>
-            <?php endforeach; ?>
+        <?php endforeach; ?>
         <div style="text-align: left; margin-top: 20px;">
-            
+
         </div>
     </div>
 </body>

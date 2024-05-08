@@ -43,7 +43,7 @@ CREATE TABLE profile (
 DROP TABLE IF EXISTS seikabutu;
 CREATE TABLE seikabutu (
     id         int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    username   varchar(100) NOT NULL,
+    userid     int(255) NOT NULL,
     title      varchar(2000) NOT NULL,
     message    varchar(10000) NOT NULL,
     site       varchar(100) NOT NULL,
@@ -57,3 +57,10 @@ CREATE TABLE anslike (
     userid    int(255),
     ansid     int(255) NOT NULL
 );
+
+DROP TABLE IF EXISTS queslike;
+CREATE TABLE queslike (
+    id        int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    userid    int(255),
+    quesid    int(255) NOT NULL   
+)
