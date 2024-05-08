@@ -58,7 +58,7 @@ if(isset($_POST['submit_question'])) {
 
 <body>
 <header>
-        <button id="menuBtn">メニュー</button>
+        <button id="menuBtn"><img id="menubutton" src="menubutton.png" alt="ボタン画像"/></button>
     <nav id="menuContent">
         <ul>
             <li><a href="signup.php">利用登録ページへ</a></li>
@@ -82,6 +82,11 @@ if(isset($_POST['submit_question'])) {
         menu.style.display = "block";
          }
         });
+        document.addEventListener('click', function(event) {//全体にクリックイベントを設定
+                if (!document.getElementById('menuBtn').contains(event.target)) {// メニューバー以外をクリックしたとき
+                    document.getElementById('menuContent').style.display = 'none';// メニューバーを閉じる
+                }
+            });
         </script>
     </header>
     <h1>IT質問用投稿フォーム</h1>
