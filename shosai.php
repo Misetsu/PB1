@@ -1,11 +1,14 @@
 <?php
 require_once __DIR__ . '/class.php';
 require_once __DIR__ . '/pre.php';
+$userid = $_SESSION['userid'];
 $quesID = $_GET['ident'];
 $form = new form();
 $ques = $form->getQues($quesID);
 $allAns = $form->getAllAns($quesID);
-$counter = 0;
+
+$count = $form->countQuesLike($quesID);
+$flag = $form->quesLikeFlag($quesID, $userid);
 
 $options = array(
     'option1' => 'C言語',
@@ -48,12 +51,34 @@ $options = array(
             <span class="tag"><?= $options[$ques['selection']] ?></span>
             <br><br>
         </p>
-        <div style="display: flex; justify-content: flex-end;">
-            <button type="button" id="countButton<?= $counter ?>" onclick="like<?= $counter ?>()">
-                <img id="Buttonimg<?= $counter ?>" src="good.png" alt="ボタン画像" />
-            </button>
-            <span id="count<?= $counter ?>">0</span>
-        </div>
+
+        <?php
+        if ($flag['count'] == 0) {
+        ?>
+            <div style="display: flex; justify-content: flex-end;">
+                <form class="rateques">
+                    <input type="hidden" name="quesid" value="<?= $ques['id'] ?>">
+                    <input type="hidden" name="userid" value="<?= $userid ?>">
+                    <input id="quesflag" type="hidden" name="type" value="0">
+                    <input id="quesbutton" type="image" src="good.png">
+                    <span id="quescount"><?= $count['count'] ?></span>
+                </form>
+            </div>
+        <?php
+        } else {
+        ?>
+            <div style="display: flex; justify-content: flex-end;">
+                <form class="rateques">
+                    <input type="hidden" name="quesid" value="<?= $ques['id'] ?>">
+                    <input type="hidden" name="userid" value="<?= $userid ?>">
+                    <input id="quesflag" type="hidden" name="type" value="1">
+                    <input id="quesbutton" type="image" src="good2.png">
+                    <span id="quescount"><?= $count['count'] ?></span>
+                </form>
+            </div>
+        <?php
+        }
+        ?>
     </div>
 
     <div class="good-container">
@@ -61,25 +86,6 @@ $options = array(
             <source src="good.mp4" controls>
         </video>
     </div>
-    <script>
-        let count<?= $counter ?> = 0; //いいねの初期値(データベースから参照できるようにする)
-        const button<?= $counter ?> = document.getElementById('countButton<?= $counter ?>');
-
-        function like<?= $counter ?>() { //いいねボタンが押されたときの処理↓
-            if (count<?= $counter ?> === 0) { //実際はデータベースに入っているいいね数を比較対象にする
-                count<?= $counter ?> += 1; //いいねボタンのカウント追加（データベースに送る処理にする）
-                document.getElementById('count<?= $counter ?>').textContent = count<?= $counter ?>; //表示を更新
-                document.getElementById("Buttonimg<?= $counter ?>").src = "good2.png"; //いいね画像の切り替え
-                const videoElement = document.getElementById('goodVideo');
-                goodVideo.style.display = 'block'; //非表示の動画エフェクトを表示に切り替える
-                videoElement.play(); //動画エフェクトを再生する
-            } else {
-                count<?= $counter ?> -= 1;
-                document.getElementById('count<?= $counter ?>').textContent = count<?= $counter ?>;
-                document.getElementById("Buttonimg<?= $counter ?>").src = "good.png"; //画像の切り替え（戻す）
-            }
-        }
-    </script>
 
     <!-- 回答フォーム -->
     <div id="answer-container">
@@ -87,7 +93,6 @@ $options = array(
         <div id="answers-list">
             <!-- ここに回答が追加されます -->
             <?php
-            $counter += 1;
             foreach ($allAns as $row) {
             ?>
                 <a href="yourpage.php?ident=<?= $row['userid'] ?>">
@@ -191,6 +196,42 @@ $options = array(
                 var countString = $(".rateform").find("#count" + ansid);
                 var goodImage = $(".rateform").find("#button" + ansid);
                 var flagInput = $(".rateform").find("#flag" + ansid);
+
+                var img = goodImage.attr("src");
+                if (img == "good.png") {
+                    goodImage.attr("src", "good2.png");
+                    const videoElement = document.getElementById('goodVideo');
+                    goodVideo.style.display = 'block';
+                    videoElement.play();
+                } else {
+                    goodImage.attr("src", "good.png");
+                }
+
+                var flag = flagInput.val();
+                if (flag == "0") {
+                    flagInput.val("1");
+                } else {
+                    flagInput.val("0");
+                }
+
+                countString.text(result);
+            }
+        });
+        e.preventDefault();
+    });
+
+    $(".rateques").on("submit", function(e) {
+
+        var dataString = $(this).serialize();
+
+        $.ajax({
+            type: "POST",
+            url: "queslike.php",
+            data: dataString,
+            success: function(result) {
+                var countString = $(".rateques").find("#quescount");
+                var goodImage = $(".rateques").find("#quesbutton");
+                var flagInput = $(".rateques").find("#quesflag");
 
                 var img = goodImage.attr("src");
                 if (img == "good.png") {

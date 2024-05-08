@@ -181,4 +181,40 @@ class form extends Dbdata
         $result = $stmt->fetchAll();
         return $result;
     }
+
+    public function countQuesLike($quesid)
+    {
+        $sql = "SELECT COUNT(id) AS count FROM queslike WHERE quesid = ?";
+        $stmt = $this->query($sql, [$quesid]);
+        $result = $stmt->fetch();
+        return $result;
+    }
+
+    public function quesLikeFlag($quesid, $userid)
+    {
+        $sql = "SELECT COUNT(id) AS count FROM queslike WHERE quesid = ? AND userid = ?";
+        $stmt = $this->query($sql, [$quesid, $userid]);
+        $result = $stmt->fetch();
+        return $result;
+    }
+
+    public function addQuesLike($quesid, $userid)
+    {
+        $sql = "INSERT INTO queslike VALUES (null, ?, ?)";
+        $this->exec($sql, [$userid, $quesid]);
+        $sql = "SELECT COUNT(id) AS count FROM queslike WHERE quesid = ?";
+        $stmt = $this->query($sql, [$quesid]);
+        $result = $stmt->fetch();
+        return $result;
+    }
+
+    public function disQuesLike($quesid, $userid)
+    {
+        $sql = "DELETE FROM queslike WHERE quesid = ? AND userid = ?";
+        $this->exec($sql, [$quesid, $userid]);
+        $sql = "SELECT COUNT(id) AS count FROM queslike WHERE quesid = ?";
+        $stmt = $this->query($sql, [$quesid]);
+        $result = $stmt->fetch();
+        return $result;
+    }
 }
