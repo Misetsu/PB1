@@ -21,7 +21,7 @@ $seikas = $form->getUserSeika($userid);
 
 <body>
     <header>
-        <button id="menuBtn">メニュー</button>
+        <button id="menuBtn"><img id="menubutton" src="menubutton.png" alt="ボタン画像" /></button>
         <nav id="menuContent">
             <ul>
                 <li><a href="signup.php">利用登録ページへ</a></li>
@@ -43,6 +43,11 @@ $seikas = $form->getUserSeika($userid);
                     menu.style.display = "none";
                 } else {
                     menu.style.display = "block";
+                }
+            });
+            document.addEventListener('click', function(event) { //全体にクリックイベントを設定
+                if (!document.getElementById('menuBtn').contains(event.target)) { // メニューバー以外をクリックしたとき
+                    document.getElementById('menuContent').style.display = 'none'; // メニューバーを閉じる
                 }
             });
         </script>
@@ -82,9 +87,12 @@ $seikas = $form->getUserSeika($userid);
             <?php
         } else {
             foreach ($questions as $question) {
+                $like = $form->countQuesLike($question['id']);
+                $ans = $form->countAns($question['id']);
             ?>
                 <p>
                     <a href="shosai.php?ident=<?= $question['id'] ?>"><?= $question['title'] ?></a>
+                    <span style="float:right;">いいね数：<?= $like['count'] ?>　回答数：<?= $ans['count'] ?></span>
                 </p>
         <?php
             }
@@ -101,9 +109,11 @@ $seikas = $form->getUserSeika($userid);
             <?php
         } else {
             foreach ($answers as $answer) {
+                $like = $form->countLike($answer['id']);
             ?>
                 <p>
                     <a href="shosai.php?ident=<?= $answer['ques_id'] ?>"><?= $answer['title'] ?></a>
+                    <span style="float:right;">いいね数：<?= $like['count'] ?></span>
                 </p>
         <?php
             }
