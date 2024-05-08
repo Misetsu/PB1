@@ -124,12 +124,13 @@ textarea {
 .errorclass {
     color: #d1478e;
 }
+
 #menuContent {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -148,10 +149,12 @@ textarea {
 #menuContent li a:hover {
     background-color: #f1f1f1;
 }
+
 nav {
     background-color: #f4f4f4;
     width: 250px;
-    height: calc(100vh - 80px); /* ヘッダーの高さに合わせてメニューバーの高さを調整 */
+    height: calc(100vh - 80px);
+    /* ヘッダーの高さに合わせてメニューバーの高さを調整 */
     position: fixed;
     top: 110px;
     left: 0;
@@ -178,4 +181,20 @@ nav ul li a {
     text-decoration: none;
     color: #333;
     font-size: 18px;
+}
+
+img:hover {
+    /*画像にポインタが触られたとき*/
+    opacity: 0.5;
+    /*アイコンを薄くする*/
+    cursor: pointer;
+    /* カーソルをポインターに変更 */
+}
+
+img:active {
+    /*画像がクリックされたとき*/
+    position: relative;
+    /*画像の位置を元に戻す*/
+    top: 3px;
+    /* 画像を少し下に移動させる */
 }

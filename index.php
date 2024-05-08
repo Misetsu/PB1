@@ -44,13 +44,25 @@ $options = array(
     .right {
         text-align: right;
     }
+    img:hover {/*画像にポインタが触られたとき*/
+        opacity: 0.5;/*アイコンを薄くする*/
+        cursor: pointer;/* カーソルをポインターに変更 */
+    }
+
+    img:active {/*画像がクリックされたとき*/
+        position: relative;/*画像の位置を元に戻す*/
+        top: 3px;/* 画像を少し下に移動させる */
+    }
+
 </style>
 
 
 
 <body>
 <header>
-        <button id="menuBtn">メニュー</button>
+        <button id="menuBtn">
+            <img id="menubutton" src="menubutton.png" alt="ボタン画像"/>
+        </button>
     <nav id="menuContent">
         <ul>
             <li><a href="signup.php">利用登録ページへ</a></li>
@@ -74,6 +86,11 @@ $options = array(
         menu.style.display = "block";
          }
         });
+        document.addEventListener('click', function(event) {//全体にクリックイベントを設定
+                if (!document.getElementById('menuBtn').contains(event.target)) {// メニューバー以外をクリックしたとき
+                    document.getElementById('menuContent').style.display = 'none';// メニューバーを閉じる
+                }
+            });
         </script>
     </header>
     <main>
