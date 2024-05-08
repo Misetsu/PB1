@@ -141,11 +141,19 @@ class form extends Dbdata
     {
         $sql = "INSERT INTO anslike VALUES (null, ?, ?)";
         $this->exec($sql, [$userid, $ansid]);
+        $sql = "SELECT COUNT(id) AS count FROM anslike WHERE ansid = ?";
+        $stmt = $this->query($sql, [$ansid]);
+        $result = $stmt->fetch();
+        return $result;
     }
 
     public function disLike($ansid, $userid)
     {
         $sql = "DELETE FROM anslike WHERE ansid = ? AND userid = ?";
         $this->exec($sql, [$ansid, $userid]);
+        $sql = "SELECT COUNT(id) AS count FROM anslike WHERE ansid = ?";
+        $stmt = $this->query($sql, [$ansid]);
+        $result = $stmt->fetch();
+        return $result;
     }
 }

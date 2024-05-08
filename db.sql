@@ -57,3 +57,10 @@ CREATE TABLE anslike (
     userid    int(255),
     ansid     int(255) NOT NULL
 );
+
+DROP TABLE IF EXISTS queslike;
+CREATE TABLE queslike (
+    id        int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    userid    int(255),
+    quesid    int(255) NOT NULL   
+)
