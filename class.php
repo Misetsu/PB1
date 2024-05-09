@@ -21,12 +21,10 @@ class form extends Dbdata
     }
 
 
-    public function getpass($userid)
+    public function getpass($userid,$newPass)
     {
-        $sql = "SELECT * FROM userinfo WHERE userid = ?";
-        $stmt = $this->query($sql, [$userid]);
-        $result = $stmt->fetchAll();
-        return $result;
+        $sql = "UPDATE userinfo SET userinfo.password = ? WHERE userinfo.userid = ?";
+        $this->exec($sql, [$newPass, $userid]);
     }
 
     public function getQues($ident)
