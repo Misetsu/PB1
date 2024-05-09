@@ -9,8 +9,7 @@ $password = '11111';
 $dbh = new PDO($dsn, $user, $password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// ユーザーがログインしたときのコード
-session_start();
+
 
 if(isset($_SESSION['userId'])) {
     $userid = $_SESSION['userId'];
@@ -61,7 +60,7 @@ if(isset($_SESSION['userId'])) {
     <form action="changepass.php"  method="POST">
         <div class="form-group">
             <label for="old_password">現在のパスワード：</label>
-            <input type="old_password" id="old_password" name="old_password" required />
+            <input type="password" id="old_password" name="old_password" required />
         </div>
         <div class="form-group">
             <label for="new_password">新しいパスワード：</label>

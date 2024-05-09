@@ -8,30 +8,24 @@ $form = new form();
 $info = $form->getInfo($userid);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['old_password']) && isset($_POST['new_password'])) {
-        $inputpass = $_POST['old_password'];
-        $newPass = $_POST['new_password'];
 
-        // パスワードの検証
-        if (password_verify($inputpass, $info['password'])) {
-
-            // パスワードの更新
-            $sql = "UPDATE userinfo SET password = newPass WHERE userid = ?";
-            $stmt = $this->query($sql, []);
-            $result = $stmt->fetchAll();
-            return $result;
-
-            echo "パスワードが正常に更新されました。";
-        } else {
-            echo "古いパスワードが正しくありません。";
-            header("Location: passchange.php");
-exit();
-        }
-    } else {
-        echo "必要なデータが送信されていません。";
+    $inputpass = $_POST['old_password'];
+    $newPass = $_POST['new_password'];
+    $newpasswordhash = password_hash($newPass, PASSWORD_DEFAULT);
+    if (password_verify($inputpass, $info['password'])){
+        // パスワードの更新
+        $form->getpass($userid, $newpasswordhash);
+        echo "パスワードが正常に更新されました。";
     }
+    else{
+        echo "パスワードがちげぇ";
+    }
+} else {
+    echo "必要なデータが送信されていません。";
 }
 
-header("Location: login.php");
+
 exit();
 ?>
+
+
