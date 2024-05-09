@@ -57,6 +57,16 @@ if(isset($_SESSION['userId'])) {
         </script>
     </header>
     <h1>パスワードを変更するために現在のパスワードと新しいパスワードを入力してください</h1>
+    <?php
+// URLからメッセージを取得
+$message = isset($_GET['message']) ? $_GET['message'] : '';
+
+// メッセージが空でない場合に表示
+if (!empty($message)) {
+    echo htmlspecialchars($message, ENT_QUOTES, 'UTF-8');
+}
+?>
+
     <form action="changepass.php"  method="POST">
         <div class="form-group">
             <label for="old_password">現在のパスワード：</label>

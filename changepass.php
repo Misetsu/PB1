@@ -16,9 +16,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // パスワードの更新
         $form->getpass($userid, $newpasswordhash);
         echo "パスワードが正常に更新されました。";
+        header("Location: login.php?message=" . urlencode("パスワードが正常に更新されました"));
+        exit();
     }
     else{
-        echo "パスワードがちげぇ";
+        echo "パスワードが違います";
+        header("Location: passchange.php?message=" . urlencode("パスワードが違います"));
+        exit();
     }
 } else {
     echo "必要なデータが送信されていません。";
