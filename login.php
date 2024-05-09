@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . '/header.php';
 ?>
+
+
 <h1>ログインページ</h1>
 <script>
     document.getElementById("menuBtn").addEventListener("click", function() {
@@ -18,6 +20,15 @@ require_once __DIR__ . '/header.php';
     });
 </script>
 </header>
+<?php
+// URLからメッセージを取得
+$message = isset($_GET['message']) ? $_GET['message'] : '';
+
+// メッセージが空でない場合に表示
+if (!empty($message)) {
+    echo htmlspecialchars($message, ENT_QUOTES, 'UTF-8');
+}
+?>
 <h1>ログイン情報を入力してください</h1>
 <?php
 if (isset($_SESSION['login_error'])) {
