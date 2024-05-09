@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/header.php';
 ?>
-<h1>ログインページ</h1>
+<h1>お問い合わせ</h1>
 <script>
     document.getElementById("menuBtn").addEventListener("click", function() {
         var menu = document.getElementById("menuContent");
@@ -18,25 +18,23 @@ require_once __DIR__ . '/header.php';
     });
 </script>
 </header>
-<h1>ログイン情報を入力してください</h1>
-<?php
-if (isset($_SESSION['login_error'])) {
-    echo '<p class="errorclass">' . $_SESSION['login_error'] . '</p>';
-    unset($_SESSION['login_error']);
-}
-?>
-<form action="login_db.php" method="post">
-    <div class="form-group">
-        <label for="username">メールアドレス：</label>
-        <input type="text" id="username" name="username" required />
-    </div>
-    <div class="form-group">
-        <label for="password">パスワード：</label>
-        <input type="password" id="password" name="password" required />
-    </div>
-    <button type="submit">ログイン</button>
-</form>
-<p><a href="signup.php">新規登録はこちら</a></p>
+<div class="container">
+    <form action="submit.php" method="post">
+        <div class="form-group">
+            <label for="name">名前:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">メールアドレス:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="message">お問い合わせ内容:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit">送信</button>
+    </form>
+</div>
 </body>
 
 </html>
