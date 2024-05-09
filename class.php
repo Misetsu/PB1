@@ -105,14 +105,15 @@ class form extends Dbdata
         return $result;
     }
 
-    public function insertseikabutu($username, $title, $message, $site, $shosai, $selection)
+    public function insertseikabutu($userid, $title, $message, $site, $shosai, $selection)
     {
         $sql = "INSERT INTO seikabutu VALUES (null, ?, ?, ?, ?, ?, ?)";
-        $this->exec($sql, [$username, $title, $message, $site, $shosai, $selection]);
+        $this->exec($sql, [$userid, $title, $message, $site, $shosai, $selection]);
     }
+
     public function getAllSeikabutu()
     {
-        $sql = "SELECT * FROM seikabutu ORDER BY id DESC";
+        $sql = "SELECT * FROM seikabutu JOIN userinfo ON seikabutu.userid = userinfo.userid ORDER BY id DESC";
         $stmt = $this->query($sql, []);
         $result = $stmt->fetchAll();
         return $result;
@@ -150,11 +151,87 @@ class form extends Dbdata
     {
         $sql = "INSERT INTO anslike VALUES (null, ?, ?)";
         $this->exec($sql, [$userid, $ansid]);
+        $sql = "SELECT COUNT(id) AS count FROM anslike WHERE ansid = ?";
+        $stmt = $this->query($sql, [$ansid]);
+        $result = $stmt->fetch();
+        return $result;
     }
 
     public function disLike($ansid, $userid)
     {
         $sql = "DELETE FROM anslike WHERE ansid = ? AND userid = ?";
         $this->exec($sql, [$ansid, $userid]);
+        $sql = "SELECT COUNT(id) AS count FROM anslike WHERE ansid = ?";
+        $stmt = $this->query($sql, [$ansid]);
+        $result = $stmt->fetch();
+        return $result;
+    }
+
+    public function getUserQues($userid)
+    {
+        $sql = "SELECT * FROM question WHERE userid = ?";
+        $stmt = $this->query($sql, [$userid]);
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
+    public function getUserAns($userid)
+    {
+        $sql = "SELECT answer.id, answer.text, answer.ques_id, question.title FROM answer JOIN question ON answer.ques_id = question.id WHERE answer.userid = ?";
+        $stmt = $this->query($sql, [$userid]);
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
+    public function getUserSeika($userid)
+    {
+        $sql = "SELECT * FROM seikabutu WHERE userid = ?";
+        $stmt = $this->query($sql, [$userid]);
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
+    public function countQuesLike($quesid)
+    {
+        $sql = "SELECT COUNT(id) AS count FROM queslike WHERE quesid = ?";
+        $stmt = $this->query($sql, [$quesid]);
+        $result = $stmt->fetch();
+        return $result;
+    }
+
+    public function quesLikeFlag($quesid, $userid)
+    {
+        $sql = "SELECT COUNT(id) AS count FROM queslike WHERE quesid = ? AND userid = ?";
+        $stmt = $this->query($sql, [$quesid, $userid]);
+        $result = $stmt->fetch();
+        return $result;
+    }
+
+    public function addQuesLike($quesid, $userid)
+    {
+        $sql = "INSERT INTO queslike VALUES (null, ?, ?)";
+        $this->exec($sql, [$userid, $quesid]);
+        $sql = "SELECT COUNT(id) AS count FROM queslike WHERE quesid = ?";
+        $stmt = $this->query($sql, [$quesid]);
+        $result = $stmt->fetch();
+        return $result;
+    }
+
+    public function disQuesLike($quesid, $userid)
+    {
+        $sql = "DELETE FROM queslike WHERE quesid = ? AND userid = ?";
+        $this->exec($sql, [$quesid, $userid]);
+        $sql = "SELECT COUNT(id) AS count FROM queslike WHERE quesid = ?";
+        $stmt = $this->query($sql, [$quesid]);
+        $result = $stmt->fetch();
+        return $result;
+    }
+
+    public function countAns($quesid)
+    {
+        $sql = "SELECT COUNT(id) AS count FROM answer WHERE ques_id = ?";
+        $stmt = $this->query($sql, [$quesid]);
+        $result = $stmt->fetch();
+        return $result;
     }
 }

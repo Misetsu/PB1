@@ -1,11 +1,14 @@
 <?php
 require_once __DIR__ . '/class.php';
 require_once __DIR__ . '/pre.php';
+$userid = $_SESSION['userid'];
 $quesID = $_GET['ident'];
 $form = new form();
 $ques = $form->getQues($quesID);
 $allAns = $form->getAllAns($quesID);
-$counter = 0;
+
+$count = $form->countQuesLike($quesID);
+$flag = $form->quesLikeFlag($quesID, $userid);
 
 $options = array(
     'option1' => 'C言語',
@@ -21,7 +24,6 @@ $options = array(
     'option11' => 'その他',
 );
 
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -30,19 +32,52 @@ $options = array(
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>詳細ページ</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="shosai.css">
 </head>
 
 <body>
-    <header>質問表示詳細ページ</header>
+<header>
+    <button id="menuBtn"><img id="menubutton" src="menubutton.png" alt="ボタン画像"/></button>
+        <nav id="menuContent">
+            <ul>
+                <li><a href="signup.php">利用登録ページへ</a></li>
+                <li><a href="login.php">ログインページへ</a></li>
+                <li><a href="question.php">質問投稿ページへ</a></li>
+                <li><a href="index.php">質問一覧ページへ</a></li>
+                <li><a href="mypage.php">マイページへ</a></li>
+             <li><a href="otoiawase.html">お問い合わせページへ</a></li>
+             <li><a href="seikabutu.html">成果物投稿ページへ</a></li>
+             <li><a href="seikabutushosai.php">成果物詳細ページへ</a></li>
+                <li><a href="rule.html">利用規約へ</a></li>
+            </ul>
+        </nav>
+        <h1>質問詳細ページ</h1>
+        <script>
+            document.getElementById("menuBtn").addEventListener("click", function() {
+                var menu = document.getElementById("menuContent");
+                if (menu.style.display === "block") {
+                    menu.style.display = "none";
+                }
+                else {
+                    menu.style.display = "block";
+                }
+            });
+            document.addEventListener('click', function(event) {//全体にクリックイベントを設定
+                if (!document.getElementById('menuBtn').contains(event.target)) {// メニューバー以外をクリックしたとき
+                    document.getElementById('menuContent').style.display = 'none';// メニューバーを閉じる
+                }
+            });
+
+
+        </script>
+    </header>
 
     <div id="question-container">
         <h2><?= $ques['title'] ?></h2>
-        <form action="/yourpage.php" method="GET">
         <a href="yourpage.php?ident=<?= $ques['userid'] ?>" style="text-align: right; display: block;">
             <?= $ques['username'] ?> さん
         </a>
-        </form>
 
         <p class="text-container">
             <?= $ques['message'] ?>
@@ -50,39 +85,41 @@ $options = array(
             <span class="tag"><?= $options[$ques['selection']] ?></span>
             <br><br>
         </p>
-        <div style="display: flex; justify-content: flex-end;">
-                    <button type="button" id="countButton<?= $counter ?>" onclick="like<?= $counter ?>()">
-                        <img id="Buttonimg<?= $counter ?>" src="good.png" alt="ボタン画像"/>
-                    </button>
-                    <span id="count<?= $counter ?>">0</span>
-                </div>
+
+        <?php
+        if ($flag['count'] == 0) {
+        ?>
+            <div style="display: flex; justify-content: flex-end;">
+                <form class="rateques">
+                    <input type="hidden" name="quesid" value="<?= $ques['id'] ?>">
+                    <input type="hidden" name="userid" value="<?= $userid ?>">
+                    <input id="quesflag" type="hidden" name="type" value="0">
+                    <input id="quesbutton" type="image" src="good.png">
+                    <span id="quescount"><?= $count['count'] ?></span>
+                </form>
+            </div>
+        <?php
+        } else {
+        ?>
+            <div style="display: flex; justify-content: flex-end;">
+                <form class="rateques">
+                    <input type="hidden" name="quesid" value="<?= $ques['id'] ?>">
+                    <input type="hidden" name="userid" value="<?= $userid ?>">
+                    <input id="quesflag" type="hidden" name="type" value="1">
+                    <input id="quesbutton" type="image" src="good2.png">
+                    <span id="quescount"><?= $count['count'] ?></span>
+                </form>
+            </div>
+        <?php
+        }
+        ?>
     </div>
 
     <div class="good-container">
-        <video id="goodVideo" class="centered-movie" >
+        <video id="goodVideo" class="centered-movie">
             <source src="good.mp4" controls>
         </video>
     </div>
-    <script>
-                    let count<?= $counter ?> = 0;//いいねの初期値(データベースから参照できるようにする)
-                    const button<?= $counter ?> = document.getElementById('countButton<?= $counter ?>');
-
-                    function like<?= $counter ?>() {//いいねボタンが押されたときの処理↓
-                        if (count<?= $counter ?> === 0) {//実際はデータベースに入っているいいね数を比較対象にする
-                            count<?= $counter ?> += 1;//いいねボタンのカウント追加（データベースに送る処理にする）
-                            document.getElementById('count<?= $counter ?>').textContent = count<?= $counter ?>;//表示を更新
-                            document.getElementById("Buttonimg<?= $counter ?>").src = "good2.png";//いいね画像の切り替え
-                            const videoElement = document.getElementById('goodVideo');
-                            goodVideo.style.display = 'block';//非表示の動画エフェクトを表示に切り替える
-                            videoElement.play();//動画エフェクトを再生する
-                        }
-                        else {
-                            count<?= $counter ?> -= 1;
-                            document.getElementById('count<?= $counter ?>').textContent = count<?= $counter ?>;
-                            document.getElementById("Buttonimg<?= $counter ?>").src = "good.png";//画像の切り替え（戻す）
-                        }
-                    }
-                </script>
 
     <!-- 回答フォーム -->
     <div id="answer-container">
@@ -90,45 +127,49 @@ $options = array(
         <div id="answers-list">
             <!-- ここに回答が追加されます -->
             <?php
-            $counter += 1;
             foreach ($allAns as $row) {
-                echo '<h4 style="text-align: right;">' . $row['username'] . '　さん</h4>';
-                echo '<div class="answer"><p>' . $ques['username'] . 'さんへの返信：</p><p>' . $row['text'] . '<p></div>';
-                $count = $form->countLike($row['id']);
-                $flag = $form->likeFlag($row['id'], $userid)
             ?>
-
-                <div style="display: flex; justify-content: flex-end;">
-                    <button type="button" id="countButton<?= $counter ?>" onclick="like<?= $counter ?>()">
-                        <img id="Buttonimg<?= $counter ?>" src="good.png" alt="ボタン画像"/>
-                    </button>
-                    <span id="count<?= $counter ?>">0</span>
+                <a href="yourpage.php?ident=<?= $row['userid'] ?>">
+                    <h4 style="text-align: right;"><?= $row['username'] ?> さん</h4>
+                </a>
+                <div class="answer">
+                    <p>
+                        <a href="yourpage.php?ident=<?= $ques['userid'] ?>">
+                            <?= $ques['username'] ?>さん
+                        </a>
+                        への返信：
+                    </p>
+                    <p><?= $row['text'] ?></p>
                 </div>
-                <br><br><br>
+                <?php
+                $count = $form->countLike($row['id']);
+                $flag = $form->likeFlag($row['id'], $userid);
 
-
-                <script>
-                    let count<?= $counter ?> = 0;//いいねの初期値(データベースから参照できるようにする)
-                    const button<?= $counter ?> = document.getElementById('countButton<?= $counter ?>');
-
-                    function like<?= $counter ?>() {//いいねボタンが押されたときの処理↓
-                        if (count<?= $counter ?> === 0) {//実際はデータベースに入っているいいね数を比較対象にする
-                            count<?= $counter ?> += 1;//いいねボタンのカウント追加（データベースに送る処理にする）
-                            document.getElementById('count<?= $counter ?>').textContent = count<?= $counter ?>;//表示を更新
-                            document.getElementById("Buttonimg<?= $counter ?>").src = "good2.png";//いいね画像の切り替え
-                            const videoElement = document.getElementById('goodVideo');
-                            goodVideo.style.display = 'block';//非表示の動画エフェクトを表示に切り替える
-                            videoElement.play();//動画エフェクトを再生する
-                        }
-                        else {
-                            count<?= $counter ?> -= 1;
-                            document.getElementById('count<?= $counter ?>').textContent = count<?= $counter ?>;
-                            document.getElementById("Buttonimg<?= $counter ?>").src = "good.png";//画像の切り替え（戻す）
-                        }
-                    }
-                </script>
+                if ($flag['count'] == 0) {
+                ?>
+                    <div style="display: flex; justify-content: flex-end;">
+                        <form class="rateform">
+                            <input type="hidden" name="ansid" value="<?= $row['id'] ?>">
+                            <input type="hidden" name="userid" value="<?= $userid ?>">
+                            <input id="flag<?= $row['id'] ?>" type="hidden" name="type" value="0">
+                            <input id="button<?= $row['id'] ?>" type="image" src="good.png">
+                            <span id="count<?= $row['id'] ?>"><?= $count['count'] ?></span>
+                        </form>
+                    </div>
+                <?php
+                } else {
+                ?>
+                    <div style="display: flex; justify-content: flex-end;">
+                        <form class="rateform">
+                            <input type="hidden" name="ansid" value="<?= $row['id'] ?>">
+                            <input type="hidden" name="userid" value="<?= $userid ?>">
+                            <input id="flag<?= $row['id'] ?>" type="hidden" name="type" value="1">
+                            <input id="button<?= $row['id'] ?>" type="image" src="good2.png">
+                            <span id="count<?= $row['id'] ?>"><?= $count['count'] ?></span>
+                        </form>
+                    </div>
             <?php
-                $counter += 1;
+                }
             }
             ?>
         </div>
@@ -168,11 +209,85 @@ $options = array(
 
     }
     const video = document.getElementById('myVideo');
-    document.addEventListener('DOMContentLoaded', (event) => {//動画エフェクトが終了したとき
+    document.addEventListener('DOMContentLoaded', (event) => { //動画エフェクトが終了したとき
         var video = document.getElementById('goodVideo');
-        video.onended = function () {
-            video.style.display = 'none';//動画を非表示にする
+        video.onended = function() {
+            video.style.display = 'none'; //動画を非表示にする
         };
+    });
+
+
+    $(".rateform").on("submit", function(e) {
+
+        var dataString = $(this).serialize();
+        var ansid = $(this).find("[name=ansid]").val();
+
+        $.ajax({
+            type: "POST",
+            url: "anslike.php",
+            data: dataString,
+            success: function(result) {
+                var countString = $(".rateform").find("#count" + ansid);
+                var goodImage = $(".rateform").find("#button" + ansid);
+                var flagInput = $(".rateform").find("#flag" + ansid);
+
+                var img = goodImage.attr("src");
+                if (img == "good.png") {
+                    goodImage.attr("src", "good2.png");
+                    const videoElement = document.getElementById('goodVideo');
+                    goodVideo.style.display = 'block';
+                    videoElement.play();
+                } else {
+                    goodImage.attr("src", "good.png");
+                }
+
+                var flag = flagInput.val();
+                if (flag == "0") {
+                    flagInput.val("1");
+                } else {
+                    flagInput.val("0");
+                }
+
+                countString.text(result);
+            }
+        });
+        e.preventDefault();
+    });
+
+    $(".rateques").on("submit", function(e) {
+
+        var dataString = $(this).serialize();
+
+        $.ajax({
+            type: "POST",
+            url: "queslike.php",
+            data: dataString,
+            success: function(result) {
+                var countString = $(".rateques").find("#quescount");
+                var goodImage = $(".rateques").find("#quesbutton");
+                var flagInput = $(".rateques").find("#quesflag");
+
+                var img = goodImage.attr("src");
+                if (img == "good.png") {
+                    goodImage.attr("src", "good2.png");
+                    const videoElement = document.getElementById('goodVideo');
+                    goodVideo.style.display = 'block';
+                    videoElement.play();
+                } else {
+                    goodImage.attr("src", "good.png");
+                }
+
+                var flag = flagInput.val();
+                if (flag == "0") {
+                    flagInput.val("1");
+                } else {
+                    flagInput.val("0");
+                }
+
+                countString.text(result);
+            }
+        });
+        e.preventDefault();
     });
 </script>
 

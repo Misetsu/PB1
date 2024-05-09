@@ -16,8 +16,36 @@
 
 <body>
     <header>
-        <button onclick="location.href='home.html'" style="font-size: 24px;">🏠</button>
+        <button id="menuBtn"><img id="menubutton" src="menubutton.png" alt="ボタン画像" /></button>
+        <nav id="menuContent">
+            <ul>
+                <li><a href="signup.php">利用登録ページへ</a></li>
+                <li><a href="login.php">ログインページへ</a></li>
+                <li><a href="question.php">質問投稿ページへ</a></li>
+                <li><a href="index.php">質問一覧ページへ</a></li>
+                <li><a href="mypage.php">マイページへ</a></li>
+                <li><a href="otoiawase.html">お問い合わせページへ</a></li>
+                <li><a href="seikabutu.html">成果物投稿ページへ</a></li>
+                <li><a href="seikabutushosai.php">成果物詳細ページへ</a></li>
+                <li><a href="rule.html">利用規約へ</a></li>
+            </ul>
+        </nav>
         <h1>成果物投稿ページ</h1>
+        <script>
+            document.getElementById("menuBtn").addEventListener("click", function () {
+                var menu = document.getElementById("menuContent");
+                if (menu.style.display === "block") {
+                    menu.style.display = "none";
+                } else {
+                    menu.style.display = "block";
+                }
+            });
+            document.addEventListener('click', function (event) {//全体にクリックイベントを設定
+                if (!document.getElementById('menuBtn').contains(event.target)) {// メニューバー以外をクリックしたとき
+                    document.getElementById('menuContent').style.display = 'none';// メニューバーを閉じる
+                }
+            });
+        </script>
     </header>
     <h1>成果物投稿フォーム</h1>
     <p>他の人に見てほしい自分が作成した成果物を投稿するページです。
@@ -25,15 +53,13 @@
     <div class="form-container">
         <div class="form-wrapper">
             <form action="seikabutu.php" method="POST">
-                <label for="username-input">ユーザー名</label>
-                <input type="text" id="username-input" name="username-input" placeholder="ユーザー名を入力してください" required>
                 <label for="title-input">タイトル</label>
                 <input type="text" id="title-input" name="title-input" placeholder="タイトルを入力してください" required>
                 <label for="message-input">コード</label>
                 <textarea id="message-input" name="message-input" placeholder="ここにコードを入力してください"></textarea>
                 <label for="site-input">外部サイト</label>
                 <input type="text" id="site-input" name="site-input" placeholder="外部サイトなどで公開している場合はここにリンクを入力してください">
-                <label for="shosai-input">詳細</label>  
+                <label for="shosai-input">詳細</label>
                 <textarea id="shosai-input" name="shosai-input" placeholder="ここに成果物の詳細を入力してください"></textarea>
                 <label for="selection-input">開発言語を選択</label>
                 <select id="selection-input" name="selection-input">
@@ -49,17 +75,12 @@
                     <option value="option10">PHP</option>
                     <option value="option11">その他</option>
                 </select>
-                <input type="submit" id="submitButton"  value="投稿" onclick="disableButton()">
+                <input type="submit" id="submitButton" value="投稿" onclick="disableButton()">
             </form>
-        </div>
-        <div style="text-align: center;">
-            <a href="seikabutushosai.php">成果物一覧を見る</a>
-            <br>
-            <a href="rule.html">利用規約を確認</a>
         </div>
     </div>
 
-    
+
 </body>
 
 </html>

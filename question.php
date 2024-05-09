@@ -57,9 +57,37 @@ if(isset($_POST['submit_question'])) {
 </head>
 
 <body>
-    <header>
-        <button onclick="location.href='home.html'" style="font-size: 24px;">🏠</button>
+<header>
+        <button id="menuBtn"><img id="menubutton" src="menubutton.png" alt="ボタン画像"/></button>
+    <nav id="menuContent">
+        <ul>
+            <li><a href="signup.php">利用登録ページへ</a></li>
+            <li><a href="login.php">ログインページへ</a></li>
+            <li><a href="question.php">質問投稿ページへ</a></li>
+            <li><a href="index.php">質問一覧ページへ</a></li>
+            <li><a href="mypage.php">マイページへ</a></li>
+            <li><a href="otoiawase.html">お問い合わせページへ</a></li>
+            <li><a href="seikabutu.html">成果物投稿ページへ</a></li>
+            <li><a href="seikabutushosai.php">成果物詳細ページへ</a></li>
+            <li><a href="rule.html">利用規約へ</a></li>
+        </ul>
+    </nav>
         <h1>質問投稿フォーム</h1>
+        <script>
+            document.getElementById("menuBtn").addEventListener("click", function() {
+        var menu = document.getElementById("menuContent");
+        if (menu.style.display === "block") {
+        menu.style.display = "none";
+        } else {
+        menu.style.display = "block";
+         }
+        });
+        document.addEventListener('click', function(event) {//全体にクリックイベントを設定
+                if (!document.getElementById('menuBtn').contains(event.target)) {// メニューバー以外をクリックしたとき
+                    document.getElementById('menuContent').style.display = 'none';// メニューバーを閉じる
+                }
+            });
+        </script>
     </header>
     <h1>IT質問用投稿フォーム</h1>
     <!-- <p>ここはITに関する質問を投稿するためのフォームです。</p> -->
@@ -88,11 +116,6 @@ if(isset($_POST['submit_question'])) {
                 </select>
                 <input type="submit" id="submitButton" value="投稿" onclick="disableButton()">
             </form>
-        </div>
-        <div style="text-align: center;">
-            <a href="index.php">記事一覧を見る</a>
-            <br>
-            <a href="rule.html">利用規約を確認</a>
         </div>
     </div>
 </body>

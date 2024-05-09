@@ -7,6 +7,9 @@ require_once __DIR__ . '/class.php';
 $form = new Form();
 $profile = $form->getProfile($userid);
 $info = $form->getInfo($userid);
+$questions = $form->getUserQues($userid);
+$answers = $form->getUserAns($userid);
+$seikas = $form->getUserSeika($userid);
 ?>
 
 <head>
@@ -18,8 +21,36 @@ $info = $form->getInfo($userid);
 
 <body>
     <header>
-        <button onclick="location.href='home.html'" style="font-size: 24px;">🏠</button>
+        <button id="menuBtn"><img id="menubutton" src="menubutton.png" alt="ボタン画像" /></button>
+        <nav id="menuContent">
+            <ul>
+                <li><a href="signup.php">利用登録ページへ</a></li>
+                <li><a href="login.php">ログインページへ</a></li>
+                <li><a href="question.php">質問投稿ページへ</a></li>
+                <li><a href="index.php">質問一覧ページへ</a></li>
+                <li><a href="mypage.php">マイページへ</a></li>
+                <li><a href="otoiawase.html">お問い合わせページへ</a></li>
+                <li><a href="seikabutu.html">成果物投稿ページへ</a></li>
+                <li><a href="seikabutushosai.php">成果物詳細ページへ</a></li>
+                <li><a href="rule.html">利用規約へ</a></li>
+            </ul>
+        </nav>
         <h1>マイページ</h1>
+        <script>
+            document.getElementById("menuBtn").addEventListener("click", function() {
+                var menu = document.getElementById("menuContent");
+                if (menu.style.display === "block") {
+                    menu.style.display = "none";
+                } else {
+                    menu.style.display = "block";
+                }
+            });
+            document.addEventListener('click', function(event) { //全体にクリックイベントを設定
+                if (!document.getElementById('menuBtn').contains(event.target)) { // メニューバー以外をクリックしたとき
+                    document.getElementById('menuContent').style.display = 'none'; // メニューバーを閉じる
+                }
+            });
+        </script>
     </header>
     <h1><?= $username ?>さんのマイページ</h1>
 
@@ -46,27 +77,71 @@ $info = $form->getInfo($userid);
         </div>
         <button id="editButton" type="button" onclick="showEdit()" class="enterButton">編集する</button>
     </section>
+
     <h2>過去の質問履歴</h2>
     <section id="questionlist">
-        <a href="shosai.html">プログラムがわからない</a>
+        <?php
+        if (empty($questions)) {
+        ?>
+            <p>質問履歴がございません。</p>
+            <?php
+        } else {
+            foreach ($questions as $question) {
+                $like = $form->countQuesLike($question['id']);
+                $ans = $form->countAns($question['id']);
+            ?>
+                <p>
+                    <a href="shosai.php?ident=<?= $question['id'] ?>"><?= $question['title'] ?></a>
+                    <span style="float:right;">いいね数：<?= $like['count'] ?>　回答数：<?= $ans['count'] ?></span>
+                </p>
+        <?php
+            }
+        }
+        ?>
     </section>
 
     <h2>過去の回答履歴</h2>
     <section id="answerlist">
-        <a href="shosai.html">Javaは理解できれば難しくない</a>
+        <?php
+        if (empty($answers)) {
+        ?>
+            <p>回答履歴がございません。</p>
+            <?php
+        } else {
+            foreach ($answers as $answer) {
+                $like = $form->countLike($answer['id']);
+            ?>
+                <p>
+                    <a href="shosai.php?ident=<?= $answer['ques_id'] ?>"><?= $answer['title'] ?></a>
+                    <span style="float:right;">いいね数：<?= $like['count'] ?></span>
+                </p>
+        <?php
+            }
+        }
+        ?>
     </section>
 
     <h2>投稿された成果物</h2>
     <section id="worklist">
-        <a href="seikabutu.html">〇×ゲーム</a>
+        <?php
+        if (empty($seikas)) {
+        ?>
+            <p>成果物の投稿履歴がございません。</p>
+            <?php
+        } else {
+            foreach ($seikas as $seika) {
+            ?>
+                <p>
+                    <a href="seikabutushosai.php"><?= $seika['title'] ?></a>
+                </p>
+        <?php
+            }
+        }
+        ?>
     </section>
 
     <script src="mypagescript.js"></script>
     <div class="center">
-        <a href="question.php">質問投稿ページへ行く</a>
-        <br>
-        <a href="rule.html">利用規約を確認</a>
-        <br>
         <a href="logout.php">ログアウト</a>
     </div>
     <footer>
