@@ -1,3 +1,24 @@
+<?php
+require_once __DIR__ . '/pre.php';
+require_once __DIR__ . '/class.php';
+
+// 接続
+$dsn = 'mysql:dbname=ilove;host=localhost;charset=utf8';
+$user = 'Ilove';
+$password = '11111';
+$dbh = new PDO($dsn, $user, $password);
+$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+// ユーザーがログインしたときのコード
+session_start();
+
+if(isset($_SESSION['userId'])) {
+    $userid = $_SESSION['userId'];
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -14,14 +35,14 @@
         <h1>パスワード変更ページ</h1>
     </header>
     <h1>パスワードを変更するために現在のパスワードと新しいパスワードを入力してください</h1>
-    <form action="login_db.php" method="post">
+    <form action="changepass.php"  method="POST">
         <div class="form-group">
-            <label for="password">現在のパスワード：</label>
-            <input type="password" id="password" name="password" required />
+            <label for="old_password">現在のパスワード：</label>
+            <input type="old_password" id="old_password" name="old_password" required />
         </div>
         <div class="form-group">
-            <label for="new-password">新しいパスワード：</label>
-            <input type="new-password" id="new-password" name="new-password" required />
+            <label for="new_password">新しいパスワード：</label>
+            <input type="password" id="new_password" name="new_password" required />
         </div>
         <button type="submit">変更</button>
     </form>

@@ -20,6 +20,15 @@ class form extends Dbdata
         return $result;
     }
 
+
+    public function getpass($userid)
+    {
+        $sql = "SELECT * FROM userinfo WHERE userid = ?";
+        $stmt = $this->query($sql, [$userid]);
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
     public function getQues($ident)
     {
         $sql = "SELECT * FROM question INNER JOIN userinfo ON question.userid = userinfo.userid WHERE question.id = ?";
