@@ -5,17 +5,12 @@ body {
     text-align: center;
 }
 
-
-label {
-    margin-right: 10px;
-}
-
 header {
     background-color: orange;
     color: #fff;
-    padding: 20px;
     display: flex;
     align-items: center;
+    height: 100px;
 }
 
 header button {
@@ -25,7 +20,7 @@ header button {
     font-size: 24px;
     cursor: pointer;
     margin-right: auto;
-    /* ボタンを左に寄せる */
+    margin-left: 20px;
     color: inherit;
 }
 
@@ -33,17 +28,11 @@ header h1 {
     margin: 0;
     font-size: 48px;
     flex: 1;
-    text-align: center;
-    /* タイトルを中央寄せに */
     text-transform: uppercase;
     letter-spacing: 3px;
     font-weight: 700;
     color: #fff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-}
-
-main {
-    padding: 20px;
 }
 
 article {
@@ -64,9 +53,32 @@ footer {
 /* フォーム全体のスタイル */
 form {
     padding: 20px;
-    margin-left: 100px;
-    margin-right: 100px;
     text-align: left;
+}
+
+.sort {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    width: 50%;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+
+.sort input[type="submit"] {
+    margin-left: 16px;
+    width: 30%;
+}
+
+.sort select {
+    width: 65%;
+}
+
+.flex {
+    display: flex;
+}
+
+.postbutton {
+    padding: 15px 30px;
 }
 
 .form-wrapper {
@@ -86,8 +98,8 @@ input[type="text"],
 textarea,
 input[type="file"],
 select {
-    margin-bottom: 20px;
-    padding: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;

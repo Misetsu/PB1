@@ -49,24 +49,26 @@ require_once __DIR__ . '/header.php';
 </script>
 </header>
 <main>
-    <form method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <label for="language">言語を選択してください:</label>
-        <div>
-            <span>
-                <select name="language" id="language">
-                    <option value="">すべての言語</option>
-                    <?php
-                    // オプションの配列から選択肢を生成
-                    foreach ($options as $key => $value) {
-                        echo "<option value='{$key}'>{$value}</option>";
-                    }
-                    ?>
-                </select>
-            </span>
-            <span><input type="submit" value="検索"></span>
-        </div>
-    </form>
-    <span><a href="question.php"><button>質問投稿</button></a></span>
+    <div class="flex">
+        <form method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="sort">
+            <label for="language">言語を選択してください:</label>
+            <div>
+                <span style="display: inline;">
+                    <select name="language" id="language">
+                        <option value="">すべての言語</option>
+                        <?php
+                        // オプションの配列から選択肢を生成
+                        foreach ($options as $key => $value) {
+                            echo "<option value='{$key}'>{$value}</option>";
+                        }
+                        ?>
+                    </select>
+                </span>
+                <span style="display: inline;"><input type="submit" value="検索"></span>
+            </div>
+        </form>
+        <a href="question.php"><button class="postbutton">質問投稿</button></a>
+    </div>
 
     <?php
     // 検索フォームで送信された言語を取得
