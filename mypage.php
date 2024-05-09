@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja">
 
+
 <?php
 require_once __DIR__ . '/pre.php';
 require_once __DIR__ . '/class.php';
@@ -36,7 +37,7 @@ require_once __DIR__ . '/header.php';
 <h2>プロフィール</h2>
 <section id="profile">
     <div id="profileInfo">
-        <form action="update.php" method="POST">
+        <form action="update.php" method="POST" class="mypage">
             <label>名前：</label><input id="name" name="name" value="<?= $username ?>" disabled>
             <br><br>
             <label>年齢：</label><input id="age" name="age" value="<?= is_null($profile['age']) ? '未入力' : $profile['age']; ?>" disabled>
@@ -105,7 +106,7 @@ require_once __DIR__ . '/header.php';
     <?php
     if (empty($seikas)) {
     ?>
-        <p>成果物の投稿履歴がございません。</p>
+        <p class="workp">成果物の投稿履歴がございません。</p>
         <?php
     } else {
         foreach ($seikas as $seika) {
