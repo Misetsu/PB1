@@ -23,149 +23,174 @@ $options = array(
     'option10' => 'PHP',
     'option11' => 'その他',
 );
-require_once __DIR__ . '/header.php';
 ?>
+<!DOCTYPE html>
+<html lang="ja">
 
-<h1>質問詳細ページ</h1>
-<script>
-    document.getElementById("menuBtn").addEventListener("click", function() {
-        var menu = document.getElementById("menuContent");
-        if (menu.style.display === "block") {
-            menu.style.display = "none";
-        } else {
-            menu.style.display = "block";
-        }
-    });
-    document.addEventListener('click', function(event) { //全体にクリックイベントを設定
-        if (!document.getElementById('menuBtn').contains(event.target)) { // メニューバー以外をクリックしたとき
-            document.getElementById('menuContent').style.display = 'none'; // メニューバーを閉じる
-        }
-    });
-</script>
-</header>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>詳細ページ</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="shosai.css">
+</head>
 
-<div id="question-container">
-    <h2><?= $ques['title'] ?></h2>
-    <a href="yourpage.php?ident=<?= $ques['userid'] ?>" style="text-align: right; display: block;">
-        <?= $ques['username'] ?> さん
-    </a>
+<body>
+    <header>
+        <button id="menuBtn"><img id="menubutton" src="menubutton.png" alt="ボタン画像" /></button>
+        <nav id="menuContent">
+            <ul>
+                <li><a href="signup.php">利用登録ページへ</a></li>
+                <li><a href="login.php">ログインページへ</a></li>
+                <li><a href="question.php">質問投稿ページへ</a></li>
+                <li><a href="index.php">質問一覧ページへ</a></li>
+                <li><a href="mypage.php">マイページへ</a></li>
+                <li><a href="otoiawase.html">お問い合わせページへ</a></li>
+                <li><a href="seikabutu.html">成果物投稿ページへ</a></li>
+                <li><a href="seikabutushosai.php">成果物詳細ページへ</a></li>
+                <li><a href="rule.html">利用規約へ</a></li>
+            </ul>
+        </nav>
+        <h1>質問詳細ページ</h1>
+        <script>
+            document.getElementById("menuBtn").addEventListener("click", function() {
+                var menu = document.getElementById("menuContent");
+                if (menu.style.display === "block") {
+                    menu.style.display = "none";
+                } else {
+                    menu.style.display = "block";
+                }
+            });
+            document.addEventListener('click', function(event) { //全体にクリックイベントを設定
+                if (!document.getElementById('menuBtn').contains(event.target)) { // メニューバー以外をクリックしたとき
+                    document.getElementById('menuContent').style.display = 'none'; // メニューバーを閉じる
+                }
+            });
+        </script>
+    </header>
 
-    <p class="text-container">
-        <?= $ques['message'] ?>
-        <br><br>
-        <span class="tag"><?= $options[$ques['selection']] ?></span>
-        <br><br>
-    </p>
+    <div id="question-container">
+        <h2><?= $ques['title'] ?></h2>
+        <a href="yourpage.php?ident=<?= $ques['userid'] ?>" style="text-align: right; display: block;">
+            <?= $ques['username'] ?> さん
+        </a>
 
-    <?php
-    if ($flag['count'] == 0) {
-    ?>
-        <div style="display: flex; justify-content: flex-end;">
-            <form class="rateques">
-                <input type="hidden" name="quesid" value="<?= $ques['id'] ?>">
-                <input type="hidden" name="userid" value="<?= $userid ?>">
-                <input id="quesflag" type="hidden" name="type" value="0">
-                <input id="quesbutton" type="image" src="good.png">
-                <span id="quescount"><?= $count['count'] ?></span>
-            </form>
-        </div>
-    <?php
-    } else {
-    ?>
-        <div style="display: flex; justify-content: flex-end;">
-            <form class="rateques">
-                <input type="hidden" name="quesid" value="<?= $ques['id'] ?>">
-                <input type="hidden" name="userid" value="<?= $userid ?>">
-                <input id="quesflag" type="hidden" name="type" value="1">
-                <input id="quesbutton" type="image" src="good2.png">
-                <span id="quescount"><?= $count['count'] ?></span>
-            </form>
-        </div>
-    <?php
-    }
-    ?>
-</div>
+        <p class="text-container">
+            <?= $ques['message'] ?>
+            <br><br>
+            <span class="tag"><?= $options[$ques['selection']] ?></span>
+            <br><br>
+        </p>
 
-<div class="good-container">
-    <video id="goodVideo" class="centered-movie">
-        <source src="good.mp4" controls>
-    </video>
-</div>
-
-<!-- 回答フォーム -->
-<div id="answer-container">
-    <h2>回答</h2>
-    <div id="answers-list">
-        <!-- ここに回答が追加されます -->
         <?php
-        foreach ($allAns as $row) {
+        if ($flag['count'] == 0) {
         ?>
-            <a href="yourpage.php?ident=<?= $row['userid'] ?>">
-                <h4 style="text-align: right;"><?= $row['username'] ?> さん</h4>
-            </a>
-            <div class="answer">
-                <p>
-                    <a href="yourpage.php?ident=<?= $ques['userid'] ?>">
-                        <?= $ques['username'] ?>さん
-                    </a>
-                    への返信：
-                </p>
-                <p><?= $row['text'] ?></p>
+            <div style="display: flex; justify-content: flex-end;">
+                <form class="rateques">
+                    <input type="hidden" name="quesid" value="<?= $ques['id'] ?>">
+                    <input type="hidden" name="userid" value="<?= $userid ?>">
+                    <input id="quesflag" type="hidden" name="type" value="0">
+                    <input id="quesbutton" type="image" src="good.png">
+                    <span id="quescount"><?= $count['count'] ?></span>
+                </form>
             </div>
-            <?php
-            $count = $form->countLike($row['id']);
-            $flag = $form->likeFlag($row['id'], $userid);
-
-            if ($flag['count'] == 0) {
-            ?>
-                <div style="display: flex; justify-content: flex-end;">
-                    <form class="rateform">
-                        <input type="hidden" name="ansid" value="<?= $row['id'] ?>">
-                        <input type="hidden" name="userid" value="<?= $userid ?>">
-                        <input id="flag<?= $row['id'] ?>" type="hidden" name="type" value="0">
-                        <input id="button<?= $row['id'] ?>" type="image" src="good.png">
-                        <span id="count<?= $row['id'] ?>"><?= $count['count'] ?></span>
-                    </form>
-                </div>
-            <?php
-            } else {
-            ?>
-                <div style="display: flex; justify-content: flex-end;">
-                    <form class="rateform">
-                        <input type="hidden" name="ansid" value="<?= $row['id'] ?>">
-                        <input type="hidden" name="userid" value="<?= $userid ?>">
-                        <input id="flag<?= $row['id'] ?>" type="hidden" name="type" value="1">
-                        <input id="button<?= $row['id'] ?>" type="image" src="good2.png">
-                        <span id="count<?= $row['id'] ?>"><?= $count['count'] ?></span>
-                    </form>
-                </div>
         <?php
-            }
+        } else {
+        ?>
+            <div style="display: flex; justify-content: flex-end;">
+                <form class="rateques">
+                    <input type="hidden" name="quesid" value="<?= $ques['id'] ?>">
+                    <input type="hidden" name="userid" value="<?= $userid ?>">
+                    <input id="quesflag" type="hidden" name="type" value="1">
+                    <input id="quesbutton" type="image" src="good2.png">
+                    <span id="quescount"><?= $count['count'] ?></span>
+                </form>
+            </div>
+        <?php
         }
         ?>
     </div>
-    <div id="add-ans" onclick="showAnsForm()">
-        <p>✙ここに回答を追加する</p>
+
+    <div class="good-container">
+        <video id="goodVideo" class="centered-movie">
+            <source src="good.mp4" controls>
+        </video>
     </div>
-    <div id="answer-form" style="display: none;">
-        <form action="answer.php" method="POST">
-            回答内容：
-            <br>
-            <textarea id="answer_text" name="answer_text" placeholder="回答を入力してください"></textarea>
-            <br>
-            <input type="hidden" value="<?= $quesID ?>" name="ques_id">
-            <input type="hidden" value="<?= $userid ?>" name="userid">
-            <input id="submit-ans" type="submit" value="回答する">
-            <button class="cancel-button" onclick="hideAnsForm()" type="button">キャンセル</button>
-        </form>
+
+    <!-- 回答フォーム -->
+    <div id="answer-container">
+        <h2>回答</h2>
+        <div id="answers-list">
+            <!-- ここに回答が追加されます -->
+            <?php
+            foreach ($allAns as $row) {
+            ?>
+                <a href="yourpage.php?ident=<?= $row['userid'] ?>">
+                    <h4 style="text-align: right;"><?= $row['username'] ?> さん</h4>
+                </a>
+                <div class="answer">
+                    <p>
+                        <a href="yourpage.php?ident=<?= $ques['userid'] ?>">
+                            <?= $ques['username'] ?>さん
+                        </a>
+                        への返信：
+                    </p>
+                    <p><?= $row['text'] ?></p>
+                </div>
+                <?php
+                $count = $form->countLike($row['id']);
+                $flag = $form->likeFlag($row['id'], $userid);
+
+                if ($flag['count'] == 0) {
+                ?>
+                    <div style="display: flex; justify-content: flex-end;">
+                        <form class="rateform">
+                            <input type="hidden" name="ansid" value="<?= $row['id'] ?>">
+                            <input type="hidden" name="userid" value="<?= $userid ?>">
+                            <input id="flag<?= $row['id'] ?>" type="hidden" name="type" value="0">
+                            <input id="button<?= $row['id'] ?>" type="image" src="good.png">
+                            <span id="count<?= $row['id'] ?>"><?= $count['count'] ?></span>
+                        </form>
+                    </div>
+                <?php
+                } else {
+                ?>
+                    <div style="display: flex; justify-content: flex-end;">
+                        <form class="rateform">
+                            <input type="hidden" name="ansid" value="<?= $row['id'] ?>">
+                            <input type="hidden" name="userid" value="<?= $userid ?>">
+                            <input id="flag<?= $row['id'] ?>" type="hidden" name="type" value="1">
+                            <input id="button<?= $row['id'] ?>" type="image" src="good2.png">
+                            <span id="count<?= $row['id'] ?>"><?= $count['count'] ?></span>
+                        </form>
+                    </div>
+            <?php
+                }
+            }
+            ?>
+        </div>
+        <div id="add-ans" onclick="showAnsForm()">
+            <p>✙ここに回答を追加する</p>
+        </div>
+        <div id="answer-form" style="display: none;">
+            <form action="answer.php" method="POST">
+                回答内容：
+                <br>
+                <textarea id="answer_text" name="answer_text" placeholder="回答を入力してください"></textarea>
+                <br>
+                <input type="hidden" value="<?= $quesID ?>" name="ques_id">
+                <input type="hidden" value="<?= $userid ?>" name="userid">
+                <input id="submit-ans" type="submit" value="回答する">
+                <button class="cancel-button" onclick="hideAnsForm()" type="button">キャンセル</button>
+            </form>
+        </div>
     </div>
-</div>
-<div style="text-align: center;">
-    <a href="index.php">記事一覧を見る</a>
-</div>
-<footer>
-    <p>&copy; I love 「愛」チーム情報共有サイト</p>
-</footer>
+    <div style="text-align: center;">
+        <a href="index.php">記事一覧を見る</a>
+    </div>
+    <footer>
+        <p>&copy; I love 「愛」チーム情報共有サイト</p>
+    </footer>
 </body>
 
 <script>
