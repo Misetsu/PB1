@@ -306,3 +306,114 @@ pre {
 .custom-button:hover {
     background-color: #eb64ae;
 }
+.tag {
+    padding: 6px 16px;
+    background-color: #ccc;
+    display: block;
+    float: right;
+}
+
+#question-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    display: block;
+    /* border: 1px solid #ccc; */
+}
+
+#question-container h2 {
+    text-align: center;
+}
+#new-answer {
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+
+/* 回答の枠のスタイル */
+.answer {
+    background-color: #fbe9aa;
+    padding: 20px;
+    border: 2px solid #333333;
+    margin-bottom: 5px;
+}
+
+/* 回答コンテナのスタイル */
+#answer-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px 20px;
+    /* border: 1px solid #ccc; */
+}
+
+#answer-form {
+    margin: 50px auto;
+    background-color: #fbe9aa;
+    padding: 20px;
+    border: 2px solid #333333;
+}
+
+#answer_text {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#submit-ans {
+    color: white;
+    background-color: #d1478e;
+    padding: 8px 16px;
+    border: none;
+}
+
+#add-ans {
+    margin: 50px auto;
+    padding: 20px;
+    border: 3px solid #aaaaaa;
+    color: #aaaaaa;
+}
+
+.cancel-button {
+    padding: 8px 16px;
+    border: none;
+}
+blockquote {
+    position: relative;
+    padding: 10px 15px 10px 50px;
+    box-sizing: border-box;
+    font-style: italic;
+    border: solid 2px #464646;
+    color: #464646;
+}
+
+blockquote:before {
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    content: "\f10d";
+    font-family: FontAwesome;
+    color: #77c0c9;
+    font-size: 25px;
+    line-height: 1;
+    font-weight: 900;
+}
+
+blockquote p {
+    padding: 0;
+    margin: 10px 0;
+    line-height: 1.7;
+}
+
+blockquote cite {
+    display: block;
+    text-align: right;
+    color: #888888;
+    font-size: 0.9em;
+}
+.text-container {
+    background-color: #fbe9aa;
+    padding: 30px;
+    border: 2px solid #333333;
+}
