@@ -18,7 +18,7 @@ require_once __DIR__ . '/header.php';
     });
 </script>
 </header>
-<div class="content">
+<div class="content-rule">
     <h1>利用規約</h1>
     <p>この利用規約（以下、「本規約」といいます。）は、本サービスの利用条件を定めるものです。本サービスの利用者は、本規約に同意した上で本サービスを利用してください。</p>
     <h2>第1条（利用者の定義）</h2>

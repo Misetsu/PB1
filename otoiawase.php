@@ -18,7 +18,7 @@ require_once __DIR__ . '/header.php';
     });
 </script>
 </header>
-<div class="container">
+<div class="container-otoi">
     <form action="submit.php" method="post">
         <div class="form-group">
             <label for="name">名前:</label>
