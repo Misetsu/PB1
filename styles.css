@@ -37,9 +37,11 @@ header h1 {
 
 article {
     background-color: #fbe9aa;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 20px 50px;
+    width: 90%;
+    margin: 0px auto 20px;
+    text-align: left;
 }
 
 footer {
@@ -52,17 +54,14 @@ footer {
 
 /* フォーム全体のスタイル */
 form {
-    padding: 20px;
     text-align: left;
 }
-
 
 .sort {
     background-color: #f4f4f4;
     border-radius: 10px;
     width: 50%;
-    margin-left: 100px;
-    margin-top: 20px;
+    margin: 0px auto;
 }
 
 .sort input[type="submit"] {
@@ -115,7 +114,6 @@ input[type="submit"] {
     border: none;
     padding: 15px 30px;
     border-radius: 10px;
-    font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: 100%;
@@ -124,6 +122,11 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: #eb64ae;
+}
+
+input:disabled {
+    border: none;
+    color: black;
 }
 
 #menuContent {
@@ -199,6 +202,7 @@ img:active {
     top: 3px;
     /* 画像を少し下に移動させる */
 }
+
 #questionlist {
     border: 2px solid #000;
     padding: 20px;
@@ -231,21 +235,37 @@ img:active {
 
 #profile {
     border: 2px solid #000;
-    padding: 20px;
-    margin-top: 20px;
+    padding: 40px 30px;
+    margin: 20px 100px;
     background-color: #f0f0f0;
-    margin-left: 100px;
-    margin-right: 100px;
+    text-align: left;
 }
 
 .enterButton {
-    margin-top: 10px;
     padding: 8px 16px;
     background-color: #f19ae1;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    width: 8%;
+}
+
+#submitEdit {
+    padding: 8px 16px;
+    background-color: #f19ae1;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 8%;
+}
+
+#cancelEdit {
+    padding: 8px 16px;
+    width: 8%;
+    border-radius: 5px;
+    border: 1px solid black;
 }
 
 .enterButton:hover {
@@ -265,6 +285,7 @@ pre {
     overflow-y: auto;
     /* 縦方向のスクロールバーを表示する */
 }
+
 .detail-container {
     max-width: 800px;
     margin: 20px auto;
@@ -273,6 +294,7 @@ pre {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .detail-block {
     border: 2px solid #333;
     border-radius: 10px;
@@ -290,6 +312,7 @@ pre {
     word-wrap: break-word;
     margin-bottom: 10px;
 }
+
 .custom-button {
     display: inline-block;
     padding: 10px 20px;
@@ -306,6 +329,7 @@ pre {
 .custom-button:hover {
     background-color: #eb64ae;
 }
+
 .tag {
     padding: 6px 16px;
     background-color: #ccc;
@@ -324,6 +348,7 @@ pre {
 #question-container h2 {
     text-align: center;
 }
+
 #new-answer {
     width: 100%;
     height: 100px;
@@ -337,6 +362,7 @@ pre {
     padding: 20px;
     border: 2px solid #333333;
     margin-bottom: 5px;
+    text-align: left;
 }
 
 /* 回答コンテナのスタイル */
@@ -362,9 +388,14 @@ pre {
 
 #submit-ans {
     color: white;
-    background-color: #d1478e;
+    background-color: #f19ae1;
     padding: 8px 16px;
     border: none;
+    width: 20%;
+}
+
+#submit-ans:hover {
+    background-color: #eb64ae;
 }
 
 #add-ans {
@@ -377,7 +408,10 @@ pre {
 .cancel-button {
     padding: 8px 16px;
     border: none;
+    width: 20%;
+    border-radius: 5px;
 }
+
 blockquote {
     position: relative;
     padding: 10px 15px 10px 50px;
@@ -412,11 +446,14 @@ blockquote cite {
     color: #888888;
     font-size: 0.9em;
 }
+
 .text-container {
     background-color: #fbe9aa;
     padding: 30px;
     border: 2px solid #333333;
+    text-align: left;
 }
+
 .content {
     max-width: 800px;
     margin: 20px auto;
@@ -425,7 +462,6 @@ blockquote cite {
     border-radius: 10px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
-
 
 ol {
     margin-bottom: 20px;
@@ -439,7 +475,8 @@ ol,
 ul {
     padding-left: 20px;
 }
-.content-rule{
+
+.content-rule {
     text-align: left;
     max-width: 800px;
     margin: 20px auto;
@@ -449,11 +486,29 @@ ul {
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
-.container-otoi{
+.container-otoi {
     max-width: 800px;
     margin: 20px auto;
     background-color: #fbe9aa;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.good-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.centered-movie {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#goodVideo {
+    display: none;
+    z-index: 9999;
 }

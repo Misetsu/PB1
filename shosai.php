@@ -88,8 +88,8 @@ require_once __DIR__ . '/header.php';
     ?>
 </div>
 
-<div class="good-container" style="display: none;">
-    <video id="goodVideo" class="centered-movie">
+<div class="good-container">
+    <video id="goodVideo" class="centered-movie" style="display: none;">
         <source src="good.mp4" controls>
     </video>
 </div>
