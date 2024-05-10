@@ -39,7 +39,9 @@ require_once __DIR__ . '/header.php';
     });
 </script>
 </header>
-<span><a href="seikabutu.php"><button>成果物投稿</button></a></span>
+<div style="position: fixed; bottom: 20px; right: 20px;">
+    <span><a href="seikabutu.php"><button class="custom-button">成果物投稿</button></a></span>
+</div>
 <div class="detail-container">
     <?php foreach ($seikabutuList as $seikabutu) : ?>
         <div class="detail-block">

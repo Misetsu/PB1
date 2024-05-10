@@ -75,7 +75,8 @@ form {
 }
 
 .flex {
-    display: flex;
+    padding: 20px;
+    margin: auto;
 }
 
 .postbutton {
@@ -251,3 +252,57 @@ img:active {
     background-color: #eb64ae;
 }
 
+
+/* コードブロック */
+pre {
+    background-color: #333333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    overflow-x: auto;
+    max-height: 800px;
+    /* コードブロックの最大高さ */
+    overflow-y: auto;
+    /* 縦方向のスクロールバーを表示する */
+}
+.detail-container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fbe9aa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.detail-block {
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.detail-block label {
+    display: block;
+    background-color: #cccccc;
+    padding: 10px;
+    border-radius: 5px;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+}
+.custom-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f19ae1;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.custom-button:hover {
+    background-color: #eb64ae;
+}

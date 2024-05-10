@@ -48,6 +48,9 @@ require_once __DIR__ . '/header.php';
     });
 </script>
 </header>
+<div style="position: fixed; bottom: 20px; right: 20px;">
+    <span><a href="question.php"><button class="custom-button">質問投稿</button></a></span>
+</div>
 <main>
     <div class="flex">
         <form method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="sort">
@@ -67,7 +70,6 @@ require_once __DIR__ . '/header.php';
                 <span style="display: inline;"><input type="submit" value="検索"></span>
             </div>
         </form>
-        <a href="question.php"><button class="postbutton">質問投稿</button></a>
     </div>
 
     <?php
