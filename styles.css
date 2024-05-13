@@ -587,6 +587,7 @@ ul {
     /* 必要に応じて余白を調整 */
     text-align: center;
     /* 中央揃えにする */
+    margin-top: 40px;
 }
 
 .footer-menu {
