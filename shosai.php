@@ -67,7 +67,7 @@ require_once __DIR__ . '/header.php';
                 <input type="hidden" name="quesid" value="<?= $ques['id'] ?>">
                 <input type="hidden" name="userid" value="<?= $userid ?>">
                 <input id="quesflag" type="hidden" name="type" value="0">
-                <input id="quesbutton" type="image" src="good.png">
+                <input id="quesbutton" type="image" src="image/good.png">
                 <span id="quescount"><?= $count['count'] ?></span>
             </form>
         </div>
@@ -79,7 +79,7 @@ require_once __DIR__ . '/header.php';
                 <input type="hidden" name="quesid" value="<?= $ques['id'] ?>">
                 <input type="hidden" name="userid" value="<?= $userid ?>">
                 <input id="quesflag" type="hidden" name="type" value="1">
-                <input id="quesbutton" type="image" src="good2.png">
+                <input id="quesbutton" type="image" src="image/good2.png">
                 <span id="quescount"><?= $count['count'] ?></span>
             </form>
         </div>
@@ -88,9 +88,9 @@ require_once __DIR__ . '/header.php';
     ?>
 </div>
 
-    <div class="good-container">
-        <img id="goodVideo" src="trans-good.gif"class="centered-movie">
-    </div>
+<div class="good-container">
+    <img id="goodVideo" src="image/trans-good.gif" class="centered-movie">
+</div>
 
 <!-- 回答フォーム -->
 <div id="answer-container">
@@ -123,7 +123,7 @@ require_once __DIR__ . '/header.php';
                         <input type="hidden" name="ansid" value="<?= $row['id'] ?>">
                         <input type="hidden" name="userid" value="<?= $userid ?>">
                         <input id="flag<?= $row['id'] ?>" type="hidden" name="type" value="0">
-                        <input id="button<?= $row['id'] ?>" type="image" src="good.png">
+                        <input id="button<?= $row['id'] ?>" type="image" src="image/good.png">
                         <span id="count<?= $row['id'] ?>"><?= $count['count'] ?></span>
                     </form>
                 </div>
@@ -135,7 +135,7 @@ require_once __DIR__ . '/header.php';
                         <input type="hidden" name="ansid" value="<?= $row['id'] ?>">
                         <input type="hidden" name="userid" value="<?= $userid ?>">
                         <input id="flag<?= $row['id'] ?>" type="hidden" name="type" value="1">
-                        <input id="button<?= $row['id'] ?>" type="image" src="good2.png">
+                        <input id="button<?= $row['id'] ?>" type="image" src="image/good2.png">
                         <span id="count<?= $row['id'] ?>"><?= $count['count'] ?></span>
                     </form>
                 </div>
@@ -161,11 +161,11 @@ require_once __DIR__ . '/header.php';
     </div>
 </div>
 <footer class="mypage-footer">
-<div style="text-align: center;" class="footer-menu">
-<ul class="footer-menu-list">
-    <a href="index.php">記事一覧を見る</a>
-</ul>
-</div>
+    <div style="text-align: center;" class="footer-menu">
+        <ul class="footer-menu-list">
+            <a href="index.php">記事一覧を見る</a>
+        </ul>
+    </div>
     <p>&copy; I love 「愛」チーム情報共有サイト</p>
 </footer>
 </body>
@@ -198,15 +198,15 @@ require_once __DIR__ . '/header.php';
                 var flagInput = $(".rateform").find("#flag" + ansid);
 
                 var img = goodImage.attr("src");
-                if (img == "good.png") {
-                    goodImage.attr("src", "good2.png");
+                if (img == "image/good.png") {
+                    goodImage.attr("src", "image/good2.png");
                     const videoElement = document.getElementById('goodVideo');
                     goodVideo.style.display = 'block';
                     setTimeout(function() {
                         goodVideo.style.display = 'none';
                     }, 1500);
                 } else {
-                    goodImage.attr("src", "good.png");
+                    goodImage.attr("src", "image/good.png");
                 }
 
                 var flag = flagInput.val();
@@ -236,15 +236,15 @@ require_once __DIR__ . '/header.php';
                 var flagInput = $(".rateques").find("#quesflag");
 
                 var img = goodImage.attr("src");
-                if (img == "good.png") {
-                    goodImage.attr("src", "good2.png");
+                if (img == "image/good.png") {
+                    goodImage.attr("src", "image/good2.png");
                     const videoElement = document.getElementById('goodVideo');
                     goodVideo.style.display = 'block';
                     setTimeout(function() {
                         goodVideo.style.display = 'none';
                     }, 1500);
                 } else {
-                    goodImage.attr("src", "good.png");
+                    goodImage.attr("src", "image/good.png");
                 }
 
                 var flag = flagInput.val();

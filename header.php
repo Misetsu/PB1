@@ -19,7 +19,7 @@ $username = $_SESSION['userName'];
 <body>
     <header>
         <button id="menuBtn">
-            <img id="menubutton" src="menubutton.png" alt="ボタン画像">
+            <img id="menubutton" src="image/menubutton.png" alt="ボタン画像">
         </button>
         <nav id="menuContent">
             <ul>
