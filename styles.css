@@ -54,6 +54,10 @@ footer {
 
 /* フォーム全体のスタイル */
 form {
+    text-align: left;
+}
+
+.form-groupa{
     max-width: 600px;
     margin: 20px auto;
     background: #fbe9aa;
@@ -112,7 +116,6 @@ button[type="submit"]:hover {
     border-radius: 10px;
     width: 50%;
     margin: 0px auto;
-    display: block;
 }
 
 .sort input[type="submit"] {
@@ -537,6 +540,14 @@ ul {
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
+.container-otoi {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fbe9aa;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
 
 .good-container {
     position: fixed;

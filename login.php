@@ -36,7 +36,7 @@ if (isset($_SESSION['login_error'])) {
     unset($_SESSION['login_error']);
 }
 ?>
-<form action="login_db.php" method="post">
+<form action="login_db.php" method="post" class="form-groupa">
     <div class="form-group">
         <label for="username">メールアドレス：</label>
         <input type="text" id="username" name="username" required />
