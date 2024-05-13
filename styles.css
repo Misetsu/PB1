@@ -602,3 +602,10 @@ ul {
 .footer-menu-list a:hover {
     text-decoration: underline; /* リンクにマウスを合わせたときに下線を表示 */
 }
+
+.message{
+    color: blue;
+}
+.message-red{
+    color: red;
+}
