@@ -45,7 +45,7 @@ if (!empty($message)) {
 }
 ?>
 
-<form action="changepass.php" method="POST">
+<form action="changepass.php" method="POST" class="form-groupa">
     <div class="form-group">
         <label for="old_password">現在のパスワード：</label>
         <input type="password" id="old_password" name="old_password" required />
