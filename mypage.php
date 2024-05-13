@@ -122,6 +122,7 @@ require_once __DIR__ . '/header.php';
 
 <script src="mypagescript.js"></script>
 <div class="center">
+    <br>
     <a href="logout.php">ログアウト</a><br>
     <a href="passchange.php">パスワード変更フォームへ</a>
 </div>
