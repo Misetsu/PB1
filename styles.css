@@ -2,37 +2,15 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-}
-
-
-label {
-    margin-right: 10px;
-}
-
-select {
-    padding: 8px;
-    border-radius: 5px;
-}
-
-input[type="submit"] {
-    padding: 8px 20px;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover {
-    background-color: #0056b3;
+    text-align: center;
 }
 
 header {
     background-color: orange;
     color: #fff;
-    padding: 20px;
     display: flex;
     align-items: center;
+    height: 100px;
 }
 
 header button {
@@ -42,7 +20,7 @@ header button {
     font-size: 24px;
     cursor: pointer;
     margin-right: auto;
-    /* ボタンを左に寄せる */
+    margin-left: 20px;
     color: inherit;
 }
 
@@ -50,8 +28,6 @@ header h1 {
     margin: 0;
     font-size: 48px;
     flex: 1;
-    text-align: center;
-    /* タイトルを中央寄せに */
     text-transform: uppercase;
     letter-spacing: 3px;
     font-weight: 700;
@@ -59,15 +35,13 @@ header h1 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-main {
-    padding: 20px;
-}
-
 article {
     background-color: #fbe9aa;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 20px 50px;
+    width: 90%;
+    margin: 0px auto 20px;
+    text-align: left;
 }
 
 footer {
@@ -80,49 +54,133 @@ footer {
 
 /* フォーム全体のスタイル */
 form {
-    width: 50%;
+    text-align: left;
+}
+
+.form-groupa{
+    max-width: 600px;
     margin: 20px auto;
-    padding: 16px;
-    background-color: #f4f4f4;
+    background: #fbe9aa;
+    padding: 30px;
     border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* ラベルのスタイル */
-label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: bold;
+.form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-/* セレクトボックスのスタイル */
-select {
-    width: 60%;
+.form-group label {
+    width: 150px;
+    text-align: right;
+    margin-right: 20px;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+.form-group input {
+    flex: 2;
     padding: 10px;
-    margin: 5px 20px;
-    border: 1px solid #ccc;
+    font-size: 18px;
     border-radius: 5px;
-    background-color: #fff;
-    font-size: 16px;
-    display: inline-block;
+    border: 1px solid #ccc;
 }
 
-/* サブミットボタンのスタイル */
-input[type="submit"] {
-    width: 30%;
-    padding: 10px;
-    margin: 5px 20px;
+button[type="submit"] {
+    background-color: #ff69b4;
+    color: #fff;
+    padding: 15px 30px;
     border: none;
     border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    align-self: center;
+    /* 中央寄せ */
+    margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+    background-color: #d1478e;
+}
+
+.sort {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    width: 50%;
+    margin: 0px auto;
+}
+
+.sort input[type="submit"] {
+    margin-left: 16px;
+    width: 30%;
+}
+
+.sort select {
+    width: 65%;
+}
+
+.flex {
+    padding: 20px;
+    margin: auto;
+}
+
+.postbutton {
+    padding: 15px 30px;
+}
+
+.form-wrapper {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fbe9aa;
+    width: 80%;
+    margin: 20px auto;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea,
+input[type="file"],
+select {
+    margin-bottom: 10px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #f19ae1;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #eb64ae;
+}
+
+input:disabled {
+    border: none;
+    color: black;
 }
 
 #menuContent {
@@ -158,7 +216,7 @@ nav {
     position: fixed;
     top: 110px;
     left: 0;
-    overflow-y: auto;
+    overflow-y: none;
     z-index: 999;
 }
 
@@ -197,4 +255,314 @@ img:active {
     /*画像の位置を元に戻す*/
     top: 3px;
     /* 画像を少し下に移動させる */
+}
+
+#questionlist {
+    border: 2px solid #000;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #f0f0f0;
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: left;
+}
+
+#answerlist {
+    border: 2px solid #000;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #f0f0f0;
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: left;
+}
+
+#worklist {
+    border: 2px solid #000;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #f0f0f0;
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: left;
+}
+
+#profile {
+    border: 2px solid #000;
+    padding: 40px 30px;
+    margin: 20px 100px;
+    background-color: #f0f0f0;
+    text-align: left;
+}
+
+.enterButton {
+    padding: 8px 16px;
+    background-color: #f19ae1;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 8%;
+}
+
+#submitEdit {
+    padding: 8px 16px;
+    background-color: #f19ae1;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 8%;
+}
+
+#cancelEdit {
+    padding: 8px 16px;
+    width: 8%;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.enterButton:hover {
+    background-color: #eb64ae;
+}
+
+
+/* コードブロック */
+pre {
+    background-color: #333333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 6px;
+    overflow-x: auto;
+    max-height: 800px;
+    /* コードブロックの最大高さ */
+    overflow-y: auto;
+    /* 縦方向のスクロールバーを表示する */
+}
+
+.detail-container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fbe9aa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.detail-block {
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.detail-block label {
+    display: block;
+    background-color: #cccccc;
+    padding: 10px;
+    border-radius: 5px;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+}
+
+.custom-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f19ae1;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.custom-button:hover {
+    background-color: #eb64ae;
+}
+
+.tag {
+    padding: 6px 16px;
+    background-color: #ccc;
+    display: block;
+    float: right;
+}
+
+#question-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    display: block;
+    /* border: 1px solid #ccc; */
+}
+
+#question-container h2 {
+    text-align: center;
+}
+
+#new-answer {
+    width: 100%;
+    height: 100px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+
+/* 回答の枠のスタイル */
+.answer {
+    background-color: #fbe9aa;
+    padding: 20px;
+    border: 2px solid #333333;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+/* 回答コンテナのスタイル */
+#answer-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px 20px;
+    /* border: 1px solid #ccc; */
+}
+
+#answer-form {
+    margin: 50px auto;
+    background-color: #fbe9aa;
+    padding: 20px;
+    border: 2px solid #333333;
+}
+
+#answer_text {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#submit-ans {
+    color: white;
+    background-color: #f19ae1;
+    padding: 8px 16px;
+    border: none;
+    width: 20%;
+}
+
+#submit-ans:hover {
+    background-color: #eb64ae;
+}
+
+#add-ans {
+    margin: 50px auto;
+    padding: 20px;
+    border: 3px solid #aaaaaa;
+    color: #aaaaaa;
+}
+
+.cancel-button {
+    padding: 8px 16px;
+    border: none;
+    width: 20%;
+    border-radius: 5px;
+}
+
+blockquote {
+    position: relative;
+    padding: 10px 15px 10px 50px;
+    box-sizing: border-box;
+    font-style: italic;
+    border: solid 2px #464646;
+    color: #464646;
+}
+
+blockquote:before {
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    content: "\f10d";
+    font-family: FontAwesome;
+    color: #77c0c9;
+    font-size: 25px;
+    line-height: 1;
+    font-weight: 900;
+}
+
+blockquote p {
+    padding: 0;
+    margin: 10px 0;
+    line-height: 1.7;
+}
+
+blockquote cite {
+    display: block;
+    text-align: right;
+    color: #888888;
+    font-size: 0.9em;
+}
+
+.text-container {
+    background-color: #fbe9aa;
+    padding: 30px;
+    border: 2px solid #333333;
+    text-align: left;
+}
+
+.content {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fbe9aa;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+ol {
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+ol,
+ul {
+    padding-left: 20px;
+}
+
+.content-rule {
+    text-align: left;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fbe9aa;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.container-otoi {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fbe9aa;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.good-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.centered-movie {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#goodVideo {
+    display: none;
+    z-index: 9999;
 }

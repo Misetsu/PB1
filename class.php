@@ -20,6 +20,13 @@ class form extends Dbdata
         return $result;
     }
 
+
+    public function getpass($userid,$newPass)
+    {
+        $sql = "UPDATE userinfo SET userinfo.password = ? WHERE userinfo.userid = ?";
+        $this->exec($sql, [$newPass, $userid]);
+    }
+
     public function getQues($ident)
     {
         $sql = "SELECT * FROM question INNER JOIN userinfo ON question.userid = userinfo.userid WHERE question.id = ?";
