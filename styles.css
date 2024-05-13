@@ -305,7 +305,7 @@ img:active {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    width: 8%;
+    width: 10%;
 }
 
 #submitEdit {
@@ -569,9 +569,36 @@ ul {
     display: none;
     z-index: 9999;
 }
-.message {
-    color: blue;
+
+.left {
+    text-align: left;
 }
-.message-red{
-    color: red;
+   
+.copyright {
+    text-align: center;
+}
+
+.mypage-footer {
+    height: 80px; /* 任意の高さに設定 */
+    padding: 10px; /* 必要に応じて余白を調整 */
+    text-align: center; /* 中央揃えにする */
+}
+
+.footer-menu {
+    margin-bottom: 10px; /* メニューとコンテンツの間に余白を設定 */
+}
+
+.footer-menu-list {
+    list-style: none; /* 箇条書きスタイルをなしにする */
+    padding: 0;
+}
+
+.footer-menu-list a {
+    text-decoration: none; /* リンクの下線をなしにする */
+    color: #333; /* リンクの色を設定 */
+    margin-right: 10px; /* リンクの間隔を調整 */
+}
+
+.footer-menu-list a:hover {
+    text-decoration: underline; /* リンクにマウスを合わせたときに下線を表示 */
 }

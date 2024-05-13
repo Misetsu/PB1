@@ -121,13 +121,14 @@ require_once __DIR__ . '/header.php';
 </section>
 
 <script src="mypagescript.js"></script>
-<div class="center">
-    <br>
-    <a href="logout.php">ログアウト</a><br>
-    <a href="passchange.php">パスワード変更フォームへ</a>
+<footer class="mypage-footer">
+<div class="footer-menu">
+    <ul class="footer-menu-list">
+        <a href="logout.php">ログアウト</a>
+        <a href="passchange.php">パスワード変更フォームへ</a>
+    </ul>
 </div>
-<footer>
-    <p>&copy; I love 「愛」チーム情報共有サイト</p>
+<p>&copy; I love 「愛」チーム情報共有サイト</p>
 </footer>
 </body>
 
