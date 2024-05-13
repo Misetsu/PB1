@@ -57,7 +57,7 @@ form {
     text-align: left;
 }
 
-.form-groupa{
+.form-groupa {
     max-width: 600px;
     margin: 20px auto;
     background: #fbe9aa;
@@ -116,6 +116,9 @@ button[type="submit"]:hover {
     border-radius: 10px;
     width: 50%;
     margin: 0px auto;
+    padding-left: 30px;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 
 .sort input[type="submit"] {
