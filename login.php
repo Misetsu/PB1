@@ -33,7 +33,7 @@ if (!empty($message)) {
 <h1>ログイン情報を入力してください</h1>
 <?php
 if (isset($_SESSION['login_error'])) {
-    echo '<p class="errorclass">' . $_SESSION['login_error'] . '</p>';
+    echo '<p class="message-red">' . $_SESSION['login_error'] . '</p>';
     unset($_SESSION['login_error']);
 }
 ?>
