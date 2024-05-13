@@ -569,3 +569,9 @@ ul {
     display: none;
     z-index: 9999;
 }
+.message {
+    color: blue;
+}
+.message-red{
+    color: red;
+}
