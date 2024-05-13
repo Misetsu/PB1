@@ -89,7 +89,7 @@ require_once __DIR__ . '/header.php';
 </div>
 
     <div class="good-container">
-        <img id="goodVideo" src="trans-good1.gif"class="centered-movie">
+        <img id="goodVideo" src="trans-good.gif"class="centered-movie">
     </div>
 
 <!-- 回答フォーム -->
