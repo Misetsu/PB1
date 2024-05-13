@@ -160,10 +160,12 @@ require_once __DIR__ . '/header.php';
         </form>
     </div>
 </div>
-<div style="text-align: center;">
+<footer class="mypage-footer">
+<div style="text-align: center;" class="footer-menu">
+<ul class="footer-menu-list">
     <a href="index.php">記事一覧を見る</a>
+</ul>
 </div>
-<footer>
     <p>&copy; I love 「愛」チーム情報共有サイト</p>
 </footer>
 </body>
