@@ -26,13 +26,14 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 
 // メッセージが空でない場合に表示
 if (!empty($message)) {
-    echo htmlspecialchars($message, ENT_QUOTES, 'UTF-8');
+    echo '<span class="message">' . htmlspecialchars($message, ENT_QUOTES, 'UTF-8') . '</span>';
 }
 ?>
+
 <h1>ログイン情報を入力してください</h1>
 <?php
 if (isset($_SESSION['login_error'])) {
-    echo '<p class="errorclass">' . $_SESSION['login_error'] . '</p>';
+    echo '<p class="message-red">' . $_SESSION['login_error'] . '</p>';
     unset($_SESSION['login_error']);
 }
 ?>

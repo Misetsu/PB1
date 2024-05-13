@@ -41,7 +41,7 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 
 // メッセージが空でない場合に表示
 if (!empty($message)) {
-    echo htmlspecialchars($message, ENT_QUOTES, 'UTF-8');
+    echo '<span class="message-red">' . htmlspecialchars($message, ENT_QUOTES, 'UTF-8') . '</span>';
 }
 ?>
 
