@@ -116,9 +116,7 @@ $options = array(
     </div>
 
     <div class="good-container">
-        <video id="goodVideo" class="centered-movie">
-            <source src="good.mp4" controls>
-        </video>
+        <img id="goodVideo" src="trans-good1.gif"class="centered-movie">
     </div>
 
     <!-- 回答フォーム -->
@@ -208,13 +206,6 @@ $options = array(
         document.getElementById('answer-form').style.display = "none";
 
     }
-    const video = document.getElementById('myVideo');
-    document.addEventListener('DOMContentLoaded', (event) => { //動画エフェクトが終了したとき
-        var video = document.getElementById('goodVideo');
-        video.onended = function() {
-            video.style.display = 'none'; //動画を非表示にする
-        };
-    });
 
 
     $(".rateform").on("submit", function(e) {
@@ -236,7 +227,9 @@ $options = array(
                     goodImage.attr("src", "good2.png");
                     const videoElement = document.getElementById('goodVideo');
                     goodVideo.style.display = 'block';
-                    videoElement.play();
+                    setTimeout(function() {
+                        goodVideo.style.display = 'none';
+                    }, 1500);
                 } else {
                     goodImage.attr("src", "good.png");
                 }
@@ -272,7 +265,9 @@ $options = array(
                     goodImage.attr("src", "good2.png");
                     const videoElement = document.getElementById('goodVideo');
                     goodVideo.style.display = 'block';
-                    videoElement.play();
+                    setTimeout(function() {
+                        goodVideo.style.display = 'none';
+                    }, 1500);
                 } else {
                     goodImage.attr("src", "good.png");
                 }
