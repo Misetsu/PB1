@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    overflow-x: hidden;
 }
 
 header {
@@ -11,6 +12,7 @@ header {
     display: flex;
     align-items: center;
     height: 100px;
+    overflow-x: hidden;
 }
 
 header button {
@@ -573,39 +575,50 @@ ul {
 .left {
     text-align: left;
 }
-   
+
 .copyright {
     text-align: center;
 }
 
 .mypage-footer {
-    height: 80px; /* 任意の高さに設定 */
-    padding: 10px; /* 必要に応じて余白を調整 */
-    text-align: center; /* 中央揃えにする */
+    height: 80px;
+    /* 任意の高さに設定 */
+    padding: 10px;
+    /* 必要に応じて余白を調整 */
+    text-align: center;
+    /* 中央揃えにする */
+    margin-top: 40px;
 }
 
 .footer-menu {
-    margin-bottom: 10px; /* メニューとコンテンツの間に余白を設定 */
+    margin-bottom: 10px;
+    /* メニューとコンテンツの間に余白を設定 */
 }
 
 .footer-menu-list {
-    list-style: none; /* 箇条書きスタイルをなしにする */
+    list-style: none;
+    /* 箇条書きスタイルをなしにする */
     padding: 0;
 }
 
 .footer-menu-list a {
-    text-decoration: none; /* リンクの下線をなしにする */
-    color: #333; /* リンクの色を設定 */
-    margin-right: 10px; /* リンクの間隔を調整 */
+    text-decoration: none;
+    /* リンクの下線をなしにする */
+    color: #333;
+    /* リンクの色を設定 */
+    margin-right: 10px;
+    /* リンクの間隔を調整 */
 }
 
 .footer-menu-list a:hover {
-    text-decoration: underline; /* リンクにマウスを合わせたときに下線を表示 */
+    text-decoration: underline;
+    /* リンクにマウスを合わせたときに下線を表示 */
 }
 
-.message{
+.message {
     color: blue;
 }
-.message-red{
+
+.message-red {
     color: red;
 }

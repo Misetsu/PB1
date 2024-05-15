@@ -28,6 +28,7 @@ require_once __DIR__ . '/header.php';
         var menu = document.getElementById("menuContent");
         if (menu.style.display === "block") {
             menu.style.display = "none";
+            
         } else {
             menu.style.display = "block";
         }
@@ -39,9 +40,6 @@ require_once __DIR__ . '/header.php';
     });
 </script>
 </header>
-<div style="position: fixed; bottom: 20px; right: 20px;">
-    <span><a href="seikabutu.php"><button class="custom-button">成果物投稿</button></a></span>
-</div>
 <div class="detail-container">
     <?php foreach ($seikabutuList as $seikabutu) : ?>
         <div class="detail-block">

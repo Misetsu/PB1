@@ -120,18 +120,39 @@ require_once __DIR__ . '/header.php';
     ?>
 </section>
 
-<script src="mypagescript.js"></script>
 <footer class="mypage-footer">
-<div class="footer-menu">
-    <ul class="footer-menu-list">
-        <a href="logout.php">ログアウト</a>
-        <a href="passchange.php">パスワード変更フォームへ</a>
-    </ul>
-</div>
-<p>&copy; I love 「愛」チーム情報共有サイト</p>
+    <div class="footer-menu">
+        <ul class="footer-menu-list">
+            <a href="logout.php">ログアウト</a>
+            <a href="passchange.php">パスワード変更フォームへ</a>
+        </ul>
+    </div>
+    <p>&copy; I love 「愛」チーム情報共有サイト</p>
 </footer>
 </body>
 
+<script>
+    function showEdit() {
+        document.getElementById('editButton').style.display = "none";
+        document.getElementById('formButton').style.display = "block";
 
+        document.getElementById('name').disabled = false;
+        document.getElementById('age').disabled = false;
+        document.getElementById('hobby').disabled = false;
+        document.getElementById('company').disabled = false;
+        document.getElementById('description').disabled = false;
+    }
+
+    function hideEdit() {
+        document.getElementById('editButton').style.display = "block";
+        document.getElementById('formButton').style.display = "none";
+
+        document.getElementById('name').disabled = true;
+        document.getElementById('age').disabled = true;
+        document.getElementById('hobby').disabled = true;
+        document.getElementById('company').disabled = true;
+        document.getElementById('description').disabled = true;
+    }
+</script>
 
 </html>

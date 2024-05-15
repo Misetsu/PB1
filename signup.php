@@ -21,7 +21,7 @@ require_once __DIR__ . '/header.php';
 <h1>利用開始に必要な情報を入力してください</h1>
 <?php
 if (isset($_SESSION['signup_error'])) {
-    echo '<p class="errorclass">' . $_SESSION['signup_error'] . '</p>';
+    echo '<p class="message-red">' . $_SESSION['signup_error'] . '</p>';
     unset($_SESSION['signup_error']);
 }
 ?>

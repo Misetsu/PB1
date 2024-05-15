@@ -32,7 +32,7 @@ require_once __DIR__ . '/header.php';
             <label for="message">お問い合わせ内容:</label>
             <textarea id="message" name="message" rows="5" required></textarea>
         </div>
-        <button type="submit">送信</button>
+        <button type="submit" class="form-groupa">送信</button>
     </form>
 </div>
 </body>
