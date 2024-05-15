@@ -35,6 +35,13 @@ class form extends Dbdata
         return $result;
     }
 
+    public function getseikasyousai($ident)
+    {
+        $sql = "SELECT * FROM seikabutu INNER JOIN userinfo ON seikabutu.userid = userinfo.userid WHERE seikabutu.id = ?";
+        $stmt = $this->query($sql, [$ident]);
+        $result = $stmt->fetch();
+        return $result;
+    }
     public function insertAns($userid, $text, $quesID)
     {
         $sql = "INSERT INTO answer VALUES (null, ?, ?, ?)";

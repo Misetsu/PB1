@@ -35,7 +35,7 @@ $username = $_SESSION['userName'];
                 }
                 ?>
                 <li><a href="index.php">質問一覧ページへ</a></li>
-                <li><a href="seikabutushosai.php">成果物詳細ページへ</a></li>
+                <li><a href="seikabutuitirann.php">成果物一覧ページへ</a></li>
                 <li><a href="otoiawase.php">お問い合わせページへ</a></li>
                 <li><a href="rule.php">利用規約へ</a></li>
             </ul>

@@ -18,6 +18,6 @@ $form->insertseikabutu($userid, $title, $message, $site, $shosai, $selection);
 // フォームのデータを処理
 
 // index.phpにリダイレクト
-header("Location: seikabutushosai.php");
+header("Location: seikabutuitirann.php");
 exit; // リダイレクト後にスクリプトの実行を終了するために必要
 ?>
