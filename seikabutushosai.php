@@ -46,7 +46,9 @@ require_once __DIR__ . '/header.php';
 <div class="detail-container">
         <div class="detail-block">
             <h1>タイトル：<?= $seikabutuList['title'] ?></h1>
-            <p>ユーザー名: <?= $seikabutuList['username'] ?></p>
+            ユーザー名：<a href="yourpage.php?ident=<?= $seikabutuList['userid'] ?>" style="text-align: right; display: inline;">
+                <?= $seikabutuList['username'] ?>
+            </a>さん
             <p>コード</p>
             <pre><?= htmlspecialchars($seikabutuList['message']) ?></pre>
             <p>外部サイト：<a href="<?= htmlspecialchars($seikabutuList['site']) ?>" target="_blank"><?= htmlspecialchars($seikabutuList['site']) ?></a></p>
