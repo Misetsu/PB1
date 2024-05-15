@@ -95,7 +95,7 @@ require_once __DIR__ . '/header.php';
 </main>
 
 
-<footer>
+<footer class="mypage-footer">
     <p>&copy; I love 「愛」チーム情報共有サイト</p>
 </footer>
 </body>
