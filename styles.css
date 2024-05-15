@@ -372,6 +372,14 @@ pre {
     margin-bottom: 10px;
 }
 
+.detail-block p {
+    text-align: left;
+}
+
+.detail-block pre {
+    text-align: left;
+}
+
 .custom-button {
     display: inline-block;
     padding: 10px 20px;
