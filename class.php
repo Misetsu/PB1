@@ -21,7 +21,7 @@ class form extends Dbdata
     }
 
 
-    public function getpass($userid,$newPass)
+    public function getpass($userid, $newPass)
     {
         $sql = "UPDATE userinfo SET userinfo.password = ? WHERE userinfo.userid = ?";
         $this->exec($sql, [$newPass, $userid]);
@@ -42,6 +42,7 @@ class form extends Dbdata
         $result = $stmt->fetch();
         return $result;
     }
+
     public function insertAns($userid, $text, $quesID)
     {
         $sql = "INSERT INTO answer VALUES (null, ?, ?, ?)";
@@ -238,5 +239,19 @@ class form extends Dbdata
         $stmt = $this->query($sql, [$quesid]);
         $result = $stmt->fetch();
         return $result;
+    }
+
+    public function getAllComment($seikaID)
+    {
+        $sql = "SELECT * FROM comment INNER JOIN userinfo ON comment.userid = userinfo.userid WHERE seikabutu_id = ?";
+        $stmt = $this->query($sql, [$seikaID]);
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
+    public function insertComment($userid, $text, $seikaID)
+    {
+        $sql = "INSERT INTO comment VALUES (null, ?, ?, ?)";
+        $this->exec($sql, [$userid, $text, $seikaID]);
     }
 }

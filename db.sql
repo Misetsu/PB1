@@ -64,3 +64,11 @@ CREATE TABLE queslike (
     userid    int(255),
     quesid    int(255) NOT NULL   
 )
+
+DROP TABLE IF EXISTS comment;
+CREATE TABLE comment (
+    id             int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	userid         int(255) NOT NULL,
+	text           varchar(2000) NOT NULL,
+    seikabutu_id   int(255) NOT NULL
+)
