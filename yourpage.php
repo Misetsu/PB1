@@ -11,6 +11,11 @@ $form = new Form();
 // GETメソッドで送信されたuseridの取得
 $ident = $_GET['ident'];
 
+if ($userid == $ident) {
+    header("Location: mypage.php");
+    exit();
+}
+
 // ユーザー情報の取得
 $profile = $form->getProfile($ident);
 $info = $form->getInfo($ident);
@@ -60,9 +65,12 @@ require_once __DIR__ . '/header.php';
         <?php
     } else {
         foreach ($questions as $question) {
+            $like = $form->countQuesLike($question['id']);
+            $ans = $form->countAns($question['id']);
         ?>
             <p>
                 <a href="shosai.php?ident=<?= $question['id'] ?>"><?= $question['title'] ?></a>
+                <span style="float:right;">いいね数：<?= $like['count'] ?>　回答数：<?= $ans['count'] ?></span>
             </p>
     <?php
         }
@@ -79,9 +87,11 @@ require_once __DIR__ . '/header.php';
         <?php
     } else {
         foreach ($answers as $answer) {
+            $like = $form->countLike($answer['id']);
         ?>
             <p>
                 <a href="shosai.php?ident=<?= $answer['ques_id'] ?>"><?= $answer['title'] ?></a>
+                <span style="float:right;">いいね数：<?= $like['count'] ?></span>
             </p>
     <?php
         }
@@ -110,7 +120,7 @@ require_once __DIR__ . '/header.php';
 
 
 <script src="mypagescript.js"></script>
-<footer>
+<footer class="mypage-footer">
     <p>&copy; I love 「愛」チーム情報共有サイト</p>
 </footer>
 </body>
