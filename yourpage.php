@@ -11,6 +11,11 @@ $form = new Form();
 // GETメソッドで送信されたuseridの取得
 $ident = $_GET['ident'];
 
+if ($userid == $ident) {
+    header("Location: mypage.php");
+    exit();
+}
+
 // ユーザー情報の取得
 $profile = $form->getProfile($ident);
 $info = $form->getInfo($ident);
