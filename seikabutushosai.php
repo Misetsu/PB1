@@ -7,6 +7,7 @@ $userid = $_SESSION['userid'];
 $seikaID = $_GET['ident'];
 $form = new form();
 $seikabutuList = $form->getseikasyousai($seikaID);
+$allAns = $form->getAllAns($seikaID);
 
 
 $options = array(
@@ -22,6 +23,8 @@ $options = array(
     'option10' => 'PHP',
     'option11' => 'その他',
 );
+
+
 
 require_once __DIR__ . '/header.php';
 ?>
@@ -58,6 +61,137 @@ require_once __DIR__ . '/header.php';
 
     </div>
 </div>
+<!-- コメント -->
+<div id="answer-container">
+    <h2>コメント</h2>
+    <div id="answers-list">
+        <!-- コメント -->
+        <?php
+        foreach ($allAns as $row) {
+        ?>
+            <a href="yourpage.php?ident=<?= $row['userid'] ?>">
+                <h4 style="text-align: right;"><?= $row['username'] ?> さん</h4>
+            </a>
+            <div class="answer">
+                <p>
+                    <a href="yourpage.php?ident=<?= $ques['userid'] ?>">
+                        <?= $ques['username'] ?>さん
+                    </a>
+                    への返信：
+                </p>
+                <p><?= $row['text'] ?></p>
+            </div>
+            <?php
+        }
+        ?>
+    </div>
+    <div id="add-ans" onclick="showAnsForm()">
+        <p>✙ここにコメントを追加する</p>
+    </div>
+    <div id="answer-form" style="display: none;">
+        <form action="answer.php" method="POST">
+            コメント内容：
+            <br>
+            <textarea id="answer_text" name="answer_text" placeholder="コメントを入力してください"></textarea>
+            <br>
+            <input type="hidden" value="<?= $quesID ?>" name="ques_id">
+            <input type="hidden" value="<?= $userid ?>" name="userid">
+            <input id="submit-ans" type="submit" value="コメントする">
+            <button class="cancel-button" onclick="hideAnsForm()" type="button">キャンセル</button>
+        </form>
+    </div>
+</div>
 </body>
+
+<script>
+    function showAnsForm() {
+        document.getElementById('add-ans').style.display = "none";
+        document.getElementById('answer-form').style.display = "block";
+    }
+
+    function hideAnsForm() {
+        document.getElementById('add-ans').style.display = "block";
+        document.getElementById('answer-form').style.display = "none";
+
+    }
+
+
+    $(".rateform").on("submit", function(e) {
+
+        var dataString = $(this).serialize();
+        var ansid = $(this).find("[name=ansid]").val();
+
+        $.ajax({
+            type: "POST",
+            url: "anslike.php",
+            data: dataString,
+            success: function(result) {
+                var countString = $(".rateform").find("#count" + ansid);
+                var goodImage = $(".rateform").find("#button" + ansid);
+                var flagInput = $(".rateform").find("#flag" + ansid);
+
+                var img = goodImage.attr("src");
+                if (img == "image/good.png") {
+                    goodImage.attr("src", "image/good2.png");
+                    const videoElement = document.getElementById('goodVideo');
+                    goodVideo.style.display = 'block';
+                    setTimeout(function() {
+                        goodVideo.style.display = 'none';
+                    }, 1500);
+                } else {
+                    goodImage.attr("src", "image/good.png");
+                }
+
+                var flag = flagInput.val();
+                if (flag == "0") {
+                    flagInput.val("1");
+                } else {
+                    flagInput.val("0");
+                }
+
+                countString.text(result);
+            }
+        });
+        e.preventDefault();
+    });
+
+    $(".rateques").on("submit", function(e) {
+
+        var dataString = $(this).serialize();
+
+        $.ajax({
+            type: "POST",
+            url: "queslike.php",
+            data: dataString,
+            success: function(result) {
+                var countString = $(".rateques").find("#quescount");
+                var goodImage = $(".rateques").find("#quesbutton");
+                var flagInput = $(".rateques").find("#quesflag");
+
+                var img = goodImage.attr("src");
+                if (img == "image/good.png") {
+                    goodImage.attr("src", "image/good2.png");
+                    const videoElement = document.getElementById('goodVideo');
+                    goodVideo.style.display = 'block';
+                    setTimeout(function() {
+                        goodVideo.style.display = 'none';
+                    }, 1500);
+                } else {
+                    goodImage.attr("src", "image/good.png");
+                }
+
+                var flag = flagInput.val();
+                if (flag == "0") {
+                    flagInput.val("1");
+                } else {
+                    flagInput.val("0");
+                }
+
+                countString.text(result);
+            }
+        });
+        e.preventDefault();
+    });
+</script>
 
 </html>
