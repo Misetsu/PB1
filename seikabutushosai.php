@@ -34,7 +34,7 @@ require_once __DIR__ . '/header.php';
         var menu = document.getElementById("menuContent");
         if (menu.style.display === "block") {
             menu.style.display = "none";
-            
+
         } else {
             menu.style.display = "block";
         }
@@ -47,16 +47,16 @@ require_once __DIR__ . '/header.php';
 </script>
 </header>
 <div class="detail-container">
-        <div class="detail-block">
-            <h1>タイトル：<?= $seikabutuList['title'] ?></h1>
-            <p>ユーザー名: <?= $seikabutuList['username'] ?></p>
-            <p>コード</p>
-            <pre><?= htmlspecialchars($seikabutuList['message']) ?></pre>
-            <p>外部サイト：<a href="<?= htmlspecialchars($seikabutuList['site']) ?>" target="_blank"><?= htmlspecialchars($seikabutuList['site']) ?></a></p>
-            <label>詳細：<?= $seikabutuList['shosai'] ?></label>
-            <p>開発言語：<?= $options[$seikabutuList['selection']] ?></p>
+    <div class="detail-block">
+        <h1>タイトル：<?= $seikabutuList['title'] ?></h1>
+        <p>ユーザー名：<a href="yourpage.php?ident=<?= $seikabutuList['userid'] ?>" style="text-align: right; display: inline;"><?= $seikabutuList['username'] ?></a>さん</p>
+        <p>コード</p>
+        <pre><?= htmlspecialchars($seikabutuList['message']) ?></pre>
+        <p>外部サイト：<a href="<?= htmlspecialchars($seikabutuList['site']) ?>" target="_blank"><?= htmlspecialchars($seikabutuList['site']) ?></a></p>
+        <label>詳細：<?= $seikabutuList['shosai'] ?></label>
+        <p>開発言語：<?= $options[$seikabutuList['selection']] ?></p>
 
-        </div>
+    </div>
     <div style="text-align: left; margin-top: 20px;">
 
     </div>
