@@ -1,9 +1,12 @@
 <?php
 require_once __DIR__ . '/dbdata.php';
 require_once __DIR__ . '/class.php';
+require_once __DIR__ . '/pre.php';
 
+$userid = $_SESSION['userid'];
+$seikaID = $_GET['ident'];
 $form = new form();
-$seikabutuList = $form->getAllSeikabutu();
+$seikabutuList = $form->getseikasyousai($seikaID);
 
 
 $options = array(
@@ -41,18 +44,16 @@ require_once __DIR__ . '/header.php';
 </script>
 </header>
 <div class="detail-container">
-    <?php foreach ($seikabutuList as $seikabutu) : ?>
         <div class="detail-block">
-            <h1>タイトル：<?= $seikabutu['title'] ?></h1>
-            <p>ユーザー名: <?= $seikabutu['username'] ?></p>
+            <h1>タイトル：<?= $seikabutuList['title'] ?></h1>
+            <p>ユーザー名: <?= $seikabutuList['username'] ?></p>
             <p>コード</p>
-            <pre><?= htmlspecialchars($seikabutu['message']) ?></pre>
-            <p>外部サイト：<a href="<?= htmlspecialchars($seikabutu['site']) ?>" target="_blank"><?= htmlspecialchars($seikabutu['site']) ?></a></p>
-            <label>詳細：<?= $seikabutu['shosai'] ?></label>
-            <p>開発言語：<?= $options[$seikabutu['selection']] ?></p>
+            <pre><?= htmlspecialchars($seikabutuList['message']) ?></pre>
+            <p>外部サイト：<a href="<?= htmlspecialchars($seikabutuList['site']) ?>" target="_blank"><?= htmlspecialchars($seikabutuList['site']) ?></a></p>
+            <label>詳細：<?= $seikabutuList['shosai'] ?></label>
+            <p>開発言語：<?= $options[$seikabutuList['selection']] ?></p>
 
         </div>
-    <?php endforeach; ?>
     <div style="text-align: left; margin-top: 20px;">
 
     </div>
