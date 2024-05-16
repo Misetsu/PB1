@@ -29,6 +29,8 @@ $options = array(
 require_once __DIR__ . '/header.php';
 ?>
 <h1>成果物詳細ページ</h1>
+<script type="module" src="https://1.www.s81c.com/common/carbon/web-components/version/v2.8.0/code-snippet.min.js"></script>
+<link rel="stylesheet" href="https://1.www.s81c.com/common/carbon/web-components/version/v2.8.0/themes.css" />
 <script>
     document.getElementById("menuBtn").addEventListener("click", function() {
         var menu = document.getElementById("menuContent");
@@ -50,10 +52,10 @@ require_once __DIR__ . '/header.php';
     <div class="detail-block">
         <h1>タイトル：<?= $seikabutuList['title'] ?></h1>
         <p>ユーザー名：<a href="yourpage.php?ident=<?= $seikabutuList['userid'] ?>" style="text-align: right; display: inline;"><?= $seikabutuList['username'] ?></a>さん</p>
-        <p>コード</p>
-        <pre><?= htmlspecialchars($seikabutuList['message']) ?></pre>
+        <p>コード：</p>
+        <cds-code-snippet type="multi" class="cds-theme-zone-g90"><?= htmlspecialchars($seikabutuList['message']) ?></cds-code-snippet>
         <p>外部サイト：<a href="<?= htmlspecialchars($seikabutuList['site']) ?>" target="_blank"><?= htmlspecialchars($seikabutuList['site']) ?></a></p>
-        <label>詳細：<?= $seikabutuList['shosai'] ?></label>
+        <p class="label">詳細：<br><?= $seikabutuList['shosai'] ?></p>
         <p>開発言語：<?= $options[$seikabutuList['selection']] ?></p>
 
     </div>
