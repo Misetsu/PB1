@@ -49,7 +49,11 @@ require_once __DIR__ . '/header.php';
 </script>
 </header>
 <div style="position: fixed; bottom: 20px; right: 20px;">
-    <span><a href="question.php"><button class="custom-button">質問投稿</button></a></span>
+    <span>
+        <a href="question.php">
+                <img src="image/push.png" alt="ボタン画像">
+        </a>
+    </span>
 </div>
 <main>
     <div class="flex">
