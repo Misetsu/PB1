@@ -6,6 +6,7 @@ $quesID = $_GET['ident'];
 $form = new form();
 $ques = $form->getQues($quesID);
 $allAns = $form->getAllAns($quesID);
+$pic = $form->getQuesPic($quesID);
 
 $count = $form->countQuesLike($quesID);
 $flag = $form->quesLikeFlag($quesID, $userid);
@@ -51,13 +52,21 @@ require_once __DIR__ . '/header.php';
     <p style="text-align: right; display: block;">
         <a href="yourpage.php?ident=<?= $ques['userid'] ?>"><?= $ques['username'] ?></a>さん
     </p>
-
-    <p class="text-container">
+    <div class="text-container">
         <?= $ques['message'] ?>
         <br><br>
         <span class="tag"><?= $options[$ques['selection']] ?></span>
         <br><br>
-    </p>
+        <div id="pic-container">
+            <?php
+            if (!empty($pic)) {
+            ?>
+                <img src="upload/<?= $pic['filename'] ?>" width="200px">
+            <?php
+            }
+            ?>
+        </div>
+    </div>
 
     <?php
     if ($flag['count'] == 0) {
@@ -184,6 +193,10 @@ require_once __DIR__ . '/header.php';
 
     }
 
+    document.getElementById('pic-container').addEventListener('click', function(e) {
+        var tgt = e.target;
+        tgt.classList.toggle('zoomed');
+    })
 
     $(".rateform").on("submit", function(e) {
 

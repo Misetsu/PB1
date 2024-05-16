@@ -10,6 +10,8 @@ class form extends Dbdata
     {
         $sql = "INSERT INTO question VALUES (null, ?, ?, ?, ?)";
         $this->exec($sql, [$userid, $title, $message, $selection]);
+        $quesid = $this->pdo->lastInsertId();
+        return $quesid;
     }
 
     public function getAll()
@@ -253,5 +255,25 @@ class form extends Dbdata
     {
         $sql = "INSERT INTO comment VALUES (null, ?, ?, ?)";
         $this->exec($sql, [$userid, $text, $seikaID]);
+    }
+
+    public function insertQuesPic($quesid, $filename)
+    {
+        $sql = "INSERT INTO quespic VALUES (null, ?, ?)";
+        $this->exec($sql, [$quesid, $filename]);
+    }
+
+    public function insertSeikaPic($seikaid, $filename)
+    {
+        $sql = "INSERT INTO seikapic VALUES (null, ?, ?)";
+        $this->exec($sql, [$seikaid, $filename]);
+    }
+
+    public function getQuesPic($quesid)
+    {
+        $sql = "SELECT * FROM quespic WHERE quesid = ?";
+        $stmt = $this->query($sql, [$quesid]);
+        $result = $stmt->fetch();
+        return $result;
     }
 }

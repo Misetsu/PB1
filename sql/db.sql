@@ -63,7 +63,7 @@ CREATE TABLE queslike (
     id        int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     userid    int(255),
     quesid    int(255) NOT NULL   
-)
+);
 
 DROP TABLE IF EXISTS comment;
 CREATE TABLE comment (
@@ -71,4 +71,18 @@ CREATE TABLE comment (
 	userid         int(255) NOT NULL,
 	text           varchar(2000) NOT NULL,
     seikabutu_id   int(255) NOT NULL
-)
+);
+
+DROP TABLE IF EXISTS quespic;
+CREATE TABLE quespic (
+    id        int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    quesid    int(255) NOT NULL,
+    filename  varchar(100) NOT NULL
+);
+
+DROP TABLE IF EXISTS seikapic;
+CREATE TABLE seikapic (
+    id        int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    seikaid   int(255) NOT NULL,
+    filename  varchar(100) NOT NULL
+);

@@ -9,7 +9,14 @@ $title = $_POST['title-input'];
 $message = $_POST['message-input'];
 $selection = $_POST['selection-input'];
 
-$form->insertForm($userid, $title, $message, $selection);
+$filename = $_FILES["uploadfile"]["name"];
+$tempname = $_FILES["uploadfile"]["tmp_name"];
+$folder = "./upload/" . $filename;
+
+$quesid = $form->insertForm($userid, $title, $message, $selection);
+$form->insertQuesPic($quesid, $filename);
+
+move_uploaded_file($tempname, $folder);
 
 // リダイレクト
 header("Location: index.php");
