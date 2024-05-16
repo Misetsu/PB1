@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/class.php';
+require_once __DIR__ . '/database/class.php';
 $form = new form();
 $userid = $_POST['userid'];
 $text = $_POST['comment_text'];

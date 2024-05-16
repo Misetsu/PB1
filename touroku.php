@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . '/class.php';
+require_once __DIR__ . '/database/class.php';
 $form = new form();
 
 $username = $_POST['username'];

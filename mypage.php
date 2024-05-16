@@ -4,7 +4,7 @@
 
 <?php
 require_once __DIR__ . '/pre.php';
-require_once __DIR__ . '/class.php';
+require_once __DIR__ . '/database/class.php';
 $form = new Form();
 $profile = $form->getProfile($userid);
 $info = $form->getInfo($userid);
@@ -113,7 +113,7 @@ require_once __DIR__ . '/header.php';
         ?>
             <p>
                 <?php
-                    echo "<a href='seikabutushosai.php?ident={$seika['id']}'>{$seika['title']}</a>"
+                echo "<a href='seikabutushosai.php?ident={$seika['id']}'>{$seika['title']}</a>"
                 ?>
             </p>
     <?php

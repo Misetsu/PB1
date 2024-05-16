@@ -6,7 +6,7 @@ $hobby = $_POST['hobby'];
 $subject = $_POST['company'];
 $intro = $_POST['description'];
 
-require_once __DIR__ . '/class.php';
+require_once __DIR__ . '/database/class.php';
 $form = new Form();
 $form->updateUser($userid, $username, $subject);
 $form->updateProfile($userid, $age, $hobby, $intro);

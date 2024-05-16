@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/dbdata.php';
+require_once __DIR__ . '/database/dbdata.php';
 
 // 接続
 $dsn = 'mysql:dbname=ilove;host=localhost;charset=utf8';
@@ -49,7 +49,11 @@ require_once __DIR__ . '/header.php';
 </script>
 </header>
 <div style="position: fixed; bottom: 20px; right: 20px;">
-    <span><a href="seikabutu.php"><button class="custom-button">成果物投稿</button></a></span>
+    <span>
+        <a href="seikabutu.php">
+            <img src="image/push.png" alt="ボタン画像">
+        </a>
+    </span>
 </div>
 
 <main>

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/class.php';
+require_once __DIR__ . '/database/class.php';
 require_once __DIR__ . '/pre.php';
 $userid = $_SESSION['userid'];
 $quesID = $_GET['ident'];

@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/pre.php';
-require_once __DIR__ . '/class.php';
-require_once __DIR__ . '/dbdata.php';
+require_once __DIR__ . '/database/class.php';
+require_once __DIR__ . '/database/dbdata.php';
 
 // POSTされた現在のパスワードと新しいパスワードを取得
 $form = new form();
@@ -12,14 +12,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $inputpass = $_POST['old_password'];
     $newPass = $_POST['new_password'];
     $newpasswordhash = password_hash($newPass, PASSWORD_DEFAULT);
-    if (password_verify($inputpass, $info['password'])){
+    if (password_verify($inputpass, $info['password'])) {
         // パスワードの更新
         $form->getpass($userid, $newpasswordhash);
         echo "パスワードが正常に更新されました。";
         header("Location: login.php?message=" . urlencode("パスワードが正常に更新されました"));
         exit();
-    }
-    else{
+    } else {
         echo "パスワードが違います";
         header("Location: passchange.php?message=" . urlencode("パスワードが違います"));
         exit();
@@ -30,6 +29,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 exit();
-?>
-
-

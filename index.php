@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/dbdata.php';
+require_once __DIR__ . '/database/dbdata.php';
 
 // 接続
 $dsn = 'mysql:dbname=ilove;host=localhost;charset=utf8';
@@ -51,7 +51,7 @@ require_once __DIR__ . '/header.php';
 <div style="position: fixed; bottom: 20px; right: 20px;">
     <span>
         <a href="question.php">
-                <img src="image/push.png" alt="ボタン画像">
+            <img src="image/push.png" alt="ボタン画像">
         </a>
     </span>
 </div>
