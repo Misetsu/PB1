@@ -9,7 +9,7 @@ $dbh = new PDO($dsn, $user, $password);
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // レコード抽出
-$sql = "SELECT * FROM question ORDER BY id DESC";
+$sql = "SELECT * FROM seikabutu ORDER BY id DESC";
 $stmt = $dbh->query($sql);
 
 $dbh = null;
@@ -31,7 +31,7 @@ $options = array(
 require_once __DIR__ . '/header.php';
 ?>
 
-<h1>質問一覧</h1>
+<h1>成果物一覧</h1>
 <script>
     document.getElementById("menuBtn").addEventListener("click", function() {
         var menu = document.getElementById("menuContent");
@@ -49,12 +49,9 @@ require_once __DIR__ . '/header.php';
 </script>
 </header>
 <div style="position: fixed; bottom: 20px; right: 20px;">
-    <span>
-        <a href="question.php">
-                <img src="image/push.png" alt="ボタン画像">
-        </a>
-    </span>
+    <span><a href="seikabutu.php"><button class="custom-button">成果物投稿</button></a></span>
 </div>
+
 <main>
     <div class="flex">
         <form method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="sort">
@@ -87,7 +84,7 @@ require_once __DIR__ . '/header.php';
         // 検索フォームで送信された言語が空でない場合、該当する言語の記事のみ表示
         if (empty($search_language) || $search_language === $row['selection']) {
             // リンクのテキストとして言語名を使用する
-            echo "<article><h2><a href='shosai.php?ident={$row['id']}'>{$row['title']}</a><p>{$language}</p></h2></article>";
+            echo "<article><h2><a href='seikabutushosai.php?ident={$row['id']}'>{$row['title']}</a><p>{$language}</p></h2></article>";
         }
     }
 

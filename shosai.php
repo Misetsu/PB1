@@ -48,9 +48,9 @@ require_once __DIR__ . '/header.php';
 
 <div id="question-container">
     <h2><?= $ques['title'] ?></h2>
-    <a href="yourpage.php?ident=<?= $ques['userid'] ?>" style="text-align: right; display: block;">
-        <?= $ques['username'] ?> さん
-    </a>
+    <p style="text-align: right; display: block;">
+        <a href="yourpage.php?ident=<?= $ques['userid'] ?>"><?= $ques['username'] ?></a>さん
+    </p>
 
     <p class="text-container">
         <?= $ques['message'] ?>
@@ -100,15 +100,17 @@ require_once __DIR__ . '/header.php';
         <?php
         foreach ($allAns as $row) {
         ?>
-            <a href="yourpage.php?ident=<?= $row['userid'] ?>">
-                <h4 style="text-align: right;"><?= $row['username'] ?> さん</h4>
-            </a>
+            <h4 style="text-align: right;">
+                <a href="yourpage.php?ident=<?= $row['userid'] ?>">
+                    <?= $row['username'] ?>
+                </a> さん
+            </h4>
             <div class="answer">
                 <p>
                     <a href="yourpage.php?ident=<?= $ques['userid'] ?>">
-                        <?= $ques['username'] ?>さん
+                        <?= $ques['username'] ?>
                     </a>
-                    への返信：
+                    さんへの返信：
                 </p>
                 <p><?= $row['text'] ?></p>
             </div>

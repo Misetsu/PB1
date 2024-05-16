@@ -1,9 +1,13 @@
 <?php
 require_once __DIR__ . '/dbdata.php';
 require_once __DIR__ . '/class.php';
+require_once __DIR__ . '/pre.php';
 
+$userid = $_SESSION['userid'];
+$seikaID = $_GET['ident'];
 $form = new form();
-$seikabutuList = $form->getAllSeikabutu();
+$seikabutuList = $form->getseikasyousai($seikaID);
+$allComment = $form->getAllComment($seikaID);
 
 
 $options = array(
@@ -20,6 +24,8 @@ $options = array(
     'option11' => 'その他',
 );
 
+
+
 require_once __DIR__ . '/header.php';
 ?>
 <h1>成果物詳細ページ</h1>
@@ -28,7 +34,7 @@ require_once __DIR__ . '/header.php';
         var menu = document.getElementById("menuContent");
         if (menu.style.display === "block") {
             menu.style.display = "none";
-            
+
         } else {
             menu.style.display = "block";
         }
@@ -41,22 +47,73 @@ require_once __DIR__ . '/header.php';
 </script>
 </header>
 <div class="detail-container">
-    <?php foreach ($seikabutuList as $seikabutu) : ?>
-        <div class="detail-block">
-            <h1>タイトル：<?= $seikabutu['title'] ?></h1>
-            <p>ユーザー名: <?= $seikabutu['username'] ?></p>
-            <p>コード</p>
-            <pre><?= htmlspecialchars($seikabutu['message']) ?></pre>
-            <p>外部サイト：<a href="<?= htmlspecialchars($seikabutu['site']) ?>" target="_blank"><?= htmlspecialchars($seikabutu['site']) ?></a></p>
-            <label>詳細：<?= $seikabutu['shosai'] ?></label>
-            <p>開発言語：<?= $options[$seikabutu['selection']] ?></p>
+    <div class="detail-block">
+        <h1>タイトル：<?= $seikabutuList['title'] ?></h1>
+        <p>ユーザー名：<a href="yourpage.php?ident=<?= $seikabutuList['userid'] ?>" style="text-align: right; display: inline;"><?= $seikabutuList['username'] ?></a>さん</p>
+        <p>コード</p>
+        <pre><?= htmlspecialchars($seikabutuList['message']) ?></pre>
+        <p>外部サイト：<a href="<?= htmlspecialchars($seikabutuList['site']) ?>" target="_blank"><?= htmlspecialchars($seikabutuList['site']) ?></a></p>
+        <label>詳細：<?= $seikabutuList['shosai'] ?></label>
+        <p>開発言語：<?= $options[$seikabutuList['selection']] ?></p>
 
-        </div>
-    <?php endforeach; ?>
+    </div>
     <div style="text-align: left; margin-top: 20px;">
 
     </div>
 </div>
+<!-- コメント -->
+<div id="answer-container">
+    <h2>コメント</h2>
+    <div id="answers-list">
+        <!-- コメント -->
+        <?php
+        foreach ($allComment as $row) {
+        ?>
+            <a href="yourpage.php?ident=<?= $row['userid'] ?>">
+                <h4 style="text-align: right;"><?= $row['username'] ?> さん</h4>
+            </a>
+            <div class="answer">
+                <p>
+                    <a href="yourpage.php?ident=<?= $seikabutuList['userid'] ?>">
+                        <?= $seikabutuList['username'] ?>さん
+                    </a>
+                    への返信：
+                </p>
+                <p><?= $row['text'] ?></p>
+            </div>
+        <?php
+        }
+        ?>
+    </div>
+    <div id="add-ans" onclick="showAnsForm()">
+        <p>✙ここにコメントを追加する</p>
+    </div>
+    <div id="answer-form" style="display: none;">
+        <form action="comment.php" method="POST">
+            コメント内容：
+            <br>
+            <textarea id="comment_text" name="comment_text" placeholder="コメントを入力してください"></textarea>
+            <br>
+            <input type="hidden" value="<?= $seikaID ?>" name="seika_id">
+            <input type="hidden" value="<?= $userid ?>" name="userid">
+            <input id="submit-ans" type="submit" value="コメントする">
+            <button class="cancel-button" onclick="hideAnsForm()" type="button">キャンセル</button>
+        </form>
+    </div>
+</div>
 </body>
+
+<script>
+    function showAnsForm() {
+        document.getElementById('add-ans').style.display = "none";
+        document.getElementById('answer-form').style.display = "block";
+    }
+
+    function hideAnsForm() {
+        document.getElementById('add-ans').style.display = "block";
+        document.getElementById('answer-form').style.display = "none";
+
+    }
+</script>
 
 </html>
