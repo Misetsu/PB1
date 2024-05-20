@@ -52,6 +52,15 @@ require_once __DIR__ . '/header.php';
     <p style="text-align: right; display: block;">
         <a href="yourpage.php?ident=<?= $ques['userid'] ?>"><?= $ques['username'] ?></a>さん
     </p>
+    <?php
+    if ($ques['userid'] == $userid) {
+    ?>
+        <p style="text-align: right; display: block;">
+            <a href="editques.php?ident=<?= $quesID ?>">編集する</a>
+        </p>
+    <?php
+    }
+    ?>
     <div class="text-container">
         <?= $ques['message'] ?>
         <br><br>

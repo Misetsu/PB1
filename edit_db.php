@@ -8,15 +8,16 @@ if (isset($_SESSION['userid'])) {
 $title = $_POST['title-input'];
 $message = $_POST['message-input'];
 $selection = $_POST['selection-input'];
+$quesid = $_POST['quesid'];
 
-$quesid = $form->insertForm($userid, $title, $message, $selection);
+$form->updateQuestion($quesid, $title, $message, $selection);
 
 if (!($_FILES["uploadfile"]["name"] == "")) {
     $filename = $_FILES["uploadfile"]["name"];
     $tempname = $_FILES["uploadfile"]["tmp_name"];
     $folder = "./upload/" . $filename;
 
-    $form->insertQuesPic($quesid, $filename);
+    $form->updatePic($quesid, $filename);
 
     move_uploaded_file($tempname, $folder);
 }

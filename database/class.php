@@ -276,4 +276,25 @@ class form extends Dbdata
         $result = $stmt->fetch();
         return $result;
     }
+
+    public function updateQuestion($quesid, $title, $message, $selection)
+    {
+        $sql = "UPDATE question SET title = ?, message = ?, selection = ? WHERE id = ?";
+        $this->exec($sql, [$title, $message, $selection, $quesid]);
+    }
+
+    public function updatePic($quesid, $path)
+    {
+        $sql = "SELECT * FROM quespic WHERE quesid = ?";
+        $stmt = $this->query($sql, [$quesid]);
+        $result = $stmt->fetch();
+
+        if (!empty($result)) {
+            $sql = "UPDATE quespic SET filename = ? WHERE quesid = ?";
+            $this->exec($sql, [$path, $quesid]);
+        } else {
+            $sql = "INSERT INTO quespic VALUES (null, ?, ?)";
+            $this->exec($sql, [$quesid, $path]);
+        }
+    }
 }
