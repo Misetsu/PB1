@@ -9,7 +9,9 @@ $title = $_POST['title-input'];
 $message = $_POST['message-input'];
 $selection = $_POST['selection-input'];
 
-$quesid = $form->insertForm($userid, $title, $message, $selection);
+$datetime = date('Y/m/d H:i');
+
+$quesid = $form->insertForm($userid, $title, $message, $selection, $datetime);
 
 if (!($_FILES["uploadfile"]["name"] == "")) {
     $filename = $_FILES["uploadfile"]["name"];

@@ -49,18 +49,17 @@ require_once __DIR__ . '/header.php';
 
 <div id="question-container">
     <h2><?= $ques['title'] ?></h2>
-    <p style="text-align: right; display: block;">
+    <h4 style="text-align: right; display: block;">
         <a href="yourpage.php?ident=<?= $ques['userid'] ?>"><?= $ques['username'] ?></a>さん
-    </p>
-    <?php
-    if ($ques['userid'] == $userid) {
-    ?>
-        <p style="text-align: right; display: block;">
+        <?php
+        if ($ques['userid'] == $userid) {
+        ?>
+            <br>
             <a href="editques.php?ident=<?= $quesID ?>">編集する</a>
-        </p>
-    <?php
-    }
-    ?>
+        <?php
+        }
+        ?>
+    </h4>
     <div class="text-container">
         <?= $ques['message'] ?>
         <br><br>
@@ -75,6 +74,11 @@ require_once __DIR__ . '/header.php';
             }
             ?>
         </div>
+        <p>
+            更新日時：<?= $ques['updatetime'] ?>
+            <br>
+            投稿日時：<?= $ques['configtime'] ?>
+        </p>
     </div>
 
     <?php
@@ -122,6 +126,8 @@ require_once __DIR__ . '/header.php';
                 <a href="yourpage.php?ident=<?= $row['userid'] ?>">
                     <?= $row['username'] ?>
                 </a> さん
+                <br>
+                <?= $row['datetime'] ?>
             </h4>
             <div class="answer">
                 <p>

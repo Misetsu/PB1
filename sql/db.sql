@@ -6,12 +6,15 @@ grant all privileges on ilove.* to Ilove@localhost identified by '11111';
 
 use ilove;
 
+DROP TABLE IF EXISTS question;
 CREATE TABLE question (
-    id        int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    userid    int(255) NOT NULL,
-    title     varchar(2000) NOT NULL,
-    message   varchar(2000) NOT NULL,
-    selection varchar(50) NOT NULL
+    id          int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    userid      int(255) NOT NULL,
+    title       varchar(2000) NOT NULL,
+    message     varchar(2000) NOT NULL,
+    selection   varchar(50) NOT NULL,
+    configtime  varchar(50) NOT NULL,
+    updatetime  varchar(50) NOT NULL
 );
 
 DROP TABLE IF EXISTS answer;
@@ -20,6 +23,7 @@ CREATE TABLE answer (
 	userid    int(255) NOT NULL,
 	text      varchar(2000) NOT NULL,
     ques_id   int(255) NOT NULL,
+    datetime  varchar(50) NOT NULL,
     FOREIGN KEY (ques_id) REFERENCES question(id)
 );
 

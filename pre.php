@@ -20,3 +20,5 @@ if (empty($userid) || empty($username)) {
     $_SESSION['userid'] = $userid;
     $_SESSION['userName'] = $username;
 }
+
+date_default_timezone_set('Asia/Tokyo');

@@ -6,10 +6,10 @@ require_once __DIR__ . '/dbdata.php';
 
 class form extends Dbdata
 {
-    public function insertForm($userid, $title, $message, $selection)
+    public function insertForm($userid, $title, $message, $selection, $datetime)
     {
-        $sql = "INSERT INTO question VALUES (null, ?, ?, ?, ?)";
-        $this->exec($sql, [$userid, $title, $message, $selection]);
+        $sql = "INSERT INTO question VALUES (null, ?, ?, ?, ?, ?, ?)";
+        $this->exec($sql, [$userid, $title, $message, $selection, $datetime, $datetime]);
         $quesid = $this->pdo->lastInsertId();
         return $quesid;
     }
@@ -45,10 +45,10 @@ class form extends Dbdata
         return $result;
     }
 
-    public function insertAns($userid, $text, $quesID)
+    public function insertAns($userid, $text, $quesID, $datetime)
     {
-        $sql = "INSERT INTO answer VALUES (null, ?, ?, ?)";
-        $this->exec($sql, [$userid, $text, $quesID]);
+        $sql = "INSERT INTO answer VALUES (null, ?, ?, ?, ?)";
+        $this->exec($sql, [$userid, $text, $quesID, $datetime]);
     }
 
     public function getAllAns($quesID)
@@ -277,10 +277,10 @@ class form extends Dbdata
         return $result;
     }
 
-    public function updateQuestion($quesid, $title, $message, $selection)
+    public function updateQuestion($quesid, $title, $message, $selection, $datetime)
     {
-        $sql = "UPDATE question SET title = ?, message = ?, selection = ? WHERE id = ?";
-        $this->exec($sql, [$title, $message, $selection, $quesid]);
+        $sql = "UPDATE question SET title = ?, message = ?, selection = ? , updatetime = ? WHERE id = ?";
+        $this->exec($sql, [$title, $message, $selection, $datetime, $quesid]);
     }
 
     public function updatePic($quesid, $path)
