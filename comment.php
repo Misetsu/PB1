@@ -14,7 +14,9 @@ $userid = $_POST['userid'];
 $text = $_POST['comment_text'];
 $seikaID = $_POST['seika_id'];
 
-$form->insertComment($userid, $text, $seikaID);
+$datetime = date('Y/m/d H:i');
+
+$form->insertComment($userid, $text, $seikaID, $datetime);
 
 header("Location: seikabutushosai.php?ident=" . $seikaID);
 exit;

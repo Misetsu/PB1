@@ -57,7 +57,11 @@ require_once __DIR__ . '/header.php';
         <p>外部サイト：<a href="<?= htmlspecialchars($seikabutuList['site']) ?>" target="_blank"><?= htmlspecialchars($seikabutuList['site']) ?></a></p>
         <p class="label">詳細：<br><?= $seikabutuList['shosai'] ?></p>
         <p>開発言語：<?= $options[$seikabutuList['selection']] ?></p>
-
+        <p>
+            更新日時：<?= $seikabutuList['updatetime'] ?>
+            <br>
+            投稿日時：<?= $seikabutuList['configtime'] ?>
+        </p>
     </div>
     <div style="text-align: left; margin-top: 20px;">
 
@@ -76,6 +80,8 @@ require_once __DIR__ . '/header.php';
                     <?= $row['username'] ?>
                 </a>
                 さん
+                <br>
+                <?= $row['datetime'] ?>
             </h4>
             <div class="answer">
                 <p>

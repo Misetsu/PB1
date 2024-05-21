@@ -50,9 +50,11 @@ CREATE TABLE seikabutu (
     userid     int(255) NOT NULL,
     title      varchar(2000) NOT NULL,
     message    varchar(10000) NOT NULL,
-    site       varchar(100) NOT NULL,
+    site       varchar(500) NOT NULL,
     shosai     varchar(1000) NOT NULL,
-    selection  varchar(50) NOT NULL
+    selection  varchar(50) NOT NULL,
+    configtime  varchar(50) NOT NULL,
+    updatetime  varchar(50) NOT NULL
 );
 
 DROP TABLE IF EXISTS anslike;
@@ -74,7 +76,8 @@ CREATE TABLE comment (
     id             int(255) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	userid         int(255) NOT NULL,
 	text           varchar(2000) NOT NULL,
-    seikabutu_id   int(255) NOT NULL
+    seikabutu_id   int(255) NOT NULL,
+    datetime  varchar(50) NOT NULL
 );
 
 DROP TABLE IF EXISTS quespic;

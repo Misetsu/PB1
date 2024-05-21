@@ -113,10 +113,10 @@ class form extends Dbdata
         return $result;
     }
 
-    public function insertseikabutu($userid, $title, $message, $site, $shosai, $selection)
+    public function insertseikabutu($userid, $title, $message, $site, $shosai, $selection, $datetime)
     {
-        $sql = "INSERT INTO seikabutu VALUES (null, ?, ?, ?, ?, ?, ?)";
-        $this->exec($sql, [$userid, $title, $message, $site, $shosai, $selection]);
+        $sql = "INSERT INTO seikabutu VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $this->exec($sql, [$userid, $title, $message, $site, $shosai, $selection, $datetime, $datetime]);
     }
 
     public function getAllSeikabutu()
@@ -251,10 +251,10 @@ class form extends Dbdata
         return $result;
     }
 
-    public function insertComment($userid, $text, $seikaID)
+    public function insertComment($userid, $text, $seikaID, $datetime)
     {
-        $sql = "INSERT INTO comment VALUES (null, ?, ?, ?)";
-        $this->exec($sql, [$userid, $text, $seikaID]);
+        $sql = "INSERT INTO comment VALUES (null, ?, ?, ?, ?)";
+        $this->exec($sql, [$userid, $text, $seikaID, $datetime]);
     }
 
     public function insertQuesPic($quesid, $filename)
