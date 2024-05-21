@@ -359,6 +359,10 @@ img:active {
     text-align: left;
 }
 
+.detail-block div {
+    text-align: left;
+}
+
 cds-code-snippet {
     color: white;
     text-align: left;
