@@ -30,7 +30,7 @@ if ($username === "ゲスト") {
 </p>
 <div class="form-container">
     <div class="form-wrapper">
-        <form action="insertseika.php" method="POST">
+        <form action="insertseika.php" method="POST" enctype="multipart/form-data">
             <label for="title-input">タイトル</label>
             <input type="text" id="title-input" name="title-input" placeholder="タイトルを入力してください" required>
             <label for="message-input">コード</label>
@@ -53,6 +53,7 @@ if ($username === "ゲスト") {
                 <option value="option10">PHP</option>
                 <option value="option11">その他</option>
             </select>
+            <input type="file" name="uploadfile" value="">
             <input type="submit" id="submitButton" value="投稿" onclick="disableButton()">
         </form>
     </div>

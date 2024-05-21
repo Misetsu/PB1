@@ -15,15 +15,17 @@ $selection = $_POST['selection-input'];
 
 $datetime = date('Y/m/d H:i');
 
-$form->insertseikabutu($userid, $title, $message, $site, $shosai, $selection, $datetime);
+$seikaid = $form->insertseikabutu($userid, $title, $message, $site, $shosai, $selection, $datetime);
 
-?>
-<?php
-// insert.php
+if (!($_FILES["uploadfile"]["name"] == "")) {
+    $filename = $_FILES["uploadfile"]["name"];
+    $tempname = $_FILES["uploadfile"]["tmp_name"];
+    $folder = "./upload/" . $filename;
 
-// フォームのデータを処理
+    $form->insertSeikaPic($seikaid, $filename);
 
-// index.phpにリダイレクト
+    move_uploaded_file($tempname, $folder);
+}
+
 header("Location: seikabutuitirann.php");
 exit; // リダイレクト後にスクリプトの実行を終了するために必要
-?>

@@ -117,6 +117,8 @@ class form extends Dbdata
     {
         $sql = "INSERT INTO seikabutu VALUES (null, ?, ?, ?, ?, ?, ?, ?, ?)";
         $this->exec($sql, [$userid, $title, $message, $site, $shosai, $selection, $datetime, $datetime]);
+        $seikaid = $this->pdo->lastInsertId();
+        return $seikaid;
     }
 
     public function getAllSeikabutu()
@@ -273,6 +275,14 @@ class form extends Dbdata
     {
         $sql = "SELECT * FROM quespic WHERE quesid = ?";
         $stmt = $this->query($sql, [$quesid]);
+        $result = $stmt->fetch();
+        return $result;
+    }
+
+    public function getSeikaPic($seikaid)
+    {
+        $sql = "SELECT * FROM seikapic WHERE seikaid = ?";
+        $stmt = $this->query($sql, [$seikaid]);
         $result = $stmt->fetch();
         return $result;
     }

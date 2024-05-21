@@ -8,7 +8,7 @@ $seikaID = $_GET['ident'];
 $form = new form();
 $seikabutuList = $form->getseikasyousai($seikaID);
 $allComment = $form->getAllComment($seikaID);
-
+$pic = $form->getSeikaPic($seikaID);
 
 $options = array(
     'option1' => 'C言語',
@@ -57,6 +57,15 @@ require_once __DIR__ . '/header.php';
         <p>外部サイト：<a href="<?= htmlspecialchars($seikabutuList['site']) ?>" target="_blank"><?= htmlspecialchars($seikabutuList['site']) ?></a></p>
         <p class="label">詳細：<br><?= $seikabutuList['shosai'] ?></p>
         <p>開発言語：<?= $options[$seikabutuList['selection']] ?></p>
+        <div id="pic-container">
+            <?php
+            if (!empty($pic)) {
+            ?>
+                <img src="upload/<?= $pic['filename'] ?>" width="200px">
+            <?php
+            }
+            ?>
+        </div>
         <p>
             更新日時：<?= $seikabutuList['updatetime'] ?>
             <br>
@@ -125,6 +134,11 @@ require_once __DIR__ . '/header.php';
         document.getElementById('answer-form').style.display = "none";
 
     }
+
+    document.getElementById('pic-container').addEventListener('click', function(e) {
+        var tgt = e.target;
+        tgt.classList.toggle('zoomed');
+    })
 </script>
 
 </html>
