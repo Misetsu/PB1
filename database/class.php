@@ -307,4 +307,25 @@ class form extends Dbdata
             $this->exec($sql, [$quesid, $path]);
         }
     }
+
+    public function updateSeika($seikaid, $title, $message, $site, $shosai, $selection, $datetime)
+    {
+        $sql = "UPDATE seikabutu SET title = ?, message = ?, site = ?, shosai = ?, selection = ?, updatetime = ? WHERE id = ?";
+        $this->exec($sql, [$title, $message, $site, $shosai, $selection, $datetime, $seikaid]);
+    }
+
+    public function updateSeikaPic($seikaid, $path)
+    {
+        $sql = "SELECT * FROM seikapic WHERE seikaid = ?";
+        $stmt = $this->query($sql, [$seikaid]);
+        $result = $stmt->fetch();
+
+        if (!empty($result)) {
+            $sql = "UPDATE seikapic SET filename = ? WHERE seikaid = ?";
+            $this->exec($sql, [$path, $seikaid]);
+        } else {
+            $sql = "INSERT INTO seikapic VALUES (null, ?, ?)";
+            $this->exec($sql, [$seikaid, $path]);
+        }
+    }
 }

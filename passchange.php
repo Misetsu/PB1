@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/pre.php';
-require_once __DIR__ . '/class.php';
+require_once __DIR__ . '/database/class.php';
 
 // 接続
 $dsn = 'mysql:dbname=ilove;host=localhost;charset=utf8';
@@ -34,7 +34,7 @@ require_once __DIR__ . '/header.php'
     });
 </script>
 </header>
-<h1>パスワードを変更するために現在のパスワードと新しいパスワードを入力してください</h1>
+<h1>現在のパスワードと新しいパスワードを入力してください</h1>
 <?php
 // URLからメッセージを取得
 $message = isset($_GET['message']) ? $_GET['message'] : '';

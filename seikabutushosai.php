@@ -51,7 +51,16 @@ require_once __DIR__ . '/header.php';
 <div class="detail-container">
     <div class="detail-block">
         <h1>タイトル：<?= $seikabutuList['title'] ?></h1>
-        <p>ユーザー名：<a href="yourpage.php?ident=<?= $seikabutuList['userid'] ?>" style="text-align: right; display: inline;"><?= $seikabutuList['username'] ?></a>さん</p>
+        <p>
+            ユーザー名：<a href="yourpage.php?ident=<?= $seikabutuList['userid'] ?>"><?= $seikabutuList['username'] ?></a>さん
+            <?php
+            if ($seikabutuList['userid'] == $userid) {
+            ?>
+                <span style="float:right;"><a href="editseika.php?ident=<?= $seikaID ?>">編集する</a></span>
+            <?php
+            }
+            ?>
+        </p>
         <p>コード：</p>
         <cds-code-snippet type="multi" class="cds-theme-zone-g90"><?= htmlspecialchars($seikabutuList['message']) ?></cds-code-snippet>
         <p>外部サイト：<a href="<?= htmlspecialchars($seikabutuList['site']) ?>" target="_blank"><?= htmlspecialchars($seikabutuList['site']) ?></a></p>

@@ -167,6 +167,12 @@ select {
     box-sizing: border-box;
 }
 
+textarea {
+    resize: none;
+    overflow-y: scroll;
+    height: 200px;
+}
+
 input[type="submit"] {
     background-color: #f19ae1;
     color: #fff;

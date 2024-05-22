@@ -1,12 +1,11 @@
 <?php
-require_once __DIR__ . '/database/class.php';
 require_once __DIR__ . '/header.php';
+require_once __DIR__ . '/database/class.php';
 
-$userid = $_SESSION['userid'];
-$quesID = $_GET['ident'];
+$seikaid = $_GET['ident'];
 $form = new form();
-$ques = $form->getQues($quesID);
-$pic = $form->getQuesPic($quesID);
+$seika = $form->getseikasyousai($seikaid);
+$pic = $form->getSeikaPic($seikaid);
 
 $options = array(
     'option1' => 'C言語',
@@ -23,7 +22,7 @@ $options = array(
 );
 ?>
 
-<h1>質問編集フォーム</h1>
+<h1>成果物投稿ページ</h1>
 <script>
     document.getElementById("menuBtn").addEventListener("click", function() {
         var menu = document.getElementById("menuContent");
@@ -40,33 +39,31 @@ $options = array(
         }
     });
 
-    function disableButton() {
-        document.getElementById("submitButton").disabled = true;
-        document.getElementById("submitButton").form.submit();
-    }
-
     function showPicEdit() {
         document.getElementById("picblock").style.display = "none";
         document.getElementById("uploadfile").style.display = "block";
     }
 </script>
 </header>
-<h1>IT質問用投稿フォーム</h1>
-<!-- <p>ここはITに関する質問を投稿するためのフォームです。</p> -->
-<p>状況や問題点が一目でわかるように詳細に情報や環境を入力すると回答される可能性が高くなります。
+<h1>成果物編集フォーム</h1>
+<p>他の人に見てほしい自分が作成した成果物を投稿するページです。
 </p>
 <div class="form-container">
     <div class="form-wrapper">
-        <form action="edit_db.php" method="POST" enctype="multipart/form-data">
+        <form action="editseika_db.php" method="POST" enctype="multipart/form-data">
             <label for="title-input">タイトル</label>
-            <input type="text" id="title-input" name="title-input" value="<?= $ques['title'] ?>" required>
-            <label for="message-input">詳細情報</label>
-            <textarea id="message-input" name="message-input" placeholder="<?= $ques['message'] ?>" required><?= $ques['message'] ?></textarea>
+            <input type="text" id="title-input" name="title-input" value="<?= $seika['title'] ?>" required>
+            <label for="message-input">コード</label>
+            <textarea id="message-input" name="message-input" placeholder="<?= $seika['message'] ?>"><?= $seika['message'] ?></textarea>
+            <label for="site-input">外部サイト</label>
+            <input type="text" id="site-input" name="site-input" value="<?= $seika['site'] ?>">
+            <label for="shosai-input">詳細</label>
+            <textarea id="shosai-input" name="shosai-input" placeholder="<?= $seika['shosai'] ?>"><?= $seika['shosai'] ?></textarea>
             <label for="selection-input">開発言語を選択</label>
             <select id="selection-input" name="selection-input">
                 <?php
                 foreach ($options as $option => $lang) {
-                    if ($option == $ques['selection']) {
+                    if ($option == $seika['selection']) {
                         echo '<option value="' . $option . '" selected>' . $lang . '</option>';
                     } else {
                         echo '<option value="' . $option . '">' . $lang . '</option>';
@@ -89,11 +86,13 @@ $options = array(
             <?php
             }
             ?>
-            <input type="hidden" value="<?= $quesID ?>" name="quesid">
-            <input type="submit" id="submitButton" value="保存" onclick="disableButton()">
+            <input type="hidden" name="seikaid" value="<?= $seikaid ?>">
+            <input type="submit" id="submitButton" value="投稿" onclick="disableButton()">
         </form>
     </div>
 </div>
+
+
 </body>
 
 </html>

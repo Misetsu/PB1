@@ -46,7 +46,9 @@ require_once __DIR__ . '/header.php';
             <br><br>
             <label>所属：</label><input id="company" name="company" value="<?= $info['subject'] ?>" disabled>
             <br><br>
-            <label>メッセージ：</label><input id="description" name="description" value="<?= is_null($profile['intro']) ? '未入力' : $profile['intro']; ?>" disabled>
+            <label>メッセージ：</label>
+            <br>
+            <textarea id="description" name="description" placeholder="<?= is_null($profile['intro']) ? '未入力' : $profile['intro']; ?>" style="height:100px;" disabled><?= is_null($profile['intro']) ? '未入力' : $profile['intro']; ?></textarea>
             <br><br>
             <input name="userid" value="<?= $userid ?>" type="hidden">
             <div id="formButton" style="display: none;">
