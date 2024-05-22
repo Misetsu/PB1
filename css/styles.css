@@ -168,9 +168,17 @@ select {
 }
 
 textarea {
-    resize: none;
+    resize: vertical;
     overflow-y: scroll;
     height: 200px;
+    font-family: Arial, sans-serif;
+}
+
+textarea:disabled {
+    border: none;
+    color: black;
+    resize: none;
+    overflow-y: hidden;
 }
 
 input[type="submit"] {
