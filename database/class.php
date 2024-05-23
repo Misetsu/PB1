@@ -16,7 +16,7 @@ class form extends Dbdata
 
     public function getAll()
     {
-        $sql = "SELECT * FROM question ORDER BY id DESC";
+        $sql = "SELECT * FROM question ORDER BY updatetime DESC";
         $stmt = $this->query($sql, []);
         $result = $stmt->fetchAll();
         return $result;
@@ -53,7 +53,7 @@ class form extends Dbdata
 
     public function getAllAns($quesID)
     {
-        $sql = "SELECT * FROM answer INNER JOIN userinfo ON answer.userid = userinfo.userid WHERE ques_id = ?";
+        $sql = "SELECT * FROM answer INNER JOIN userinfo ON answer.userid = userinfo.userid WHERE ques_id = ? ORDER BY datetime DESC";
         $stmt = $this->query($sql, [$quesID]);
         $result = $stmt->fetchAll();
         return $result;
@@ -123,7 +123,7 @@ class form extends Dbdata
 
     public function getAllSeikabutu()
     {
-        $sql = "SELECT * FROM seikabutu JOIN userinfo ON seikabutu.userid = userinfo.userid ORDER BY id DESC";
+        $sql = "SELECT * FROM seikabutu JOIN userinfo ON seikabutu.userid = userinfo.userid ORDER BY updatetime DESC";
         $stmt = $this->query($sql, []);
         $result = $stmt->fetchAll();
         return $result;
@@ -247,7 +247,7 @@ class form extends Dbdata
 
     public function getAllComment($seikaID)
     {
-        $sql = "SELECT * FROM comment INNER JOIN userinfo ON comment.userid = userinfo.userid WHERE seikabutu_id = ?";
+        $sql = "SELECT * FROM comment INNER JOIN userinfo ON comment.userid = userinfo.userid WHERE seikabutu_id = ? ORDER BY datetime DESC";
         $stmt = $this->query($sql, [$seikaID]);
         $result = $stmt->fetchAll();
         return $result;
