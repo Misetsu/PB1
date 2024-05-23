@@ -235,7 +235,7 @@ input:disabled {
 nav {
     background-color: #f4f4f4;
     width: 250px;
-    height: calc(100% - 80px);
+    height: calc(100% - 100px);
     /* ヘッダーの高さに合わせてメニューバーの高さを調整 */
     position: fixed;
     top: 100px;
