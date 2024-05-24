@@ -87,7 +87,7 @@ require_once __DIR__ . '/header.php';
         // 検索フォームで送信された言語が空でない場合、該当する言語の記事のみ表示
         if (empty($search_language) || $search_language === $row['selection']) {
             // リンクのテキストとして言語名を使用する
-            echo "<article><h2><a href='shosai.php?ident={$row['id']}'>{$row['title']}</a><p>{$language}</p></h2></article>";
+            echo "<article><h2><a href='shosai.php?ident={$row['id']}'>{$row['title']}</a><p>{$language}<span style='float:right;'>更新日時：{$row['updatetime']}</span></p></h2></article>";
         }
     }
 
