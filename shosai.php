@@ -43,7 +43,7 @@ require_once __DIR__ . '/header.php';
         ?>
     </h4>
     <div class="text-container">
-        <?= $ques['message'] ?>
+        <pre><?= $ques['message'] ?></pre>
         <br><br>
         <span class="tag"><?= $options[$ques['selection']] ?></span>
         <br><br>

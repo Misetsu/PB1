@@ -59,6 +59,11 @@ footer {
     width: 100%;
 }
 
+pre {
+    font-family: Arial, sans-serif;
+    font-size: medium;
+}
+
 /* フォーム全体のスタイル */
 form {
     text-align: left;
@@ -76,7 +81,7 @@ form {
     align-items: center;
 }
 
-.form-groupb{
+.form-groupb {
     max-width: 150px;
     margin: 20px auto;
     background: #fbe9aa;
