@@ -1,23 +1,7 @@
 <?php
 require_once __DIR__ . '/header.php';
 ?>
-<h1>利用規約</h1>
-<script>
-    document.getElementById("menuBtn").addEventListener("click", function() {
-        var menu = document.getElementById("menuContent");
-        if (menu.style.display === "block") {
-            menu.style.display = "none";
-        } else {
-            menu.style.display = "block";
-        }
-    });
-    document.addEventListener('click', function(event) { //全体にクリックイベントを設定
-        if (!document.getElementById('menuBtn').contains(event.target)) { // メニューバー以外をクリックしたとき
-            document.getElementById('menuContent').style.display = 'none'; // メニューバーを閉じる
-        }
-    });
-</script>
-</header>
+
 <div class="content-rule">
     <h1>利用規約</h1>
     <p>この利用規約（以下、「本規約」といいます。）は、本サービスの利用条件を定めるものです。本サービスの利用者は、本規約に同意した上で本サービスを利用してください。</p>

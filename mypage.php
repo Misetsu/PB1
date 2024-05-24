@@ -15,23 +15,6 @@ $seikas = $form->getUserSeika($userid);
 require_once __DIR__ . '/header.php';
 ?>
 
-<h1>マイページ</h1>
-<script>
-    document.getElementById("menuBtn").addEventListener("click", function() {
-        var menu = document.getElementById("menuContent");
-        if (menu.style.display === "block") {
-            menu.style.display = "none";
-        } else {
-            menu.style.display = "block";
-        }
-    });
-    document.addEventListener('click', function(event) { //全体にクリックイベントを設定
-        if (!document.getElementById('menuBtn').contains(event.target)) { // メニューバー以外をクリックしたとき
-            document.getElementById('menuContent').style.display = 'none'; // メニューバーを閉じる
-        }
-    });
-</script>
-</header>
 <h1><?= $username ?>さんのマイページ</h1>
 
 <h2>プロフィール</h2>

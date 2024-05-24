@@ -26,18 +26,6 @@ $seikas = $form->getUserSeika($ident);
 require_once __DIR__ . '/header.php';
 ?>
 
-<h1>ユアページ</h1>
-<script>
-    document.getElementById("menuBtn").addEventListener("click", function() {
-        var menu = document.getElementById("menuContent");
-        if (menu.style.display === "block") {
-            menu.style.display = "none";
-        } else {
-            menu.style.display = "block";
-        }
-    });
-</script>
-</header>
 <h1><?= $info['username'] ?>さんのプロフィール</h1>
 
 <h2>プロフィール</h2>

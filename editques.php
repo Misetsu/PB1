@@ -23,23 +23,7 @@ $options = array(
 );
 ?>
 
-<h1>質問編集フォーム</h1>
 <script>
-    document.getElementById("menuBtn").addEventListener("click", function() {
-        var menu = document.getElementById("menuContent");
-        if (menu.style.display === "block") {
-            menu.style.display = "none";
-        } else {
-            menu.style.display = "block";
-        }
-    });
-
-    document.addEventListener('click', function(event) { //全体にクリックイベントを設定
-        if (!document.getElementById('menuBtn').contains(event.target)) { // メニューバー以外をクリックしたとき
-            document.getElementById('menuContent').style.display = 'none'; // メニューバーを閉じる
-        }
-    });
-
     function disableButton() {
         document.getElementById("submitButton").disabled = true;
         document.getElementById("submitButton").form.submit();
@@ -50,7 +34,7 @@ $options = array(
         document.getElementById("uploadfile").style.display = "block";
     }
 </script>
-</header>
+
 <h1>IT質問用投稿フォーム</h1>
 <!-- <p>ここはITに関する質問を投稿するためのフォームです。</p> -->
 <p>状況や問題点が一目でわかるように詳細に情報や環境を入力すると回答される可能性が高くなります。

@@ -31,23 +31,6 @@ $options = array(
 require_once __DIR__ . '/header.php';
 ?>
 
-<h1>質問一覧</h1>
-<script>
-    document.getElementById("menuBtn").addEventListener("click", function() {
-        var menu = document.getElementById("menuContent");
-        if (menu.style.display === "block") {
-            menu.style.display = "none";
-        } else {
-            menu.style.display = "block";
-        }
-    });
-    document.addEventListener('click', function(event) { //全体にクリックイベントを設定
-        if (!document.getElementById('menuBtn').contains(event.target)) { // メニューバー以外をクリックしたとき
-            document.getElementById('menuContent').style.display = 'none'; // メニューバーを閉じる
-        }
-    });
-</script>
-</header>
 <div style="position: fixed; bottom: 20px; right: 20px;">
     <span>
         <a href="question.php">

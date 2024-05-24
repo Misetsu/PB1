@@ -17,23 +17,7 @@ if (isset($_SESSION['userId'])) {
 
 require_once __DIR__ . '/header.php'
 ?>
-<h1>パスワード変更ページ</h1>
-<script>
-    document.getElementById("menuBtn").addEventListener("click", function() {
-        var menu = document.getElementById("menuContent");
-        if (menu.style.display === "block") {
-            menu.style.display = "none";
-        } else {
-            menu.style.display = "block";
-        }
-    });
-    document.addEventListener('click', function(event) { //全体にクリックイベントを設定
-        if (!document.getElementById('menuBtn').contains(event.target)) { // メニューバー以外をクリックしたとき
-            document.getElementById('menuContent').style.display = 'none'; // メニューバーを閉じる
-        }
-    });
-</script>
-</header>
+
 <h1>現在のパスワードと新しいパスワードを入力してください</h1>
 <?php
 // URLからメッセージを取得

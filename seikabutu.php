@@ -8,23 +8,6 @@ if ($username === "ゲスト") {
 }
 ?>
 
-<h1>成果物投稿ページ</h1>
-<script>
-    document.getElementById("menuBtn").addEventListener("click", function() {
-        var menu = document.getElementById("menuContent");
-        if (menu.style.display === "block") {
-            menu.style.display = "none";
-        } else {
-            menu.style.display = "block";
-        }
-    });
-    document.addEventListener('click', function(event) { //全体にクリックイベントを設定
-        if (!document.getElementById('menuBtn').contains(event.target)) { // メニューバー以外をクリックしたとき
-            document.getElementById('menuContent').style.display = 'none'; // メニューバーを閉じる
-        }
-    });
-</script>
-</header>
 <h1>成果物投稿フォーム</h1>
 <p>他の人に見てほしい自分が作成した成果物を投稿するページです。
 </p>
