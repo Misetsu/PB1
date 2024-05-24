@@ -76,7 +76,7 @@ require_once __DIR__ . '/header.php';
         <?php
         foreach ($allComment as $row) {
         ?>
-            <h4 style="text-align: right;">
+            <h4 style="text-align: right; margin-bottom: 5px;">
                 <a href="yourpage.php?ident=<?= $row['userid'] ?>">
                     <?= $row['username'] ?>
                 </a>
