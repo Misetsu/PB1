@@ -403,6 +403,7 @@ img:active {
 cds-code-snippet {
     color: white;
     text-align: left;
+    max-width: 90%;
 }
 
 .custom-button {
