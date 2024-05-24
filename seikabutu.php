@@ -37,7 +37,7 @@ if ($username === "ゲスト") {
                 <option value="option11">その他</option>
             </select>
             <input type="file" name="uploadfile" value="">
-            <input type="submit" id="submitButton" value="投稿" onclick="disableButton()">
+            <input type="submit" id="submitButton" value="投稿" onclick="disableButton()" class="form-groupb">
         </form>
     </div>
 </div>
